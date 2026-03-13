@@ -37,77 +37,111 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-foreground">Guide Claude</span>
-            <span className="text-xs text-muted-foreground">by Buildrs</span>
-          </div>
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-md">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-xs text-muted-foreground">
+            <img src={buildrsLogo} alt="Buildrs" className="h-6 w-6" />
+            <span className="text-sm font-medium text-foreground tracking-wide">Guide Claude</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="hidden text-sm text-muted-foreground sm:block cursor-pointer hover:text-foreground transition-colors">
               Se connecter
-            </Button>
-            <Button variant="hero" size="sm" className="text-xs">
-              Accéder <ArrowRight size={14} />
+            </span>
+            <Button variant="hero" size="sm">
+              Accéder
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Logos bar */}
-      <div className="flex items-center justify-center gap-3 pt-24 text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <img src={claudeLogo} alt="Claude" className="h-5 w-5" />
-          <span className="text-xs">Claude</span>
-        </div>
-        <span className="text-xs">×</span>
-        <div className="flex items-center gap-1.5">
-          <img src={buildrsLogo} alt="Buildrs" className="h-5 w-5" />
-          <span className="text-xs">Buildrs</span>
-        </div>
-      </div>
-
       {/* Hero */}
-      <section className="mx-auto max-w-3xl px-6 pb-20 pt-10 text-center">
-        <div className="mb-6 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5">
-          <span className="text-xs font-medium text-primary">✦ GUIDE GRATUIT · 12 CHAPITRES</span>
+      <section className="relative mx-auto max-w-6xl px-6 pb-32 pt-40">
+        {/* Subtle radial glow */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-muted/30 blur-[120px]" />
         </div>
 
-        <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
-          Maîtrise Claude
-          <br />
-          <span className="text-primary">&</span> le VibeCoding
-        </h1>
+        <div className="relative grid items-center gap-16 lg:grid-cols-2">
+          <div>
+            {/* Logo pills */}
+            <div className="mb-10 flex items-center gap-3 text-muted-foreground">
+              <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
+                <img src={claudeLogo} alt="Claude" className="h-4 w-4" />
+                <span className="text-xs">Claude</span>
+              </div>
+              <span className="text-xs">×</span>
+              <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
+                <img src={buildrsLogo} alt="Buildrs" className="h-4 w-4" />
+                <span className="text-xs">Buildrs</span>
+              </div>
+            </div>
 
-        <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Comprends Claude, installe Claude Code et construis ton premier Micro-SaaS — sans savoir coder.
-        </p>
+            <h1 className="mb-8 text-5xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Maîtrise Claude<br />
+              <span className="italic text-secondary-foreground">&amp; le VibeCoding</span>
+            </h1>
 
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button variant="hero" size="lg">
-            Accéder gratuitement <ArrowRight size={16} />
-          </Button>
-          <Button variant="heroOutline" size="lg">
-            Voir les chapitres
-          </Button>
-        </div>
+            <p className="mb-10 max-w-md text-base leading-relaxed text-muted-foreground">
+              Comprends Claude, installe Claude Code et construis ton premier Micro-SaaS — sans savoir coder.
+            </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-          <span>Par Alfred Cosni</span>
-          <span className="hidden sm:inline">·</span>
-          <span>12 chapitres</span>
-          <span className="hidden sm:inline">·</span>
-          <span>Mars 2026</span>
-          <span className="hidden sm:inline">·</span>
-          <span>100% gratuit</span>
+            <div className="flex items-center gap-4">
+              <Button variant="hero" size="lg">
+                Accéder gratuitement
+                <ArrowRight size={16} />
+              </Button>
+              <Button variant="heroOutline" size="lg">
+                Voir les chapitres
+              </Button>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-xs text-muted-foreground">
+              <span>Par Alfred Cosni</span>
+              <span className="h-3 w-px bg-border" />
+              <span>12 chapitres</span>
+              <span className="h-3 w-px bg-border" />
+              <span>Mars 2026</span>
+              <span className="h-3 w-px bg-border" />
+              <span>100% gratuit</span>
+            </div>
+          </div>
+
+          {/* Right side: decorative card stack */}
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 h-64 w-64 rounded-2xl border border-border/50 bg-card/50 rotate-6" />
+              <div className="absolute -top-2 -left-2 h-64 w-64 rounded-2xl border border-border/50 bg-card/70 rotate-3" />
+              <div className="relative h-64 w-64 rounded-2xl border border-border bg-card p-8 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs text-muted-foreground mb-2">GUIDE GRATUIT</p>
+                  <p className="font-serif text-2xl text-foreground">12 chapitres</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <img src={claudeLogo} alt="Claude" className="h-8 w-8 opacity-60" />
+                  <div className="h-px flex-1 bg-border" />
+                  <span className="text-xs text-muted-foreground">2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="h-px bg-border" />
+      </div>
+
       {/* Chapters grid */}
-      <section className="mx-auto max-w-6xl px-6 pb-24">
-        <p className="mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          Ce que tu vas apprendre
-        </p>
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mb-16 max-w-lg">
+          <h2 className="mb-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+            Ce que tu vas apprendre
+          </h2>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            12 chapitres pour passer de débutant à builder autonome avec Claude AI et Claude Code.
+          </p>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {chapters.map((chapter) => (
             <ChapterCard key={chapter.number} {...chapter} />
@@ -116,12 +150,12 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
+      <footer className="border-t border-border">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            Guide Claude · by Buildrs — 100% gratuit, 12 chapitres
+            Guide Claude · by Buildrs — 100% gratuit
           </p>
-          <Button variant="hero" size="sm" className="text-xs">
+          <Button variant="hero" size="sm">
             Accéder gratuitement <ArrowRight size={14} />
           </Button>
         </div>
