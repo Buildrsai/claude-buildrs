@@ -40,7 +40,7 @@ const Index = () => {
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <div className="flex items-center gap-3">
-            <img src={buildrsLogo} alt="Buildrs" className="h-6 w-6" />
+            <img src={buildrsLogo} alt="Buildrs" className="h-8 w-8" />
             <span className="text-sm font-medium text-foreground tracking-wide">Guide Claude</span>
           </div>
           <div className="flex items-center gap-4">
