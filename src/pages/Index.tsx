@@ -71,7 +71,7 @@ const Index = () => {
               </div>
               <span className="text-xs">×</span>
               <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
-                <img src={buildrsLogo} alt="Buildrs" className="h-4 w-4" />
+                <img src={buildrsLogo} alt="Buildrs" className="h-5 w-5" />
                 <span className="text-xs">Buildrs</span>
               </div>
             </div>
