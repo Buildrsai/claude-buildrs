@@ -76,9 +76,9 @@ const Index = () => {
               </div>
             </div>
 
-            <h1 className="mb-8 text-5xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mb-8 text-5xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Maîtrise Claude<br />
-              <span className="italic text-secondary-foreground">&amp; le VibeCoding</span>
+              <span className="text-muted-foreground">&amp; le VibeCoding</span>
             </h1>
 
             <p className="mb-10 max-w-md text-base leading-relaxed text-muted-foreground">
