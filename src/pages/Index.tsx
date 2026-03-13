@@ -76,9 +76,9 @@ const Index = () => {
               </div>
             </div>
 
-            <h1 className="mb-8 text-5xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mb-8 text-5xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Maîtrise Claude<br />
-              <span className="text-muted-foreground">&amp; le VibeCoding</span>
+              <span className="italic text-secondary-foreground">&amp; le VibeCoding</span>
             </h1>
 
             <p className="mb-10 max-w-md text-base leading-relaxed text-muted-foreground">
@@ -114,7 +114,7 @@ const Index = () => {
               <div className="relative h-64 w-64 rounded-2xl border border-border bg-card p-8 flex flex-col justify-between">
                 <div>
                   <p className="text-xs text-muted-foreground mb-2">GUIDE GRATUIT</p>
-                  <p className="font-semibold text-2xl text-foreground">12 chapitres</p>
+                  <p className="font-serif text-2xl text-foreground">12 chapitres</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src={claudeLogo} alt="Claude" className="h-8 w-8 rounded-sm" />
