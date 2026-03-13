@@ -66,7 +66,7 @@ const Index = () => {
             {/* Logo pills */}
             <div className="mb-10 flex items-center gap-3 text-muted-foreground">
               <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5">
-                <img src={claudeLogo} alt="Claude" className="h-4 w-4" />
+                <img src={claudeLogo} alt="Claude" className="h-5 w-5 rounded-sm" />
                 <span className="text-xs">Claude</span>
               </div>
               <span className="text-xs">×</span>
@@ -117,7 +117,7 @@ const Index = () => {
                   <p className="font-serif text-2xl text-foreground">12 chapitres</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src={claudeLogo} alt="Claude" className="h-8 w-8 opacity-60" />
+                  <img src={claudeLogo} alt="Claude" className="h-8 w-8 rounded-sm" />
                   <div className="h-px flex-1 bg-border" />
                   <span className="text-xs text-muted-foreground">2026</span>
                 </div>
