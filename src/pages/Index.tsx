@@ -117,7 +117,7 @@ const Index = () => {
                   <p className="font-serif text-2xl text-foreground">12 chapitres</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <img src={claudeLogo} alt="Claude" className="h-8 w-8 opacity-60" />
+                  <img src={claudeLogo} alt="Claude" className="h-8 w-8 rounded-sm" />
                   <div className="h-px flex-1 bg-border" />
                   <span className="text-xs text-muted-foreground">2026</span>
                 </div>
