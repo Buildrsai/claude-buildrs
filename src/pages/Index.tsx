@@ -114,7 +114,7 @@ const Index = () => {
               <div className="relative h-64 w-64 rounded-2xl border border-border bg-card p-8 flex flex-col justify-between">
                 <div>
                   <p className="text-xs text-muted-foreground mb-2">GUIDE GRATUIT</p>
-                  <p className="font-serif text-2xl text-foreground">12 chapitres</p>
+                  <p className="font-semibold text-2xl text-foreground">12 chapitres</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src={claudeLogo} alt="Claude" className="h-8 w-8 rounded-sm" />
