@@ -1,9 +1,63 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '@/integrations/supabase/client'
+import { lovable } from '@/integrations/lovable/index'
+import { toast } from 'sonner'
 
 export default function AuthPage() {
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isLogin, setIsLogin] = useState(true)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+
+  const handleGoogleLogin = async () => {
+    setLoading(true)
+    const { error } = await lovable.auth.signInWithOAuth('google', {
+      redirect_uri: window.location.origin,
+    })
+    if (error) {
+      toast.error("Erreur avec Google : " + error.message)
+      setLoading(false)
+    }
+  }
+
+  const handleEmailAuth = async () => {
+    if (!email || !password) {
+      toast.error("Remplis ton email et mot de passe")
+      return
+    }
+    setLoading(true)
+    if (isLogin) {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) {
+        toast.error(error.message)
+        setLoading(false)
+      } else {
+        navigate('/onboarding')
+      }
+    } else {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { emailRedirectTo: window.location.origin },
+      })
+      if (error) {
+        toast.error(error.message)
+        setLoading(false)
+      } else {
+        toast.success("Compte créé ! Vérifie ton email pour confirmer.")
+        setLoading(false)
+      }
+    }
+  }
+
+  // Listen for auth state changes
+  supabase.auth.onAuthStateChange((event) => {
+    if (event === 'SIGNED_IN') {
+      navigate('/onboarding')
+    }
+  })
 
   return (
     <div
@@ -97,14 +151,11 @@ export default function AuthPage() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
-            {/* Claude badge */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
               <img src="/src/assets/claude-icon.png" alt="Claude" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
               <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Claude</span>
             </div>
-            {/* × */}
             <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.4)' }}>×</span>
-            {/* Buildrs badge */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
               <img src="/src/assets/buildrs-logo.png" alt="Buildrs" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
               <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Buildrs</span>
@@ -120,7 +171,7 @@ export default function AuthPage() {
               letterSpacing: '-0.04em',
             }}
           >
-            Accède au guide
+            {isLogin ? 'Accède au guide' : 'Crée ton compte'}
           </h2>
           <p style={{ fontSize: '13px', color: 'rgba(237,238,239,0.4)', lineHeight: 1.5 }}>
             Gratuit · 12 chapitres · Résultats immédiats
@@ -129,7 +180,8 @@ export default function AuthPage() {
 
         {/* Google button */}
         <button
-          onClick={() => navigate('/onboarding')}
+          onClick={handleGoogleLogin}
+          disabled={loading}
           style={{
             width: '100%',
             display: 'flex',
@@ -143,9 +195,10 @@ export default function AuthPage() {
             fontWeight: 600,
             color: '#080909',
             fontFamily: 'inherit',
-            cursor: 'pointer',
+            cursor: loading ? 'wait' : 'pointer',
             marginBottom: '20px',
             border: 'none',
+            opacity: loading ? 0.7 : 1,
           }}
         >
           <svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -199,8 +252,44 @@ export default function AuthPage() {
           />
         </div>
 
+        {/* Password input */}
+        <div style={{ marginBottom: '10px' }}>
+          <label
+            style={{
+              fontSize: '11px',
+              fontWeight: 500,
+              color: 'rgba(237,238,239,0.35)',
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              display: 'block',
+              marginBottom: '6px',
+            }}
+          >
+            Mot de passe
+          </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            style={{
+              width: '100%',
+              background: '#111214',
+              border: '1px solid rgba(255,255,255,0.10)',
+              borderRadius: '8px',
+              padding: '10px 14px',
+              fontSize: '13px',
+              color: '#EDEEEF',
+              fontFamily: 'inherit',
+              outline: 'none',
+              boxSizing: 'border-box',
+            }}
+          />
+        </div>
+
         <button
-          onClick={() => navigate('/onboarding')}
+          onClick={handleEmailAuth}
+          disabled={loading}
           style={{
             width: '100%',
             padding: '11px 16px',
@@ -211,13 +300,31 @@ export default function AuthPage() {
             fontWeight: 500,
             color: 'rgba(237,238,239,0.6)',
             fontFamily: 'inherit',
-            cursor: 'pointer',
+            cursor: loading ? 'wait' : 'pointer',
             marginTop: '10px',
-            marginBottom: '20px',
+            marginBottom: '12px',
+            opacity: loading ? 0.7 : 1,
           }}
         >
-          Continuer avec l'email →
+          {isLogin ? "Se connecter →" : "Créer mon compte →"}
         </button>
+
+        {/* Toggle login/signup */}
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '12px',
+              color: 'rgba(237,238,239,0.4)',
+              cursor: 'pointer',
+              fontFamily: 'inherit',
+            }}
+          >
+            {isLogin ? "Pas encore de compte ? Créer un compte" : "Déjà un compte ? Se connecter"}
+          </button>
+        </div>
 
         {/* Footer */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px', textAlign: 'center' }}>
