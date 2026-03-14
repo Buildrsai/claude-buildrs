@@ -280,9 +280,6 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════ */}
-      {/* TESTIMONIALS MARQUEE                             */}
-      {/* ═══════════════════════════════════════════════ */}
-      <TestimonialsMarquee />
 
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 2 — IDENTIFICATION / AGITATION          */}
@@ -381,6 +378,11 @@ const Index = () => {
           </div>
         ))}
       </section>
+
+      {/* ═══════════════════════════════════════════════ */}
+      {/* TESTIMONIALS MARQUEE                             */}
+      {/* ═══════════════════════════════════════════════ */}
+      <TestimonialsMarquee />
 
       {/* Divider */}
       <div className="mx-auto max-w-6xl px-6">
