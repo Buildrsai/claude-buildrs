@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ChapterCard from "@/components/ChapterCard";
 import claudeLogo from "@/assets/claude-logo.png";
@@ -34,6 +35,7 @@ const chapters = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -45,10 +47,10 @@ const Index = () => {
             <span className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs text-muted-foreground">by Buildrs</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden text-sm text-muted-foreground sm:block cursor-pointer hover:text-foreground transition-colors">
+            <span onClick={() => navigate('/auth')} className="hidden text-sm text-muted-foreground sm:block cursor-pointer hover:text-foreground transition-colors">
               Se connecter
             </span>
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="sm" onClick={() => navigate('/auth')}>
               Accéder
             </Button>
           </div>
@@ -87,7 +89,7 @@ const Index = () => {
             </p>
 
             <div className="flex items-center gap-4">
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={() => navigate('/auth')}>
                 Accéder gratuitement
                 <ArrowRight size={16} />
               </Button>
@@ -156,7 +158,7 @@ const Index = () => {
           <p className="text-xs text-muted-foreground">
             Guide Claude · by Buildrs — 100% gratuit
           </p>
-          <Button variant="hero" size="sm">
+          <Button variant="hero" size="sm" onClick={() => navigate('/auth')}>
             Accéder gratuitement <ArrowRight size={14} />
           </Button>
         </div>

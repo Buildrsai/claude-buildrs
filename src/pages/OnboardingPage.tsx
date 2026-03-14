@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type Step = 1 | 2 | 3 | 'done'
 
@@ -17,6 +18,7 @@ const LEVELS = [
 ]
 
 export default function OnboardingPage() {
+  const navigate = useNavigate()
   const [step, setStep] = useState<Step>(1)
   const [selectedObjective, setSelectedObjective] = useState<number | null>(0)
   const [projectDesc, setProjectDesc] = useState('')
@@ -38,10 +40,27 @@ export default function OnboardingPage() {
           <div style={{ fontSize: '13px', color: 'rgba(237,238,239,0.35)', lineHeight: 1.6 }}>
             Personnalisé selon ton profil.<br />12 chapitres, résultats immédiats.
           </div>
-          <div style={{ marginTop: '24px', display: 'flex', gap: '6px', justifyContent: 'center' }}>
-            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(237,238,239,0.4)' }} />
-            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(237,238,239,0.2)' }} />
-            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(237,238,239,0.1)' }} />
+          <div style={{ marginTop: '28px' }}>
+            <button
+              onClick={() => navigate('/dashboard')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '11px 24px',
+                background: '#EDEEEF',
+                color: '#080909',
+                fontSize: '13px',
+                fontWeight: 600,
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+              }}
+            >
+              Commencer le guide
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </button>
           </div>
         </div>
       </div>

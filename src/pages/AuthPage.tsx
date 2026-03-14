@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function AuthPage() {
   const [email, setEmail] = useState('')
+  const navigate = useNavigate()
 
   return (
     <div
@@ -120,6 +122,7 @@ export default function AuthPage() {
 
         {/* Google button */}
         <button
+          onClick={() => navigate('/onboarding')}
           style={{
             width: '100%',
             display: 'flex',
@@ -190,6 +193,7 @@ export default function AuthPage() {
         </div>
 
         <button
+          onClick={() => navigate('/onboarding')}
           style={{
             width: '100%',
             padding: '11px 16px',
