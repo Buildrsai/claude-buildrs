@@ -96,12 +96,19 @@ export default function AuthPage() {
       >
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div style={{ width: '40px', height: '40px', margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Claude_AI_symbol.svg"
-              alt="Claude"
-              style={{ width: '36px', height: '36px', objectFit: 'contain' }}
-            />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
+            {/* Claude badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
+              <img src="/src/assets/claude-icon.png" alt="Claude" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+              <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Claude</span>
+            </div>
+            {/* × */}
+            <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.4)' }}>×</span>
+            {/* Buildrs badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
+              <img src="/src/assets/buildrs-logo.png" alt="Buildrs" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+              <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Buildrs</span>
+            </div>
           </div>
           <h2
             style={{
