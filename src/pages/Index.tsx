@@ -246,8 +246,6 @@ const Index = () => {
             >
               <span>Par Alfred Orsini</span>
               <span className="h-3 w-px bg-border" />
-              <span>12 chapitres</span>
-              <span className="h-3 w-px bg-border" />
               <span>Mars 2026</span>
               <span className="h-3 w-px bg-border" />
               <span>100% gratuit</span>
