@@ -32,25 +32,25 @@ export function ClaudeEcosystem() {
           </p>
           <h2 className="mb-6 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Claude n'est pas un outil.<br />
-            <span className="italic text-secondary-foreground">C'est le cerveau de ton business.</span>
+            <span className="italic text-secondary-foreground">C'est ton associé qui bosse H24.</span>
           </h2>
-          <p className="mb-10 text-sm leading-relaxed text-muted-foreground">
-            Claude AI, c'est la mémoire et l'intelligence de ton activité. Claude Code, c'est l'exécution — il construit et déploie pour toi. Claude Cowork, c'est l'automatisation qui tourne en arrière-plan. Ensemble, ils gèrent ton contenu, automatisent tes process, et construisent tes outils — le tout depuis un seul écosystème.
+          <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+            Au-delà d'un écosystème, ce sont des agents IA qui bossent sur ton projet avec toi. Avec la super-intelligence de Claude, plus besoin d'être développeur. Fini les barrières techniques. Fini les barrières budgétaires.
           </p>
 
-          <div className="space-y-5">
+          <div className="space-y-4">
             {[
               {
                 label: "Claude AI",
-                desc: "Il se souvient de tout, comprend ton business, s'adapte à tes instructions. Mémoire persistante, Projects, Skills : le contexte qui ne se perd jamais.",
+                desc: "Ta mémoire, ton contexte, ton intelligence — il comprend ton business et s'en souvient.",
               },
               {
                 label: "Claude Code",
-                desc: "Il construit, déploie et modifie des applications pour toi. VibeCoding en action : du code réel, sans quitter le terminal — même si tu n'es pas dev.",
+                desc: "Il construit et déploie tes apps — même si tu n'as jamais codé.",
               },
               {
                 label: "Claude Cowork",
-                desc: "L'agent qui travaille pour toi en arrière-plan. Automatisations, tâches récurrentes, workflows — il exécute pendant que tu avances.",
+                desc: "Il exécute en arrière-plan — automatisations, workflows, tâches récurrentes.",
               },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-3">
