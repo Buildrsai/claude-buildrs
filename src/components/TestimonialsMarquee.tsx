@@ -35,7 +35,7 @@ const reviews = [
   {
     name: "Camille T.",
     username: "@camillet",
-    body: "Chapitre 7 sur le Preview et GitHub. Déployer en 2 minutes sans friction. Une compétence qui change tout.",
+    body: "Chapitre 7 sur Preview et GitHub. Déployer en 2 minutes sans friction. Une compétence qui change tout.",
     img: "https://avatar.vercel.sh/camillet",
   },
   {
@@ -78,8 +78,6 @@ const reviews = [
 
 const firstRow = reviews.slice(0, reviews.length / 2)
 const secondRow = reviews.slice(reviews.length / 2)
-const thirdRow = reviews.slice(0, reviews.length / 2)
-const fourthRow = reviews.slice(reviews.length / 2)
 
 const ReviewCard = ({
   img,
@@ -95,7 +93,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-full w-36 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
         "border-white/[.08] bg-white/[.04] hover:bg-white/[.07]",
         "transition-colors duration-150"
       )}
@@ -103,19 +101,19 @@ const ReviewCard = ({
       <div className="flex flex-row items-center gap-2">
         <img
           className="rounded-full"
-          width="28"
-          height="28"
+          width="32"
+          height="32"
           alt={name}
           src={img}
         />
         <div className="flex flex-col">
-          <figcaption className="text-xs font-medium text-foreground">
+          <figcaption className="text-sm font-medium text-foreground">
             {name}
           </figcaption>
-          <p className="text-[10px] text-muted-foreground">{username}</p>
+          <p className="text-xs text-muted-foreground">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-3 text-xs leading-relaxed text-muted-foreground">
+      <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
         {body}
       </blockquote>
     </figure>
@@ -138,40 +136,20 @@ export function TestimonialsMarquee() {
         </p>
       </div>
 
-      {/* 3D Marquee */}
-      <div className="relative flex h-[420px] w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px]">
-        <div
-          className="flex flex-row items-center gap-4"
-          style={{
-            transform:
-              "translateX(-100px) translateY(0px) translateZ(-100px) rotateX(20deg) rotateY(-10deg) rotateZ(20deg)",
-          }}
-        >
-          <Marquee pauseOnHover vertical className="[--duration:22s]">
-            {firstRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-          <Marquee reverse pauseOnHover vertical className="[--duration:18s]">
-            {secondRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-          <Marquee reverse pauseOnHover vertical className="[--duration:24s]">
-            {thirdRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-          <Marquee pauseOnHover vertical className="[--duration:20s]">
-            {fourthRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
-            ))}
-          </Marquee>
-        </div>
+      {/* Double-row horizontal marquee */}
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-4">
+        <Marquee pauseOnHover className="[--duration:25s]">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:25s]">
+          {secondRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
 
-        {/* Fades */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background to-transparent" />
+        {/* Fades left / right */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent" />
       </div>
