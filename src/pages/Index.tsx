@@ -283,7 +283,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 2 — IDENTIFICATION / AGITATION          */}
       {/* ═══════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-28 sm:py-36">
+      <section className="mx-auto max-w-6xl px-6 py-28 sm:py-36 text-center">
         <motion.p
           {...fadeUp}
           className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
@@ -293,7 +293,7 @@ const Index = () => {
 
         <motion.h2
           {...fadeUp}
-          className="mb-16 max-w-2xl font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl"
+          className="mx-auto mb-16 max-w-3xl font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl"
         >
           Tu utilises Claude tous les jours…{" "}
           <span className="italic text-secondary-foreground">mais tu sens que tu passes à côté.</span>
@@ -304,7 +304,7 @@ const Index = () => {
             <motion.div
               key={i}
               {...stagger(i)}
-              className="group relative rounded-2xl border border-border/40 bg-card/30 p-6 transition-colors duration-300 hover:border-border/70 hover:bg-card/60"
+              className="group relative rounded-2xl border border-border/40 bg-card/30 p-6 text-left transition-colors duration-300 hover:border-border/70 hover:bg-card/60"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border/30 bg-background text-muted-foreground transition-colors group-hover:text-foreground">
                 <point.icon size={18} strokeWidth={1.5} />
@@ -316,11 +316,12 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="mt-16 flex items-center gap-4">
+        <motion.div {...fadeUp} className="mt-16 flex items-center justify-center gap-4">
           <div className="h-px w-12 bg-border/60" />
           <p className="max-w-lg font-serif text-xl italic leading-relaxed text-secondary-foreground/80 sm:text-2xl">
             Ce n'est pas un problème de compétence. C'est un problème de configuration.
           </p>
+          <div className="h-px w-12 bg-border/60" />
         </motion.div>
       </section>
 
