@@ -5,6 +5,9 @@ import claudeIcon from "@/assets/claude-icon.png"
 import lovableIcon from "@/assets/lovable-icon.png"
 import supabaseIcon from "@/assets/supabase-icon.webp"
 import githubIcon from "@/assets/github-icon.png"
+import perplexityIcon from "@/assets/perplexity-icon.png"
+import figmaIcon from "@/assets/figma-icon.png"
+import notebooklmIcon from "@/assets/notebooklm-icon.png"
 
 /* ─── Icon Components ─── */
 
@@ -48,30 +51,33 @@ function LovableIcon() {
   )
 }
 
-function StripeIcon() {
+function PerplexityIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
-      <path
-        d="M13.976 9.15c-2.172-.506-3.368-1.259-3.368-2.456 0-1.198 1.063-1.946 2.747-1.946 1.553 0 2.872.592 3.917 1.782l2.323-2.15C17.88 2.819 16.057 2 13.86 2 10.217 2 8 4.044 8 6.694c0 2.65 1.977 4.11 5.186 4.9C15.692 12.1 17 12.937 17 14.26c0 1.325-1.132 2.108-2.98 2.108-1.847 0-3.3-.71-4.418-2.044l-2.323 2.15c1.587 1.85 3.672 2.861 6.567 2.861C17.75 19.335 20 17.246 20 14.26c0-2.986-2.001-4.496-6.024-5.11z"
-        fill="rgba(99,91,255,0.85)"
-      />
-    </svg>
+    <img
+      src={perplexityIcon}
+      alt="Perplexity"
+      className="w-6 h-6"
+    />
   )
 }
 
-function VercelIcon() {
+function FigmaIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" style={{ color: 'rgba(237,238,239,0.75)' }}>
-      <path d="M24 22.525H0l12-21.05 12 21.05z" />
-    </svg>
+    <img
+      src={figmaIcon}
+      alt="Figma"
+      className="w-6 h-6"
+    />
   )
 }
 
-function N8nIcon() {
+function NotebookLMIcon() {
   return (
-    <span className="text-[11px] font-bold tracking-tighter" style={{ color: 'rgba(255,120,50,0.9)' }}>
-      n8n
-    </span>
+    <img
+      src={notebooklmIcon}
+      alt="NotebookLM"
+      className="w-6 h-6"
+    />
   )
 }
 
@@ -114,9 +120,9 @@ export function ClaudeEcosystem() {
   const claudeRef = useRef<HTMLDivElement>(null)
 
   // Right column refs (Claude → outputs)
-  const stripeRef = useRef<HTMLDivElement>(null)
-  const vercelRef = useRef<HTMLDivElement>(null)
-  const n8nRef = useRef<HTMLDivElement>(null)
+  const perplexityRef = useRef<HTMLDivElement>(null)
+  const figmaRef = useRef<HTMLDivElement>(null)
+  const notebooklmRef = useRef<HTMLDivElement>(null)
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
@@ -191,14 +197,14 @@ export function ClaudeEcosystem() {
 
             {/* Right column — outputs */}
             <div className="flex flex-col justify-around">
-              <Circle ref={stripeRef} className="size-11">
-                <StripeIcon />
+              <Circle ref={perplexityRef} className="size-11">
+                <PerplexityIcon />
               </Circle>
-              <Circle ref={vercelRef} className="size-11">
-                <VercelIcon />
+              <Circle ref={figmaRef} className="size-11">
+                <FigmaIcon />
               </Circle>
-              <Circle ref={n8nRef} className="size-11">
-                <N8nIcon />
+              <Circle ref={notebooklmRef} className="size-11">
+                <NotebookLMIcon />
               </Circle>
             </div>
           </div>
@@ -209,9 +215,9 @@ export function ClaudeEcosystem() {
           <AnimatedBeam containerRef={containerRef} fromRef={githubRef} toRef={claudeRef} {...BEAM} duration={5} delay={1.6} />
 
           {/* Beams: Claude → outputs */}
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={stripeRef} reverse {...BEAM} duration={3.6} delay={0.4} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={vercelRef} reverse {...BEAM} duration={4.4} delay={1.2} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={n8nRef} reverse {...BEAM} duration={5.2} delay={2} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={perplexityRef} reverse {...BEAM} duration={3.6} delay={0.4} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={figmaRef} reverse {...BEAM} duration={4.4} delay={1.2} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={notebooklmRef} reverse {...BEAM} duration={5.2} delay={2} />
         </div>
 
       </div>
