@@ -42,6 +42,7 @@ const Index = () => {
           <div className="flex items-center gap-3">
             <img src={buildrsLogo} alt="Buildrs" className="h-8 w-8" />
             <span className="text-sm font-medium text-foreground tracking-wide">Claude SuperPowers</span>
+            <span className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs text-muted-foreground">by Buildrs</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden text-sm text-muted-foreground sm:block cursor-pointer hover:text-foreground transition-colors">
