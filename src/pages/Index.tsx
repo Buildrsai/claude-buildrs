@@ -41,7 +41,7 @@ const Index = () => {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <div className="flex items-center gap-3">
             <img src={buildrsLogo} alt="Buildrs" className="h-8 w-8" />
-            <span className="text-sm font-medium text-foreground tracking-wide">Guide Claude</span>
+            <span className="text-sm font-medium text-foreground tracking-wide">Claude SuperPowers</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden text-sm text-muted-foreground sm:block cursor-pointer hover:text-foreground transition-colors">
