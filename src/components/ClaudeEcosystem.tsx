@@ -138,22 +138,22 @@ export function ClaudeEcosystem() {
             <span className="italic text-secondary-foreground">C'est le cerveau de ton business.</span>
           </h2>
           <p className="mb-10 text-sm leading-relaxed text-muted-foreground">
-            En 2026, Claude est devenu le moteur central de tout build sérieux. Pas juste un chat IA — un orchestrateur qui connecte ta stack entière, génère du code réel, déploie, et apprend de toi à chaque session.
+            Claude AI, c'est la mémoire et l'intelligence de ton activité. Claude Code, c'est l'exécution — il construit et déploie pour toi. Claude Cowork, c'est l'automatisation qui tourne en arrière-plan. Ensemble, ils gèrent ton contenu, automatisent tes process, et construisent tes outils — le tout depuis un seul écosystème.
           </p>
 
           <div className="space-y-5">
             {[
               {
                 label: "Claude AI",
-                desc: "Mémoire persistante, Projects, Skills. Le contexte qui ne se perd jamais.",
+                desc: "Il se souvient de tout, comprend ton business, s'adapte à tes instructions. Mémoire persistante, Projects, Skills : le contexte qui ne se perd jamais.",
               },
               {
                 label: "Claude Code",
-                desc: "VibeCoding en action. Code, preview live, déploiement sans quitter le terminal.",
+                desc: "Il construit, déploie et modifie des applications pour toi. VibeCoding en action : du code réel, sans quitter le terminal — même si tu n'es pas dev.",
               },
               {
-                label: "Claude.ai",
-                desc: "Interface web collaborative. Artefacts, canvas, partage en temps réel.",
+                label: "Claude Cowork",
+                desc: "L'agent qui travaille pour toi en arrière-plan. Automatisations, tâches récurrentes, workflows — il exécute pendant que tu avances.",
               },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-3">
