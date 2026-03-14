@@ -283,33 +283,45 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 2 — IDENTIFICATION / AGITATION          */}
       {/* ═══════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-28 sm:py-36">
         <motion.p
           {...fadeUp}
-          className="mb-10 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+          className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
         >
           Ça te parle ?
         </motion.p>
 
-        <div className="max-w-2xl space-y-5">
+        <motion.h2
+          {...fadeUp}
+          className="mb-16 max-w-2xl font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl"
+        >
+          Tu utilises Claude tous les jours…{" "}
+          <span className="italic text-secondary-foreground">mais tu sens que tu passes à côté.</span>
+        </motion.h2>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PAIN_POINTS.map((point, i) => (
-            <motion.div key={i} {...stagger(i)} className="flex items-start gap-4">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border/40 bg-card/50 text-muted-foreground">
-                <point.icon size={16} strokeWidth={1.5} />
+            <motion.div
+              key={i}
+              {...stagger(i)}
+              className="group relative rounded-2xl border border-border/40 bg-card/30 p-6 transition-colors duration-300 hover:border-border/70 hover:bg-card/60"
+            >
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border/30 bg-background text-muted-foreground transition-colors group-hover:text-foreground">
+                <point.icon size={18} strokeWidth={1.5} />
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
                 {point.text}
               </p>
             </motion.div>
           ))}
         </div>
 
-        <motion.p
-          {...fadeUp}
-          className="mt-14 max-w-xl font-serif text-lg italic text-secondary-foreground/80 leading-relaxed"
-        >
-          Ce n'est pas un problème de compétence. C'est un problème de configuration.
-        </motion.p>
+        <motion.div {...fadeUp} className="mt-16 flex items-center gap-4">
+          <div className="h-px w-12 bg-border/60" />
+          <p className="max-w-lg font-serif text-xl italic leading-relaxed text-secondary-foreground/80 sm:text-2xl">
+            Ce n'est pas un problème de compétence. C'est un problème de configuration.
+          </p>
+        </motion.div>
       </section>
 
       {/* Divider */}
