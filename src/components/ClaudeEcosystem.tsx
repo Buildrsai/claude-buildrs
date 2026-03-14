@@ -215,9 +215,9 @@ export function ClaudeEcosystem() {
           <AnimatedBeam containerRef={containerRef} fromRef={githubRef} toRef={claudeRef} {...BEAM} duration={5} delay={1.6} />
 
           {/* Beams: Claude → outputs */}
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={stripeRef} reverse {...BEAM} duration={3.6} delay={0.4} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={vercelRef} reverse {...BEAM} duration={4.4} delay={1.2} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={n8nRef} reverse {...BEAM} duration={5.2} delay={2} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={perplexityRef} reverse {...BEAM} duration={3.6} delay={0.4} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={figmaRef} reverse {...BEAM} duration={4.4} delay={1.2} />
+          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={notebooklmRef} reverse {...BEAM} duration={5.2} delay={2} />
         </div>
 
       </div>
