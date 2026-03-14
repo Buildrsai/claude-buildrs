@@ -197,14 +197,14 @@ export function ClaudeEcosystem() {
 
             {/* Right column — outputs */}
             <div className="flex flex-col justify-around">
-              <Circle ref={stripeRef} className="size-11">
-                <StripeIcon />
+              <Circle ref={perplexityRef} className="size-11">
+                <PerplexityIcon />
               </Circle>
-              <Circle ref={vercelRef} className="size-11">
-                <VercelIcon />
+              <Circle ref={figmaRef} className="size-11">
+                <FigmaIcon />
               </Circle>
-              <Circle ref={n8nRef} className="size-11">
-                <N8nIcon />
+              <Circle ref={notebooklmRef} className="size-11">
+                <NotebookLMIcon />
               </Circle>
             </div>
           </div>
