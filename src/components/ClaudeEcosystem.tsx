@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react"
+import React, { forwardRef, useRef } from "react" // ecosystem
 import { cn } from "@/lib/utils"
 import { AnimatedBeam } from "@/components/ui/animated-beam"
 import claudeIcon from "@/assets/claude-icon.png"
