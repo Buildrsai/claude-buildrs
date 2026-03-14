@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ChapterCard from "@/components/ChapterCard";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
+import { ClaudeEcosystem } from "@/components/ClaudeEcosystem";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
 import {
@@ -130,6 +131,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Claude Ecosystem */}
+      <ClaudeEcosystem />
 
       {/* Divider */}
       <div className="mx-auto max-w-6xl px-6">
