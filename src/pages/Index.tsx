@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import ChapterCard from "@/components/ChapterCard";
 import { ClaudeEcosystem } from "@/components/ClaudeEcosystem";
+import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
 import {
@@ -277,6 +278,11 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════ */}
+      {/* TESTIMONIALS MARQUEE                             */}
+      {/* ═══════════════════════════════════════════════ */}
+      <TestimonialsMarquee />
 
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 2 — IDENTIFICATION / AGITATION          */}

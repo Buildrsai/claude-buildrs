@@ -3,76 +3,64 @@ import { Marquee } from "@/components/ui/marquee"
 
 const reviews = [
   {
-    name: "Thomas R.",
-    username: "@thomasr",
-    body: "J'ai lancé mon premier MVP en 4 jours. €340 de revenus le premier mois. Le chapitre Claude Code est une révélation.",
-    img: "https://avatar.vercel.sh/thomasr",
+    name: "Mathieu",
+    body: "J'utilisais Claude comme un ChatGPT glorifié. Depuis le guide, j'ai configuré mes Projects, mes Skills, mon CLAUDE.md — c'est un autre monde.",
+    img: "https://avatar.vercel.sh/mathieu",
   },
   {
-    name: "Sophie M.",
-    username: "@sophiem",
-    body: "Non-développeuse depuis toujours. Le guide m'a prouvé que le VibeCoding c'est vraiment pour tout le monde.",
-    img: "https://avatar.vercel.sh/sophiem",
+    name: "Camille",
+    body: "Le chapitre sur Claude Code m'a fait passer de 'je regarde des tutos' à 'j'ai une app en prod'. En 3 jours.",
+    img: "https://avatar.vercel.sh/camille",
   },
   {
-    name: "Kevin D.",
-    username: "@kevind",
-    body: "Mon outil d'automatisation est live. €1 200 MRR au 2ème mois. Merci Alfred pour la méthode terrain.",
-    img: "https://avatar.vercel.sh/kevind",
+    name: "Sébastien",
+    body: "Je ne savais même pas que Claude avait une mémoire persistante. Le guide m'a ouvert les yeux sur 90% des features que je n'utilisais pas.",
+    img: "https://avatar.vercel.sh/sebastien",
   },
   {
-    name: "Laura C.",
-    username: "@laurac",
-    body: "Le CLAUDE.md a tout changé. Mon projet avance 3x plus vite. Je ne build plus jamais sans.",
-    img: "https://avatar.vercel.sh/laurac",
+    name: "Laura",
+    body: "Le passage sur les Skills et les SuperPowers, c'est ce qui manquait. Claude est passé de 'sympa' à 'indispensable' dans mon quotidien.",
+    img: "https://avatar.vercel.sh/laura",
   },
   {
-    name: "Marc B.",
-    username: "@marcb",
-    body: "Supabase + Stripe + Vercel expliqués clairement. J'aurais jamais cru déployer en prod tout seul un jour.",
-    img: "https://avatar.vercel.sh/marcb",
+    name: "Julien",
+    body: "Freelance dev depuis 5 ans. Claude Code a doublé ma productivité. Le guide explique exactement comment le configurer correctement.",
+    img: "https://avatar.vercel.sh/julien",
   },
   {
-    name: "Camille T.",
-    username: "@camillet",
-    body: "Chapitre 7 sur Preview et GitHub. Déployer en 2 minutes sans friction. Une compétence qui change tout.",
-    img: "https://avatar.vercel.sh/camillet",
+    name: "Sarah",
+    body: "Non-technique, zéro code. J'ai suivi le guide chapitre par chapitre et j'ai mon premier outil en ligne. Toujours du mal à y croire.",
+    img: "https://avatar.vercel.sh/sarah",
   },
   {
-    name: "Romain V.",
-    username: "@romainv",
-    body: "Le concept d'orchestrateur d'IA a changé ma façon de voir les choses. Je suis chef d'orchestre, pas dev.",
-    img: "https://avatar.vercel.sh/romainv",
+    name: "Romain",
+    body: "Le concept d'orchestrateur d'IA a changé ma manière de bosser. Je ne code pas, je dirige. Et ça marche.",
+    img: "https://avatar.vercel.sh/romain",
   },
   {
-    name: "Julia P.",
-    username: "@juliap",
-    body: "VibeCoding c'est vraiment la compétence n°1 de 2026. Ce guide me l'a prouvé en 12 chapitres.",
-    img: "https://avatar.vercel.sh/juliap",
+    name: "Inès",
+    body: "J'ai lu des dizaines d'articles sur Claude. Ce guide est le seul qui va du setup jusqu'au déploiement, sans sauter d'étapes.",
+    img: "https://avatar.vercel.sh/ines",
   },
   {
-    name: "Antoine L.",
-    username: "@antoinel",
-    body: "Gérant d'agence depuis 10 ans. Je n'aurais jamais pensé builder un SaaS seul. C'est maintenant fait.",
-    img: "https://avatar.vercel.sh/antoinel",
+    name: "Thomas",
+    body: "Haiku, Sonnet, Opus — je mélangeais tout. Le chapitre sur les modèles m'a fait économiser facilement 40% de tokens.",
+    img: "https://avatar.vercel.sh/thomas",
   },
   {
-    name: "Sarah K.",
-    username: "@sarahk",
-    body: "Le guide le plus complet sur Claude. Du setup jusqu'au déploiement, absolument tout est là.",
-    img: "https://avatar.vercel.sh/sarahk",
+    name: "Manon",
+    body: "Le template CLAUDE.md en bonus vaut le détour à lui seul. Mes projets Claude sont 10x mieux structurés maintenant.",
+    img: "https://avatar.vercel.sh/manon",
   },
   {
-    name: "Lucas F.",
-    username: "@lucasf",
-    body: "Premier client SaaS signé 6 jours après avoir terminé le guide. Le ROI est immédiat.",
-    img: "https://avatar.vercel.sh/lucasf",
+    name: "Antoine",
+    body: "J'ai montré le guide à mon équipe. On utilise tous Claude Code maintenant. La productivité a explosé, c'est pas une façon de parler.",
+    img: "https://avatar.vercel.sh/antoine",
   },
   {
-    name: "Emma D.",
-    username: "@emmad",
-    body: "Alfred prouve par l'exemple. Pas de bullshit, que du terrain. C'est rare et c'est exactement ce dont j'avais besoin.",
-    img: "https://avatar.vercel.sh/emmad",
+    name: "Chloé",
+    body: "Créatrice de contenu, pas dev. Grâce au guide j'ai automatisé 80% de ma production avec Claude. Le gain de temps est dingue.",
+    img: "https://avatar.vercel.sh/chloe",
   },
 ]
 
@@ -82,38 +70,33 @@ const secondRow = reviews.slice(reviews.length / 2)
 const ReviewCard = ({
   img,
   name,
-  username,
   body,
 }: {
   img: string
   name: string
-  username: string
   body: string
 }) => {
   return (
     <figure
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
         "border-white/[.08] bg-white/[.04] hover:bg-white/[.07]",
         "transition-colors duration-150"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row items-center gap-3">
         <img
           className="rounded-full"
-          width="32"
-          height="32"
+          width="28"
+          height="28"
           alt={name}
           src={img}
         />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-foreground">
-            {name}
-          </figcaption>
-          <p className="text-xs text-muted-foreground">{username}</p>
-        </div>
+        <figcaption className="text-sm font-medium text-foreground">
+          {name}
+        </figcaption>
       </div>
-      <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
+      <blockquote className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
         {body}
       </blockquote>
     </figure>
@@ -122,36 +105,23 @@ const ReviewCard = ({
 
 export function TestimonialsMarquee() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
-      {/* Section header */}
-      <div className="mb-16 max-w-lg">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-          Témoignages
-        </p>
-        <h2 className="mb-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-          Ils ont appliqué la méthode
-        </h2>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          Des entrepreneurs non-techniques qui ont buildé leurs premiers actifs logiciels avec le VibeCoding.
-        </p>
-      </div>
-
+    <section className="py-16">
       {/* Double-row horizontal marquee */}
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-4">
-        <Marquee pauseOnHover className="[--duration:25s]">
+        <Marquee pauseOnHover className="[--duration:30s]">
           {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:25s]">
+        <Marquee reverse pauseOnHover className="[--duration:30s]">
           {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+            <ReviewCard key={review.name} {...review} />
           ))}
         </Marquee>
 
         {/* Fades left / right */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>
   )
