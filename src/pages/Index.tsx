@@ -258,7 +258,7 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex items-center justify-center"
+            className="flex items-center justify-center mt-12 lg:mt-0"
           >
             <div className="relative">
               <div className="absolute -top-4 -left-4 h-64 w-64 rounded-2xl border border-border/50 bg-card/50 rotate-6" />
