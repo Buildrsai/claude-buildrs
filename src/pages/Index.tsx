@@ -27,11 +27,13 @@ import {
 } from "lucide-react";
 
 /* ─── Animation presets ─── */
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.55, ease: EASE },
 };
 
 const fadeIn = {
