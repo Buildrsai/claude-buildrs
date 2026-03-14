@@ -1,6 +1,5 @@
-import React, { forwardRef, useRef } from "react" // ecosystem
-import { cn } from "@/lib/utils"
-import { AnimatedBeam } from "@/components/ui/animated-beam"
+import React from "react" // ecosystem
+import { OrbitingCircles } from "@/components/ui/orbiting-circles"
 import claudeIcon from "@/assets/claude-icon.png"
 import lovableIcon from "@/assets/lovable-icon.png"
 import supabaseIcon from "@/assets/supabase-icon.webp"
@@ -9,121 +8,19 @@ import perplexityIcon from "@/assets/perplexity-icon.png"
 import figmaIcon from "@/assets/figma-icon.png"
 import notebooklmIcon from "@/assets/notebooklm-icon.png"
 
-/* ─── Icon Components ─── */
+/* ─── Icon Circle wrapper ─── */
 
-function ClaudeIcon() {
+function IconCircle({ src, alt, size = 24 }: { src: string; alt: string; size?: number }) {
   return (
-    <img
-      src={claudeIcon}
-      alt="Claude"
-      className="w-8 h-8"
-    />
-  )
-}
-
-function SupabaseIcon() {
-  return (
-    <img
-      src={supabaseIcon}
-      alt="Supabase"
-      className="w-6 h-6"
-    />
-  )
-}
-
-function GitHubIcon() {
-  return (
-    <img
-      src={githubIcon}
-      alt="GitHub"
-      className="w-6 h-6"
-    />
-  )
-}
-
-function LovableIcon() {
-  return (
-    <img
-      src={lovableIcon}
-      alt="Lovable"
-      className="w-6 h-6"
-    />
-  )
-}
-
-function PerplexityIcon() {
-  return (
-    <img
-      src={perplexityIcon}
-      alt="Perplexity"
-      className="w-6 h-6"
-    />
-  )
-}
-
-function FigmaIcon() {
-  return (
-    <img
-      src={figmaIcon}
-      alt="Figma"
-      className="w-6 h-6"
-    />
-  )
-}
-
-function NotebookLMIcon() {
-  return (
-    <img
-      src={notebooklmIcon}
-      alt="NotebookLM"
-      className="w-6 h-6"
-    />
-  )
-}
-
-/* ─── Circle wrapper ─── */
-
-const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode }>(
-  ({ className, children }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border bg-card",
-        "border-border/50",
-        className
-      )}
-    >
-      {children}
+    <div className="flex size-full items-center justify-center rounded-full border border-border/50 bg-card">
+      <img src={src} alt={alt} className="object-contain" style={{ width: size, height: size }} />
     </div>
   )
-)
-Circle.displayName = "Circle"
-
-/* ─── Beam color preset ─── */
-const BEAM = {
-  gradientStartColor: "rgba(255,255,255,0.65)",
-  gradientStopColor: "rgba(255,255,255,0.08)",
-  pathColor: "rgba(255,255,255,0.05)",
 }
 
 /* ─── Main Section ─── */
 
 export function ClaudeEcosystem() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  // Left column refs (inputs → Claude)
-  const supabaseRef = useRef<HTMLDivElement>(null)
-  const lovableRef = useRef<HTMLDivElement>(null)
-  const githubRef = useRef<HTMLDivElement>(null)
-
-  // Center
-  const claudeRef = useRef<HTMLDivElement>(null)
-
-  // Right column refs (Claude → outputs)
-  const perplexityRef = useRef<HTMLDivElement>(null)
-  const figmaRef = useRef<HTMLDivElement>(null)
-  const notebooklmRef = useRef<HTMLDivElement>(null)
-
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -168,56 +65,27 @@ export function ClaudeEcosystem() {
           </div>
         </div>
 
-        {/* ── Right: Animated Beam Diagram ── */}
-        <div
-          ref={containerRef}
-          className="relative flex h-72 w-full items-center justify-center overflow-hidden rounded-xl border border-border/40 bg-card/20 p-8"
-        >
-          <div className="flex size-full max-w-xs flex-row items-stretch justify-between gap-8">
+        {/* ── Right: Orbiting Circles Diagram ── */}
+        <div className="relative flex h-[400px] w-full items-center justify-center overflow-hidden rounded-xl border border-border/40 bg-card/20">
 
-            {/* Left column — inputs */}
-            <div className="flex flex-col justify-around">
-              <Circle ref={supabaseRef} className="size-11">
-                <SupabaseIcon />
-              </Circle>
-              <Circle ref={lovableRef} className="size-11">
-                <LovableIcon />
-              </Circle>
-              <Circle ref={githubRef} className="size-11">
-                <GitHubIcon />
-              </Circle>
-            </div>
-
-            {/* Center — Claude */}
-            <div className="flex flex-col justify-center">
-              <Circle ref={claudeRef} className="size-16 border-border/70">
-                <ClaudeIcon />
-              </Circle>
-            </div>
-
-            {/* Right column — outputs */}
-            <div className="flex flex-col justify-around">
-              <Circle ref={perplexityRef} className="size-11">
-                <PerplexityIcon />
-              </Circle>
-              <Circle ref={figmaRef} className="size-11">
-                <FigmaIcon />
-              </Circle>
-              <Circle ref={notebooklmRef} className="size-11">
-                <NotebookLMIcon />
-              </Circle>
-            </div>
+          {/* Center — Claude */}
+          <div className="z-10 flex size-16 items-center justify-center rounded-full border border-border/60 bg-card">
+            <img src={claudeIcon} alt="Claude" className="w-9 h-9" />
           </div>
 
-          {/* Beams: tools → Claude */}
-          <AnimatedBeam containerRef={containerRef} fromRef={supabaseRef} toRef={claudeRef} {...BEAM} duration={3.2} />
-          <AnimatedBeam containerRef={containerRef} fromRef={lovableRef} toRef={claudeRef} {...BEAM} duration={4.1} delay={0.8} />
-          <AnimatedBeam containerRef={containerRef} fromRef={githubRef} toRef={claudeRef} {...BEAM} duration={5} delay={1.6} />
+          {/* Outer orbit — Supabase, Lovable, GitHub */}
+          <OrbitingCircles radius={130} duration={30} iconSize={42}>
+            <IconCircle src={supabaseIcon} alt="Supabase" />
+            <IconCircle src={lovableIcon} alt="Lovable" />
+            <IconCircle src={githubIcon} alt="GitHub" />
+          </OrbitingCircles>
 
-          {/* Beams: Claude → outputs */}
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={perplexityRef} reverse {...BEAM} duration={3.6} delay={0.4} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={figmaRef} reverse {...BEAM} duration={4.4} delay={1.2} />
-          <AnimatedBeam containerRef={containerRef} fromRef={claudeRef} toRef={notebooklmRef} reverse {...BEAM} duration={5.2} delay={2} />
+          {/* Inner orbit (reverse) — Perplexity, Figma, NotebookLM */}
+          <OrbitingCircles radius={75} duration={25} iconSize={38} reverse>
+            <IconCircle src={perplexityIcon} alt="Perplexity" size={20} />
+            <IconCircle src={figmaIcon} alt="Figma" size={20} />
+            <IconCircle src={notebooklmIcon} alt="NotebookLM" size={20} />
+          </OrbitingCircles>
         </div>
 
       </div>
