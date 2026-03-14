@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ChapterCard from "@/components/ChapterCard";
+import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
 import {
@@ -151,6 +152,14 @@ const Index = () => {
           ))}
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="h-px bg-border" />
+      </div>
+
+      {/* Testimonials */}
+      <TestimonialsMarquee />
 
       {/* Footer */}
       <footer className="border-t border-border">
