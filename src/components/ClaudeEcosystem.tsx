@@ -120,9 +120,9 @@ export function ClaudeEcosystem() {
   const claudeRef = useRef<HTMLDivElement>(null)
 
   // Right column refs (Claude → outputs)
-  const stripeRef = useRef<HTMLDivElement>(null)
-  const vercelRef = useRef<HTMLDivElement>(null)
-  const n8nRef = useRef<HTMLDivElement>(null)
+  const perplexityRef = useRef<HTMLDivElement>(null)
+  const figmaRef = useRef<HTMLDivElement>(null)
+  const notebooklmRef = useRef<HTMLDivElement>(null)
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
