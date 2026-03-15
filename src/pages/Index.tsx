@@ -352,7 +352,7 @@ const Index = () => {
             {/* Sous-titre */}
             <motion.p
               {...stagger(2)}
-              className="mb-10 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base"
+              className="mb-10 max-w-lg text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base"
             >
               Ce guide gratuit t'installe l'écosystème complet — Claude AI, Claude Code, Cowork, Skills, connecteurs — pour en faire ton copilote business. Même si tu pars de zéro.
             </motion.p>
