@@ -195,7 +195,7 @@ export default function AuthPage() {
             {isLogin ? 'Accède au guide' : 'Crée ton compte'}
           </h2>
           <p style={{ fontSize: '13px', color: 'rgba(237,238,239,0.4)', lineHeight: 1.5 }}>
-            Gratuit · 12 chapitres · Résultats immédiats
+            Gratuit · 16 chapitres · Résultats immédiats
           </p>
         </div>
 

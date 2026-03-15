@@ -252,7 +252,7 @@ export default function OnboardingPage() {
             >
               Personnalisé selon ton profil.
               <br />
-              12 chapitres · Actions concrètes · Résultats immédiats.
+              16 chapitres · Actions concrètes · Résultats immédiats.
             </p>
 
             {/* Profile recap card */}

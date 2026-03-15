@@ -67,7 +67,7 @@ export default function CtaFinalPage() {
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'rgba(74,222,128,0.9)', background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', borderRadius: '20px', padding: '3px 10px' }}>
             <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'rgba(74,222,128,0.9)' }} />
-            12 / 12 chapitres
+            12 / 16 chapitres
           </div>
           <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 600, color: 'rgba(237,238,239,0.7)' }}>A</div>
         </div>
@@ -106,7 +106,7 @@ export default function CtaFinalPage() {
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 1L8.8 5.1L13.3 5.5L10 8.4L11 12.8L7 10.4L3 12.8L4 8.4L0.7 5.5L5.2 5.1L7 1Z" fill="rgba(74,222,128,0.7)" />
             </svg>
-            Guide complété — 12 chapitres terminés
+            Guide complété — 16 chapitres terminés
           </div>
 
           {/* Title */}

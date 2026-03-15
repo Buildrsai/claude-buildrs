@@ -1,31 +1,41 @@
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 /* ─── Callout Box ─── */
 export function CalloutBox({
   variant,
   children,
 }: {
-  variant: "important" | "action" | "buildrs"
+  variant: "important" | "action" | "buildrs" | "usecase"
   children: React.ReactNode
 }) {
   const styles = {
     important: {
-      border: "rgba(218,119,86,0.25)",
-      bg: "rgba(218,119,86,0.06)",
+      border: "rgba(218,119,86,0.5)",
+      bg: "#1A1A1A",
       icon: "💡",
       label: "Pourquoi c'est important",
+      labelColor: "rgba(218,119,86,0.85)",
     },
     action: {
-      border: "rgba(251,191,36,0.25)",
-      bg: "rgba(251,191,36,0.06)",
+      border: "rgba(251,191,36,0.5)",
+      bg: "#1A1A1A",
       icon: "⚡",
       label: "Action rapide",
+      labelColor: "rgba(251,191,36,0.85)",
     },
     buildrs: {
-      border: "rgba(218,119,86,0.3)",
+      border: "rgba(218,119,86,0.5)",
       bg: "rgba(218,119,86,0.08)",
       icon: "🔥",
       label: "L'offre Buildrs",
+      labelColor: "rgba(218,119,86,0.85)",
+    },
+    usecase: {
+      border: "rgba(59,130,246,0.5)",
+      bg: "#111827",
+      icon: "🏢",
+      label: "Use Case Buildrs",
+      labelColor: "rgba(59,130,246,0.85)",
     },
   }
 
@@ -47,7 +57,7 @@ export function CalloutBox({
           fontWeight: 600,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "rgba(218,119,86,0.85)",
+          color: s.labelColor,
           marginBottom: "8px",
           display: "flex",
           alignItems: "center",
@@ -208,7 +218,7 @@ export function TableBlock({
   )
 }
 
-/* ─── Quiz Section ─── */
+/* ─── Quiz Section — STATE ISOLÉ PAR CHAPITRE ─── */
 export interface QuizQuestion {
   question: string
   options: string[]
@@ -216,6 +226,12 @@ export interface QuizQuestion {
   explanation?: string
 }
 
+/**
+ * Quiz with isolated state per chapter.
+ * Uses chapterNum as unique key for localStorage and radio name attributes.
+ * BUG FIX: Each quiz now has completely independent state via unique localStorage
+ * keys (quiz_chXX) and unique radio name attributes (quiz-chXX-qY).
+ */
 export function QuizSection({
   chapterNum,
   questions,
@@ -225,15 +241,42 @@ export function QuizSection({
   questions: QuizQuestion[]
   onComplete?: () => void
 }) {
-  const [answers, setAnswers] = useState<Record<number, number>>({})
-  const [revealed, setRevealed] = useState<Record<number, boolean>>({})
+  const storageKey = `quiz_ch${chapterNum}`
+
+  // Load saved state from localStorage (isolated per chapter)
+  const loadSavedState = useCallback(() => {
+    try {
+      const saved = localStorage.getItem(storageKey)
+      if (saved) return JSON.parse(saved)
+    } catch { /* ignore */ }
+    return { answers: {}, revealed: {} }
+  }, [storageKey])
+
+  const [answers, setAnswers] = useState<Record<number, number>>(() => loadSavedState().answers)
+  const [revealed, setRevealed] = useState<Record<number, boolean>>(() => loadSavedState().revealed)
+
+  // Reset state when chapter changes
+  useEffect(() => {
+    const saved = loadSavedState()
+    setAnswers(saved.answers)
+    setRevealed(saved.revealed)
+  }, [chapterNum, loadSavedState])
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify({ answers, revealed }))
+  }, [answers, revealed, storageKey])
 
   const totalAnswered = Object.keys(revealed).length
   const totalCorrect = Object.entries(answers).filter(
-    ([qi, ai]) => revealed[Number(qi)] && questions[Number(qi)].correctIndex === ai
+    ([qi, ai]) => revealed[Number(qi)] && questions[Number(qi)]?.correctIndex === ai
   ).length
 
   const allDone = totalAnswered === questions.length
+
+  useEffect(() => {
+    if (allDone && onComplete) onComplete()
+  }, [allDone, onComplete])
 
   const handleAnswer = (questionIndex: number, optionIndex: number) => {
     if (revealed[questionIndex]) return
@@ -272,9 +315,11 @@ export function QuizSection({
         const isRevealed = revealed[qi]
         const selectedAnswer = answers[qi]
         const isCorrect = selectedAnswer === q.correctIndex
+        // Unique ID prefix for this chapter + question
+        const idPrefix = `quiz-ch${chapterNum}-q${qi}`
 
         return (
-          <div key={qi} style={{ marginBottom: qi < questions.length - 1 ? "24px" : "0" }}>
+          <div key={`${chapterNum}-${qi}`} style={{ marginBottom: qi < questions.length - 1 ? "24px" : "0" }}>
             <p
               style={{
                 fontSize: "14px",
@@ -309,7 +354,8 @@ export function QuizSection({
 
                 return (
                   <button
-                    key={oi}
+                    key={`${idPrefix}-opt${oi}`}
+                    id={`${idPrefix}-opt${oi}`}
                     onClick={() => handleAnswer(qi, oi)}
                     style={{
                       display: "flex",
