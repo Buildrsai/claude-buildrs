@@ -133,7 +133,7 @@ export function UrgencyBanner() {
             >
               {time.expired
                 ? "Offre expirée — Accès à 27€"
-                : "Accès gratuit pendant 72h — ensuite 27€"}
+                : "Offre limitée pendant 72h — après 27€"}
             </span>
           </div>
 
