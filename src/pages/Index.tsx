@@ -6,6 +6,7 @@ import ChapterCard from "@/components/ChapterCard";
 import { ClaudeEcosystem } from "@/components/ClaudeEcosystem";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 import { UrgencyBanner } from "@/components/UrgencyBanner";
+import { SocialProofPopup } from "@/components/SocialProofPopup";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
 import {
