@@ -674,7 +674,7 @@ const Index = () => {
               <h3 className="mb-2 font-serif text-lg font-medium text-foreground">
                 {profile.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-[15px] leading-relaxed text-muted-foreground/90">
                 {profile.description}
               </p>
             </motion.div>
