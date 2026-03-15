@@ -348,7 +348,7 @@ const Index = () => {
               <span className="h-3 w-px bg-border" />
               <span>Mars 2026</span>
               <span className="h-3 w-px bg-border" />
-              <span>100% gratuit</span>
+              <span>Gratuit 72h → puis 27€</span>
             </motion.div>
           </div>
 

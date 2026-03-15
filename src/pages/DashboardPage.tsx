@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import { CHAPTERS, BLOCS } from "@/data/chapters"
 import { QuizSection, ActionPlan, ChapterNav } from "@/components/dashboard/ChapterComponents"
 import buildrsLogo from "@/assets/buildrs-logo.png"
@@ -21,6 +22,7 @@ function saveCompleted(ids: number[]) {
 /* ═══════════════════════════════════════ */
 
 export default function DashboardPage() {
+  const navigate = useNavigate()
   const [activeChapter, setActiveChapter] = useState(0)
   const [completedChapters, setCompletedChapters] = useState<number[]>(loadCompleted)
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -317,31 +319,31 @@ export default function DashboardPage() {
             ))}
           </div>
 
-          {/* CTA Buildrs — visible from bloc 3 (chapter 9 = index 8) */}
+          {/* CTA Offres Buildrs — visible from bloc 3 (chapter 9 = index 8) */}
           {activeChapter >= 8 && (
             <div style={{ padding: "12px 16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <a
-                href="https://buildrs.fr"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => navigate("/dashboard/offres")}
                 style={{
+                  width: "100%",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: "8px",
                   padding: "10px 12px",
-                  background: "rgba(218,119,86,0.1)",
-                  border: "1px solid rgba(218,119,86,0.25)",
+                  background: "linear-gradient(135deg, rgba(218,119,86,0.9), rgba(255,107,53,0.9))",
+                  border: "none",
                   borderRadius: "8px",
                   fontSize: "12px",
-                  fontWeight: 500,
-                  color: "rgba(218,119,86,0.9)",
-                  textDecoration: "none",
+                  fontWeight: 600,
+                  color: "#FFFFFF",
+                  cursor: "pointer",
+                  fontFamily: "'Geist', sans-serif",
                   transition: "all 0.15s",
                 }}
               >
-                <img src={buildrsLogo} alt="Buildrs" style={{ width: "18px", height: "18px" }} />
-                <span>🔥 Buildrs implémente pour toi →</span>
-              </a>
+                🔥 Voir les offres Buildrs
+              </button>
             </div>
           )}
         </div>

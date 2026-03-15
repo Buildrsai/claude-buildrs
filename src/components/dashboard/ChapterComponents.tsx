@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react"
+import { useNavigate } from "react-router-dom"
 
 /* ─── Callout Box ─── */
 export function CalloutBox({
@@ -566,6 +567,339 @@ export function ChapterNav({
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </button>
+    </div>
+  )
+}
+
+/* ─── Offer CTA — reusable in chapters ─── */
+
+interface OfferCTAProps {
+  variant: "subtle" | "card" | "double" | "implementation" | "accompagnement"
+  icon?: string
+  title?: string
+  children: React.ReactNode
+  buttonLabel?: string
+  buttonLink?: string
+  secondButton?: { label: string; link?: string }
+}
+
+export function OfferCTA({
+  variant,
+  icon = "💡",
+  title,
+  children,
+  buttonLabel,
+  buttonLink,
+  secondButton,
+}: OfferCTAProps) {
+  const navigate = useNavigate()
+
+  const handleClick = (link?: string) => {
+    if (link?.startsWith("/")) {
+      navigate(link)
+    } else if (link) {
+      window.open(link, "_blank")
+    }
+  }
+
+  /* ── Subtle variant (chapters 5-6) ── */
+  if (variant === "subtle") {
+    return (
+      <div
+        style={{
+          borderLeft: "3px solid rgba(59,130,246,0.5)",
+          background: "#111827",
+          borderRadius: "0 8px 8px 0",
+          padding: "16px 20px",
+          marginTop: "32px",
+          marginBottom: "8px",
+        }}
+      >
+        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+          <span>{icon} </span>
+          {children}
+        </div>
+        {buttonLabel && (
+          <button
+            onClick={() => handleClick(buttonLink || "/dashboard/offres")}
+            style={{
+              marginTop: "12px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "6px 14px",
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "rgba(237,238,239,0.8)",
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontFamily: "'Geist', sans-serif",
+              transition: "all 0.15s",
+            }}
+          >
+            {buttonLabel}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  /* ── Card variant (chapters 9-11, 15) ── */
+  if (variant === "card") {
+    return (
+      <div
+        style={{
+          background: "rgba(218,119,86,0.06)",
+          border: "1px solid rgba(218,119,86,0.2)",
+          borderRadius: "12px",
+          padding: "20px 24px",
+          marginTop: "32px",
+          marginBottom: "8px",
+        }}
+      >
+        {title && (
+          <div
+            style={{
+              fontSize: "11px",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "rgba(218,119,86,0.9)",
+              marginBottom: "10px",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
+            <span>{icon}</span> {title}
+          </div>
+        )}
+        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+          {children}
+        </div>
+        {buttonLabel && (
+          <button
+            onClick={() => handleClick(buttonLink || "/dashboard/offres")}
+            style={{
+              marginTop: "14px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 18px",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#FFFFFF",
+              background: "#DA7756",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontFamily: "'Geist', sans-serif",
+              transition: "all 0.15s",
+            }}
+          >
+            {buttonLabel}
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  /* ── Double variant (chapter 12) ── */
+  if (variant === "double") {
+    return (
+      <div style={{ marginTop: "32px", marginBottom: "8px", display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div
+          style={{
+            background: "rgba(218,119,86,0.06)",
+            border: "1px solid rgba(218,119,86,0.2)",
+            borderRadius: "12px",
+            padding: "16px 20px",
+          }}
+        >
+          <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+            <span>⚡ </span>{children}
+          </div>
+          {buttonLabel && (
+            <button
+              onClick={() => handleClick(buttonLink || "/dashboard/offres")}
+              style={{
+                marginTop: "12px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "7px 16px",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "#FFFFFF",
+                background: "#DA7756",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontFamily: "'Geist', sans-serif",
+              }}
+            >
+              {buttonLabel}
+            </button>
+          )}
+        </div>
+        {secondButton && (
+          <div
+            style={{
+              background: "#111827",
+              border: "1px solid rgba(59,130,246,0.25)",
+              borderRadius: "12px",
+              padding: "16px 20px",
+            }}
+          >
+            <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+              <span>🤝 </span>Tu veux qu'on configure tes agents ensemble, adaptés à <strong>TON</strong> activité ?
+            </div>
+            <button
+              onClick={() => handleClick(secondButton.link || "/dashboard/offres")}
+              style={{
+                marginTop: "12px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "7px 16px",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "rgba(237,238,239,0.8)",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "6px",
+                cursor: "pointer",
+                fontFamily: "'Geist', sans-serif",
+              }}
+            >
+              {secondButton.label}
+            </button>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  /* ── Implementation variant (chapter 13) ── */
+  if (variant === "implementation") {
+    return (
+      <div
+        style={{
+          background: "linear-gradient(135deg, rgba(218,119,86,0.1), rgba(255,107,53,0.06))",
+          border: "1px solid rgba(218,119,86,0.25)",
+          borderRadius: "12px",
+          padding: "24px",
+          marginTop: "32px",
+          marginBottom: "8px",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "rgba(218,119,86,0.9)",
+            marginBottom: "10px",
+          }}
+        >
+          🔥 PASSE À L'ACTION
+        </div>
+        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+          {children}
+        </div>
+        {buttonLabel && (
+          <button
+            onClick={() => handleClick(buttonLink || "/dashboard/offres")}
+            style={{
+              marginTop: "16px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "10px 22px",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#FFFFFF",
+              background: "linear-gradient(135deg, #DA7756, #FF6B35)",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontFamily: "'Geist', sans-serif",
+              boxShadow: "0 4px 16px rgba(218,119,86,0.25)",
+              transition: "all 0.2s",
+            }}
+          >
+            {buttonLabel}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  /* ── Accompagnement variant (chapter 14) ── */
+  return (
+    <div
+      style={{
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.12)",
+        borderRadius: "12px",
+        padding: "24px",
+        marginTop: "32px",
+        marginBottom: "8px",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "11px",
+          fontWeight: 700,
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "rgba(237,238,239,0.5)",
+          marginBottom: "10px",
+        }}
+      >
+        🚀 ACCOMPAGNEMENT
+      </div>
+      <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+        {children}
+      </div>
+      {buttonLabel && (
+        <button
+          onClick={() => handleClick(buttonLink || "/dashboard/offres")}
+          style={{
+            marginTop: "16px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "10px 22px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#080909",
+            background: "#EDEEEF",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontFamily: "'Geist', sans-serif",
+            transition: "all 0.15s",
+          }}
+        >
+          {buttonLabel}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      )}
     </div>
   )
 }

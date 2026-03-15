@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import AuthPage from "./pages/AuthPage.tsx";
 import OnboardingPage from "./pages/OnboardingPage.tsx";
 import DashboardPage from "./pages/DashboardPage.tsx";
+import OffersPage from "./pages/OffersPage.tsx";
 import CtaFinalPage from "./pages/CtaFinalPage.tsx";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/dashboard/offres" element={<OffersPage />} />
           <Route path="/cta" element={<CtaFinalPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

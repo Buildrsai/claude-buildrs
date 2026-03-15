@@ -1,4 +1,4 @@
-import { CalloutBox, CodeBlock, TableBlock, type QuizQuestion } from "@/components/dashboard/ChapterComponents"
+import { CalloutBox, CodeBlock, TableBlock, OfferCTA, type QuizQuestion } from "@/components/dashboard/ChapterComponents"
 
 /* ─── Chapter Type ─── */
 export interface Chapter {
@@ -353,6 +353,10 @@ const chapter05: Chapter = {
       <CalloutBox variant="usecase">
         Alfred a un Project "Buildrs — Stratégie" avec un prompt système de 30 lignes qui décrit la vision, les offres, le positionnement, et le ton de communication. Chaque fois qu'il brainstorme dans ce projet, Claude est déjà aligné. Pas besoin de re-briefer à chaque conversation. Le gain de temps sur un mois : estimé à 15-20 heures.
       </CalloutBox>
+
+      <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
+        Tu veux les prompts systèmes exacts qu'Alfred utilise chez Buildrs ? Ils sont dans le Kit d'implémentation.
+      </OfferCTA>
     </>
   ),
 }
@@ -412,6 +416,10 @@ const chapter06: Chapter = {
       <CalloutBox variant="usecase">
         L'agent Cowork "Daily Briefing" d'Alfred utilise 4 connecteurs simultanément : Gmail (emails non lus), Slack (messages importants), Google Calendar (réunions du jour), et Google Drive (documents modifiés récemment). Chaque matin, un rapport structuré est généré automatiquement. Sans les connecteurs, cette tâche nécessiterait de consulter 4 apps séparément pendant 20 minutes. Avec : 0 minutes, c'est automatique.
       </CalloutBox>
+
+      <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
+        La config connecteurs complète de Buildrs (les 7 branchements + l'ordre optimal) est dans le Kit.
+      </OfferCTA>
     </>
   ),
 }
@@ -572,6 +580,12 @@ const chapter09: Chapter = {
       <CalloutBox variant="usecase">
         Buildrs a créé un skill custom "buildrs-brand" qui contient le design system complet (couleurs, typo, glassmorphism, ton). Chaque fois que Claude Code crée une interface pour un projet Buildrs, il applique automatiquement le style maison. Résultat : cohérence visuelle parfaite sur tous les projets, sans briefer manuellement le design à chaque fois.
       </CalloutBox>
+
+      <OfferCTA variant="card" icon="⚡" title="LES SKILLS BUILDRS — PRÊTS À INSTALLER" buttonLabel="Obtenir le Kit d'implémentation → 97€" buttonLink="/dashboard/offres">
+        Tu viens de comprendre ce que les Skills peuvent faire. Le Kit d'implémentation contient nos Skills pré-configurés, nos fichiers SKILL.md optimisés, et la config complète qu'on utilise en production chez Buildrs.
+        <br /><br />
+        <strong>Copie. Colle. C'est installé.</strong>
+      </OfferCTA>
     </>
   ),
 }
@@ -628,6 +642,10 @@ const chapter10: Chapter = {
       <CalloutBox variant="usecase">
         Pour chaque projet client, Buildrs configure 3 MCP minimum : Context7 (documentation à jour), GitHub (gestion du code), et Supabase (base de données). Quand Alfred demande à Claude Code "ajoute l'authentification avec Supabase", Claude consulte la doc exacte via Context7, construit le code, et le connecte directement à la base Supabase du projet via le MCP. Zéro copier-coller de documentation, zéro erreur d'API obsolète.
       </CalloutBox>
+
+      <OfferCTA variant="card" icon="⚡" title="LE FICHIER .MCP.JSON COMPLET DE BUILDRS" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
+        Le fichier .mcp.json complet de Buildrs (Context7 + GitHub + Supabase + Stripe + GWS) est inclus dans le Kit d'implémentation. <strong>Prêt à copier.</strong>
+      </OfferCTA>
     </>
   ),
 }
@@ -707,6 +725,10 @@ Pas de ton corporate. Pas de clichés motivationnels.`}
       <CalloutBox variant="usecase">
         Le CLAUDE.md du projet "Claude SuperPowers" (ce guide que tu lis) fait 45 lignes. Il contient le design system (dark mode, terracotta, glassmorphism), les conventions React, et les instructions de ton éditorial. Résultat : chaque fois que Claude Code travaille sur ce projet, il produit du contenu et du code cohérents avec la vision — sans qu'on ait besoin de re-briefer. Ce fichier a été écrit une seule fois et a servi sur +50 sessions de développement.
       </CalloutBox>
+
+      <OfferCTA variant="card" icon="⚡" title="5 TEMPLATES CLAUDE.MD PAR TYPE DE PROJET" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
+        5 templates CLAUDE.md par type de projet (SaaS, coaching, e-commerce, agence, freelance) → inclus dans le Kit d'implémentation.
+      </OfferCTA>
     </>
   ),
 }
@@ -808,6 +830,15 @@ Propose 5 idées de contenu (posts, articles, vidéos) avec :
         </ol>
         Total : 7 "employés" qui coûtent $20/mois (le prix de l'abo Pro). L'équivalent salarial ? Incalculable.
       </CalloutBox>
+
+      <OfferCTA
+        variant="double"
+        buttonLabel="Obtenir le Kit d'implémentation → 97€"
+        buttonLink="/dashboard/offres"
+        secondButton={{ label: "Call d'implémentation avec Alfred → 197€", link: "/dashboard/offres" }}
+      >
+        Les 7 agents Cowork d'Alfred (prompts exacts + config) → inclus dans le Kit d'implémentation.
+      </OfferCTA>
     </>
   ),
 }
@@ -880,6 +911,10 @@ const chapter13: Chapter = {
       <CalloutBox variant="usecase">
         Le premier micro-SaaS construit par Buildrs avec Claude Code — NOAH™, un générateur d'offres IA pour les entrepreneurs — a été buildé en 5 jours. Le MVP complet : onboarding, génération d'offres en 4 tiers, intégration Stripe, landing page. Coût de développement : $100 (abo Claude Max pendant le build). Aujourd'hui NOAH™ est proposé à 67€ et a généré ses premiers revenus dès la première semaine de lancement.
       </CalloutBox>
+
+      <OfferCTA variant="implementation" buttonLabel="Découvrir l'implémentation complète → 997€" buttonLink="/dashboard/offres">
+        Tu veux passer directement à l'action ? Buildrs installe ton écosystème Claude complet en 48h.
+      </OfferCTA>
     </>
   ),
 }
@@ -951,6 +986,10 @@ Commence par la structure du projet et la landing page.`}
       <CalloutBox variant="usecase">
         Buildrs a un process interne pour lancer un MVP client en 5 jours. Jour 1 : brief + CLAUDE.md + architecture. Jour 2-3 : Claude Code construit les features. Jour 4 : intégrations (Stripe, Supabase Auth, emails). Jour 5 : QA + déploiement prod. Ce framework a été utilisé pour 12 projets clients en 2025-2026, avec un taux de satisfaction de 100%. Le secret : le CLAUDE.md du projet est hyper-détaillé dès le jour 1.
       </CalloutBox>
+
+      <OfferCTA variant="accompagnement" buttonLabel="En savoir plus →" buttonLink="/dashboard/offres">
+        Tu veux être accompagné de A à Z pour lancer ton activité avec Claude ? Découvre l'accompagnement Buildrs — 3 mois pour transformer ton business.
+      </OfferCTA>
     </>
   ),
 }
@@ -1007,6 +1046,10 @@ Stripe ← Claude Code intègre les paiements`} />
       <CalloutBox variant="usecase">
         La stack standard de Buildrs pour chaque projet client : GitHub (code) + Vercel (hosting) + Supabase (backend) + Stripe (paiements) + Resend (emails). Cette stack est 100% gratuite au lancement. Le premier euro de coût infra arrive quand le projet dépasse les limites des plans gratuits — souvent autour de 1000+ utilisateurs. Pour un MVP, le coût est littéralement de 0€ en infra.
       </CalloutBox>
+
+      <OfferCTA variant="card" icon="⚡" title="TOUS CES OUTILS CONNECTÉS EN UN CLIC" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
+        Le Kit d'implémentation inclut les configs, les comptes à créer, et le workflow complet.
+      </OfferCTA>
     </>
   ),
 }
@@ -1103,6 +1146,10 @@ const chapterBonus: Chapter = {
         <br /><br />
         Buildrs configure ton écosystème Claude complet : Skills, MCP, CLAUDE.md, connecteurs, agents Cowork, workflow de déploiement. Tu te concentres sur ton business, on s'occupe de la machine.
       </CalloutBox>
+
+      <OfferCTA variant="implementation" buttonLabel="Voir toutes les offres Buildrs →" buttonLink="/dashboard/offres">
+        <strong>Tu as terminé le guide. Tu sais ce que Claude peut faire.</strong> Maintenant, choisis comment tu veux avancer — du Kit à l'accompagnement complet.
+      </OfferCTA>
     </>
   ),
 }
