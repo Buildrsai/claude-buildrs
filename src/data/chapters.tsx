@@ -22,26 +22,18 @@ const chapter01: Chapter = {
   subtitle: "L'IA a évolué. Ceux qui comprennent le nouvel écosystème prennent une longueur d'avance.",
   bloc: "Comprendre",
   actionPlan: [
-    "Créer son compte Claude (si pas encore fait)",
-    "Télécharger Claude Desktop sur claude.ai/download",
-    "Lire le chapitre 2 pour comprendre les 3 produits",
+    "Créer son compte Claude sur claude.ai",
+    "Télécharger Claude Desktop (claude.ai/download)",
+    "Choisir le plan Pro ($20/mois)",
+    "Passer au chapitre 2",
   ],
   quiz: [
     {
-      question: "En 2026, Claude se distingue des autres IA parce que :",
+      question: "L'écosystème Claude est composé de :",
       options: [
-        "Il est gratuit",
-        "Il propose un écosystème complet : conversation + code + automatisation",
-        "Il est plus rapide que ChatGPT",
-      ],
-      correctIndex: 1,
-    },
-    {
-      question: "Buildrs fonctionne avec :",
-      options: [
-        "Une équipe de 50 développeurs",
-        "Alfred + Romane + 35 super agents IA dont 20% autonomes",
-        "Uniquement des freelances",
+        "Un seul chatbot très performant",
+        "Trois produits complémentaires : Claude AI (pense), Claude Code (construit), Cowork (automatise)",
+        "Une suite bureautique IA",
       ],
       correctIndex: 1,
     },
@@ -50,61 +42,245 @@ const chapter01: Chapter = {
       options: [
         "Un langage de programmation",
         "Construire des applications en décrivant ce qu'on veut en langage naturel",
-        "Une technique de méditation",
+        "Un framework JavaScript",
+      ],
+      correctIndex: 1,
+    },
+    {
+      question: "Buildrs, c'est :",
+      options: [
+        "Une agence web classique",
+        "Un accélérateur pour entrepreneurs augmentés par l'IA — écosystèmes Claude, agents autonomes, VibeCoding",
+        "Un éditeur de logiciels",
       ],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>1.1 — L'IA en 2026 : on ne parle plus de chatbots</h3>
+      <h3>1.1 — L'IA en 2026 : le jeu a changé</h3>
       <p>
-        L'IA générative a explosé en 2023 avec ChatGPT. Mais en 2026, le jeu a complètement changé. On ne parle plus de "poser des questions à un chatbot". On parle d'agents autonomes qui exécutent des tâches complexes, construisent des applications, et travaillent en arrière-plan pendant que tu dors.
+        Il y a 3 ans, on découvrait ChatGPT et on trouvait ça magique de poser une question et d'avoir une réponse. En 2026, ce n'est plus du tout le sujet.
       </p>
       <p>
-        Claude, développé par Anthropic, est devenu le moteur central de cette révolution. Pas parce qu'il est "meilleur" sur un benchmark — mais parce qu'il est le seul à proposer un écosystème complet : une interface conversationnelle (Claude AI), un agent de code (Claude Code), et un assistant autonome (Cowork).
+        Aujourd'hui, l'IA construit des applications. L'IA gère des tâches en arrière-plan pendant que tu dors. L'IA analyse tes données, rédige ton contenu, automatise ta prospection, et déploie tes outils — sans que tu écrives une seule ligne de code.
+      </p>
+      <p>
+        Et au centre de cette révolution, il y a Claude.
+      </p>
+      <p>
+        Pas parce que c'est "le meilleur chatbot". Mais parce que c'est le seul écosystème complet : une intelligence qui pense avec toi (Claude AI), un agent qui construit pour toi (Claude Code), et un assistant autonome qui exécute pour toi (Cowork). Trois produits. Un seul cockpit.
       </p>
       <CalloutBox variant="important">
-        La plupart des gens utilisent Claude comme ils utilisaient ChatGPT en 2023 : ils posent des questions et copient-collent les réponses. C'est comme acheter une Ferrari et ne jamais dépasser la 2ème vitesse.
+        La majorité des gens utilisent encore Claude comme un ChatGPT amélioré — ils posent des questions et copient-collent les réponses. C'est comme avoir une Tesla et ne jamais activer l'autopilot. Ce guide existe pour corriger ça.
       </CalloutBox>
 
-      <h3>1.2 — Ce que tu vas apprendre dans ce guide</h3>
-      <p>Ce guide est structuré en 16 chapitres progressifs + 1 bonus. Tu vas :</p>
-      <ul>
-        <li>Comprendre l'écosystème Claude en profondeur (chapitres 1-4)</li>
-        <li>Installer et configurer chaque composant de façon optimale (chapitres 5-8)</li>
-        <li>Supercharger Claude avec Skills, MCP, agents IA et mémoire (chapitres 9-12)</li>
-        <li>Exploiter Claude pour générer de la valeur et du revenu (chapitres 13-15)</li>
-        <li>Avoir un plan d'action complet de A à Z (bonus)</li>
-      </ul>
+      <h3>1.2 — Ce que ce guide va changer pour toi</h3>
+      <p>
+        Ce n'est pas un tutoriel. C'est une méthode.
+      </p>
+      <p>
+        En 16 chapitres, tu vas passer de "j'ai un compte Claude" à "Claude gère une partie de mon business". Concrètement :
+      </p>
+      <p>
+        Tu vas <strong>comprendre</strong> pourquoi l'écosystème Claude est différent de tout ce qui existe — et comment l'utiliser à 100% de son potentiel.
+      </p>
+      <p>
+        Tu vas <strong>configurer</strong> Claude de façon optimale — les bons paramètres, les bons connecteurs, les bons outils — pour que chaque session soit productive dès la première seconde.
+      </p>
+      <p>
+        Tu vas <strong>supercharger</strong> Claude avec des Skills, des MCP, des agents IA autonomes et un système de mémoire qui fait que Claude connaît ton business par cœur.
+      </p>
+      <p>
+        Et tu vas découvrir comment des entrepreneurs utilisent cet écosystème pour <strong>automatiser leur quotidien</strong>, construire leurs propres produits, et <strong>générer du revenu</strong> — avec l'IA comme levier.
+      </p>
+      <p>
+        Le plan d'action complet est dans le bonus. 28 étapes. De zéro à machine de guerre.
+      </p>
 
-      <h3>1.3 — Le VibeCoding et les micro-SaaS : le business de 2026</h3>
+      <h3>1.3 — Le VibeCoding : quand décrire suffit à construire</h3>
       <p>
-        Le "VibeCoding" — construire des applications en décrivant ce qu'on veut en langage naturel — est en train de devenir le business model le plus accessible de l'histoire. Des entrepreneurs sans expérience technique lancent des micro-SaaS et génèrent du revenu récurrent.
+        Un mot sur une révolution silencieuse qui est en train de changer les règles du jeu.
       </p>
       <p>
-        Ce guide ne te promet pas de devenir développeur. Il te montre que la frontière entre "technique" et "non-technique" n'existe plus — et que Claude est la clé.
+        Le VibeCoding, c'est construire des applications en décrivant ce qu'on veut — en français, en langage naturel. Tu dis "je veux un outil de facturation avec un dashboard et un paiement Stripe", et Claude Code le construit. Pas un mockup. Pas un wireframe. Une vraie application, fonctionnelle, déployée.
+      </p>
+      <p>
+        Des entrepreneurs sans aucune expérience technique lancent des micro-SaaS — des petits logiciels en ligne vendus en abonnement — et génèrent du revenu récurrent. Le coût de développement ? Le prix de l'abonnement Claude.
+      </p>
+      <p>
+        Ce guide ne te promet pas de devenir développeur. Il te montre que cette frontière n'existe plus.
       </p>
 
-      <h3>1.4 — C'est quoi Buildrs ? Et qui est Alfred ?</h3>
+      <h3>1.4 — Buildrs : l'IA comme levier. Claude comme moteur.</h3>
       <p>
-        <strong>Alfred Orsini</strong> a 32 ans et il pilote <strong>Buildrs</strong> comme Tony Stark pilote son labo.
+        Ce guide est créé par Buildrs.
       </p>
       <p>
-        Pas avec une équipe classique de 50 salariés — mais avec <strong>une équipe augmentée de +35 super agents IA</strong>, dont 20% sont des agents totalement autonomes qui travaillent en continu. Rédaction, analyse, code review, veille concurrentielle, onboarding client, reporting — ces agents tournent 24h/24 sur l'écosystème Claude.
+        Buildrs aide les entrepreneurs à piloter leur business avec l'IA. On construit des écosystèmes IA complets avec Claude comme moteur central. On orchestre des agents intelligents et autonomes qui travaillent pour nos clients. Et on apprend aux entrepreneurs à créer leurs propres produits et business grâce au VibeCoding.
       </p>
       <p>
-        Derrière cette armée d'agents, Alfred et <strong>Romane</strong> — son bras droit qui co-pilote les opérations au quotidien. À eux deux, appuyés par les 35 super agents, ils gèrent l'ensemble des projets clients, de la stratégie au déploiement.
+        Fondé par Alfred Orsini, Buildrs fonctionne avec +35 agents IA dont 20% tournent en autonomie totale, 24h/24. Rédaction, analyse, code review, veille concurrentielle, onboarding, reporting — ces agents gèrent l'opérationnel pendant qu'Alfred se concentre sur la stratégie et l'accompagnement.
       </p>
-      <p><strong>Buildrs, c'est 3 choses :</strong></p>
-      <ol>
-        <li><strong>Un spécialiste des écosystèmes IA</strong> — certifié sur l'écosystème Claude, avec une base de connaissances terrain construite sur des centaines de projets réels.</li>
-        <li><strong>Un constructeur de micro-SaaS IA</strong> — on build des petits logiciels intelligents pour des clients et avec des clients, avec Claude Code comme moteur.</li>
-        <li><strong>Un accélérateur pour entrepreneurs</strong> — on aide ceux qui veulent lancer un business pérenne autour de l'IA à implémenter, comprendre et exploiter tout l'écosystème Claude.</li>
-      </ol>
-      <CalloutBox variant="usecase">
-        Un utilisateur Buildrs — coach sportif, zéro background tech — a utilisé Claude pour créer un outil de génération de programmes d'entraînement personnalisés. En 3 jours, il avait une app fonctionnelle avec paiement Stripe intégré. Aujourd'hui, il vend l'accès à 19€/mois et a 47 abonnés. Son "développeur" ? Claude Code + le workflow de ce guide. Coût d'infra : 0€.
+      <p>
+        Ni agence classique. Ni formation théorique. Buildrs, c'est un accélérateur pour entrepreneurs augmentés par l'IA.
+      </p>
+      <CalloutBox variant="important">
+        Ce guide n'est pas écrit par quelqu'un qui a lu la documentation. Il est construit par une équipe qui vit dans Claude au quotidien — qui build, déploie, et automatise avec, chaque jour, pour de vrais clients. Chaque conseil, chaque template, chaque recommandation vient du terrain.
       </CalloutBox>
+
+      <h3>1.5 — Ce que Buildrs fait concrètement avec Claude (chaque jour)</h3>
+      <p>
+        Pour que tu comprennes la puissance de ce que tu vas apprendre, voici à quoi ressemble une journée type chez Buildrs :
+      </p>
+      <p>
+        <strong>7h30</strong> — Un agent Cowork compile automatiquement le briefing du jour : emails non lus, messages de l'équipe, agenda, KPIs business de la veille. Alfred ouvre son Mac, tout est prêt.
+      </p>
+      <p>
+        <strong>9h00</strong> — Alfred ouvre Claude AI avec son Project "Stratégie Buildrs" pour travailler sur le positionnement d'une offre client. Claude connaît déjà le contexte — pas besoin de re-briefer.
+      </p>
+      <p>
+        <strong>10h00</strong> — Claude Code construit une nouvelle feature sur un micro-SaaS client. Le CLAUDE.md du projet contient toutes les conventions. Le code est cohérent avec le reste du projet, automatiquement.
+      </p>
+      <p>
+        <strong>12h00</strong> — Un agent de veille concurrentielle livre son rapport quotidien : 3 concurrents analysés, changements de prix détectés, nouvelles features repérées.
+      </p>
+      <p>
+        <strong>14h00</strong> — Un client reçoit son écosystème Claude implémenté en 48h : 5 Projects configurés, 4 agents Cowork planifiés, tous les connecteurs branchés. Il est autonome.
+      </p>
+      <p>
+        <strong>17h00</strong> — L'agent "Week Review" prépare automatiquement le résumé de la semaine pour vendredi.
+      </p>
+      <p>
+        Tout ça, c'est Claude. Configuré correctement. C'est exactement ce que ce guide t'apprend à faire.
+      </p>
+      <CalloutBox variant="action">
+        Si tu n'as pas encore de compte Claude, crée-le maintenant sur claude.ai. Choisis le plan Pro ($20/mois) pour accéder à toutes les fonctionnalités dont on parle dans ce guide. Et télécharge Claude Desktop sur claude.ai/download — c'est indispensable pour la suite.
+      </CalloutBox>
+
+      {/* Diagramme — L'écosystème Buildrs */}
+      <div
+        style={{
+          background: "#111111",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "12px",
+          padding: "24px",
+          marginBottom: "24px",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "11px",
+            fontWeight: 600,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "rgba(237,238,239,0.35)",
+            marginBottom: "20px",
+          }}
+        >
+          🗺️ L'écosystème Buildrs
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          {/* Alfred — Pilote */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                background: "rgba(218,119,86,0.15)",
+                border: "1px solid rgba(218,119,86,0.3)",
+                borderRadius: "8px",
+                padding: "10px 20px",
+                fontSize: "13px",
+                fontWeight: 600,
+                color: "#DA7756",
+                textAlign: "center",
+              }}
+            >
+              Alfred — Pilote
+            </div>
+          </div>
+          {/* Flèche */}
+          <div style={{ textAlign: "center", color: "rgba(255,255,255,0.15)", fontSize: "16px" }}>↓</div>
+          {/* 35+ Agents */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "8px",
+                padding: "10px 20px",
+                fontSize: "13px",
+                fontWeight: 500,
+                color: "rgba(237,238,239,0.7)",
+                textAlign: "center",
+              }}
+            >
+              35+ Agents IA
+            </div>
+          </div>
+          {/* Split */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
+            <div style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  background: "#1a1a1a",
+                  border: "1px solid rgba(255,215,0,0.3)",
+                  borderRadius: "8px",
+                  padding: "8px 16px",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "rgba(255,215,0,0.8)",
+                  marginBottom: "6px",
+                }}
+              >
+                20% Autonomes 24/7
+              </div>
+              <p style={{ fontSize: "11px", color: "rgba(237,238,239,0.4)", margin: 0 }}>
+                Veille · Reporting · Code Review · Onboarding
+              </p>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "8px",
+                  padding: "8px 16px",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "rgba(237,238,239,0.6)",
+                  marginBottom: "6px",
+                }}
+              >
+                80% Assistés
+              </div>
+              <p style={{ fontSize: "11px", color: "rgba(237,238,239,0.4)", margin: 0 }}>
+                Stratégie · Contenu · Build · Support
+              </p>
+            </div>
+          </div>
+          {/* Flèche */}
+          <div style={{ textAlign: "center", color: "rgba(255,255,255,0.15)", fontSize: "16px" }}>↓</div>
+          {/* Clients */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
+            {["Maîtriser Claude", "Automatiser avec des agents", "Construire leurs produits"].map((label) => (
+              <div
+                key={label}
+                style={{
+                  background: "#1a1a1a",
+                  border: "1px solid rgba(218,119,86,0.25)",
+                  borderRadius: "8px",
+                  padding: "8px 14px",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "rgba(218,119,86,0.8)",
+                }}
+              >
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   ),
 }
