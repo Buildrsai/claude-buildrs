@@ -9,6 +9,7 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SocialProofPopup } from "@/components/SocialProofPopup";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
+import buildrsLogoIcon from "@/assets/buildrs-logo-icon.png";
 import {
   Clock,
   LayoutGrid,
