@@ -292,8 +292,9 @@ const chapter02: Chapter = {
   bloc: "Comprendre",
   actionPlan: [
     "Identifier lequel des 3 produits correspond à ton besoin immédiat",
-    "Entrepreneur/freelance sans background technique → Claude AI + Cowork",
-    "Tu veux builder des produits → Claude Code",
+    "Entrepreneur / freelance → commence par Claude AI + Cowork",
+    "Tu veux builder des produits → ajoute Claude Code",
+    "Passer au chapitre 3",
   ],
   quiz: [
     {
@@ -303,59 +304,209 @@ const chapter02: Chapter = {
     },
     {
       question: "Claude Code se distingue de Claude AI parce que :",
-      options: ["Il est plus intelligent", "Il a accès complet au projet et peut déployer", "Il est gratuit"],
+      options: ["Il est plus intelligent", "Il a accès complet au projet, exécute des commandes, et peut déployer des applications", "Il est gratuit"],
+      correctIndex: 1,
+    },
+    {
+      question: "La vraie puissance de l'écosystème Claude vient de :",
+      options: ["La vitesse de réponse", "La combinaison des 3 produits : penser + construire + automatiser", "Le prix de l'abonnement"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>2.1 — Claude AI (claude.ai / app mobile / Desktop)</h3>
-      <p>L'interface que tout le monde connaît. Mais en 2026 c'est bien plus qu'un chat :</p>
+      <h3>2.1 — Claude AI : ton intelligence à la demande</h3>
+      <p>
+        Claude AI, c'est l'interface que tu connais peut-être déjà — le chat. Mais en 2026, c'est devenu bien plus qu'un endroit où poser des questions.
+      </p>
+      <p>
+        Imagine un collaborateur qui connaît ton business par cœur, qui se souvient de chaque conversation, qui a accès à tes documents, tes emails, ton agenda — et qui peut créer des fichiers, des présentations, des outils directement dans la discussion.
+      </p>
+      <p>
+        C'est ça, Claude AI aujourd'hui.
+      </p>
+      <p>Les fonctionnalités qui changent tout :</p>
+      <p>
+        <strong>Mémoire persistante</strong> — Claude se souvient de toi d'une session à l'autre. Ton nom, ton activité, tes préférences, tes projets en cours. Plus tu l'utilises, plus il est pertinent.
+      </p>
+      <p>
+        <strong>Projects</strong> — Des espaces dédiés avec un brief permanent et des documents de référence. Tu crées un Project "Mon Business" et chaque conversation dans cet espace est déjà contextualisée. Fini de re-briefer à chaque fois.
+      </p>
+      <p>
+        <strong>Connecteurs</strong> — Claude se branche directement à Google Drive, Gmail, Slack, Notion, Calendar, Figma, Stripe. Il ne travaille plus en vase clos — il accède à tes outils et agit dedans.
+      </p>
+      <p>
+        <strong>Artefacts</strong> — Claude crée des documents, des tableurs, des présentations, des applications React, directement dans la conversation. Tu demandes, il livre.
+      </p>
+
+      <h3>2.2 — Claude Code : ton builder personnel</h3>
+      <p>
+        Claude Code, c'est là que ça devient puissant.
+      </p>
+      <p>
+        C'est un agent qui vit dans ton terminal (ou dans un éditeur de code). Tu le lances dans un dossier de projet, et il a accès à tout : il lit les fichiers, les modifie, en crée de nouveaux, installe des dépendances, lance des serveurs, et déploie ton application.
+      </p>
+      <p>
+        La différence avec Claude AI : Claude AI travaille avec ce que tu lui donnes. Claude Code voit tout et agit sur tout.
+      </p>
+      <p>Ce qui le rend unique :</p>
+      <p>
+        <strong>Construction réelle</strong> — Il ne suggère pas du code dans un chat. Il crée des fichiers, exécute des commandes, et te montre le résultat en preview live. Tu vois ton app se construire en temps réel.
+      </p>
+      <p>
+        <strong>Skills & Plugins</strong> — Tu peux lui installer des compétences spécialisées. Frontend-design pour des interfaces premium. SuperPowers pour le brainstorming et le debugging. Code-review pour que 4 agents analysent ton code en parallèle.
+      </p>
+      <p>
+        <strong>MCP</strong> — Des connexions directes à GitHub, Supabase, Stripe, et des centaines d'autres services. Claude Code ne travaille pas en isolation — il interagit avec ta stack complète.
+      </p>
+      <p>
+        <strong>Subagents</strong> — Claude Code peut déléguer des sous-tâches à d'autres agents qui travaillent en parallèle. Un agent construit le frontend pendant qu'un autre configure la base de données.
+      </p>
+      <p>
+        <strong>CLAUDE.md</strong> — Un fichier de mémoire par projet. Claude Code le lit à chaque session et connaît le contexte, les conventions, le design system — sans que tu réexpliques quoi que ce soit.
+      </p>
+
+      <h3>2.3 — Claude Cowork : ton équipe qui ne dort jamais</h3>
+      <p>
+        Cowork, c'est la pièce qui transforme tout.
+      </p>
+      <p>
+        C'est un agent autonome dans Claude Desktop. Tu lui décris un résultat, il planifie les étapes, exécute, et te livre le travail fini. Il accède à tes fichiers locaux, utilise tes connecteurs, et peut même coordonner plusieurs sous-agents en parallèle.
+      </p>
+      <p>
+        Mais la vraie révolution, c'est les <strong>tâches planifiées</strong>.
+      </p>
+      <p>
+        Tu programmes une tâche une seule fois — avec une fréquence (quotidien, hebdo, horaire) — et Cowork l'exécute automatiquement. Chaque matin. Chaque lundi. Chaque vendredi à 17h. Sans que tu fasses quoi que ce soit.
+      </p>
+      <p>
+        C'est comme avoir des employés qui travaillent 24/7, qui ne tombent jamais malades, qui n'oublient jamais rien, et qui coûtent $20/mois.
+      </p>
+      <p>Des exemples concrets :</p>
       <ul>
-        <li><strong>Mémoire persistante</strong> : il se souvient de toi entre les conversations</li>
-        <li><strong>Projects</strong> : des espaces dédiés avec instructions + documents de référence</li>
-        <li><strong>Skills</strong> : recherche web, exécution de code, création de fichiers</li>
-        <li><strong>Artefacts</strong> : création de documents, tableurs, présentations, apps React dans le chat</li>
-        <li><strong>Connecteurs</strong> : Google Drive, Gmail, Notion, Slack, Figma, Stripe...</li>
+        <li>Un briefing matinal qui compile tes emails, tes messages Slack et ton agenda</li>
+        <li>Un rapport hebdomadaire généré automatiquement chaque lundi</li>
+        <li>Une veille concurrentielle quotidienne livrée à midi</li>
+        <li>Un résumé de la semaine prêt vendredi soir sans que tu lèves le petit doigt</li>
       </ul>
 
-      <h3>2.2 — Claude Code</h3>
-      <p>L'agent de code qui vit dans ton terminal. Il ne suggère pas — il construit, teste, déploie :</p>
-      <ul>
-        <li>Accès complet au projet (tous les fichiers)</li>
-        <li>Exécution réelle (commandes bash, installations, serveurs)</li>
-        <li>Skills & Plugins (frontend-design, code-review, feature-dev...)</li>
-        <li>MCP : connexions à GitHub, Supabase, Stripe, APIs</li>
-        <li>Subagents & Agent Teams : délégation parallèle</li>
-        <li>CLAUDE.md : mémoire par projet</li>
-      </ul>
+      <h3>2.4 — Comment les 3 travaillent ensemble</h3>
+      <p>
+        La vraie puissance, c'est quand les 3 produits collaborent sur le même objectif.
+      </p>
+      <p>
+        <strong>Tu réfléchis</strong> avec Claude AI — stratégie, brainstorming, contenu, analyse. Claude connaît ton business grâce aux Projects et à la mémoire.
+      </p>
+      <p>
+        <strong>Tu construis</strong> avec Claude Code — applications, outils, sites, micro-SaaS. Claude Code a le contexte grâce au CLAUDE.md et les connexions grâce aux MCP.
+      </p>
+      <p>
+        <strong>Tu automatises</strong> avec Cowork — les tâches récurrentes, le reporting, la veille, le contenu. Cowork tourne en arrière-plan avec les tâches planifiées.
+      </p>
+      <p>
+        C'est un seul écosystème. Un seul abonnement. Et ça remplace ce qui nécessiterait autrement un assistant, un développeur et un automaticien.
+      </p>
 
-      <h3>2.3 — Claude Cowork</h3>
-      <p>Le plus révolutionnaire. Un agent autonome dans Claude Desktop :</p>
-      <ul>
-        <li>Accès à tes fichiers locaux</li>
-        <li>Tâches multi-étapes complexes</li>
-        <li>Sub-agents parallèles</li>
-        <li><strong>Tâches planifiées</strong> : programme une fois, Claude exécute automatiquement</li>
-        <li>Plugins vérifiés</li>
-        <li>Connecteurs (Slack, Gmail, Drive, Calendar...)</li>
-      </ul>
+      {/* ── Diagramme : Les 3 produits en action ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Les 3 produits en action
+        </p>
+        {/* Top: TON BUSINESS */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            TON BUSINESS
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* 3 columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", marginBottom: "20px" }}>
+          {[
+            { label: "Claude AI", action: "Tu réfléchis", desc: "Stratégie · Contenu · Analyse" },
+            { label: "Claude Code", action: "Tu construis", desc: "Apps · Sites · Outils · SaaS" },
+            { label: "Cowork", action: "Tu automatises", desc: "Tâches auto · Rapports · Veille" },
+          ].map((item) => (
+            <div key={item.label} style={{ textAlign: "center" as const }}>
+              <div style={{
+                padding: "10px 8px",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "8px",
+                marginBottom: "8px",
+              }}>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: "#EDEEEF", marginBottom: "4px" }}>{item.label}</div>
+                <div style={{ fontSize: "10px", color: "rgba(237,238,239,0.4)" }}>{item.desc}</div>
+              </div>
+              <div style={{ fontSize: "11px", fontWeight: 500, color: "rgba(218,119,86,0.8)" }}>{item.action}</div>
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Bottom: Result */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Un business piloté par l'IA
+          </div>
+        </div>
+      </div>
 
-      <h3>2.4 — Tableau comparatif</h3>
-      <TableBlock
-        headers={["", "Claude AI", "Claude Code", "Claude Cowork"]}
-        rows={[
-          ["Interface", "Web / App / Desktop", "Terminal / IDE", "Claude Desktop"],
-          ["Pour qui", "Tout le monde", "Builders / Devs", "Tout le monde"],
-          ["Force", "Intelligence & conversation", "Construction & déploiement", "Automatisation & tâches"],
-          ["Mémoire", "✅ Persistante", "✅ CLAUDE.md", "✅ Par tâche"],
-          ["Automatisation", "❌", "Via scripts/hooks", "✅ Tâches planifiées"],
-          ["Extensions", "Connecteurs + Skills", "MCP + Skills + Plugins", "Plugins + Connecteurs"],
-        ]}
-      />
+      <CalloutBox variant="important">
+        La plupart des gens n'utilisent qu'un seul des trois produits — généralement Claude AI en mode chat. C'est comme n'utiliser que le volant d'une voiture sans jamais démarrer le moteur. La puissance vient de la combinaison.
+      </CalloutBox>
 
-      <CalloutBox variant="usecase">
-        Une consultante RH a utilisé les 3 produits pour lancer son activité en parallèle de son CDI : <strong>Claude AI</strong> pour brainstormer son offre et rédiger ses pages de vente. <strong>Claude Code</strong> pour builder un outil de matching candidat/entreprise en 2 jours. <strong>Cowork</strong> pour automatiser sa veille LinkedIn et générer 3 posts/semaine pendant qu'elle dort. Elle a signé ses 2 premiers clients en 3 semaines — sans toucher une ligne de code.
+      <h3>2.5 — Comment on utilise les 3 chez Buildrs</h3>
+      <p>
+        Chez Buildrs, les 3 produits tournent en parallèle sur chaque projet client.
+      </p>
+      <p>
+        <strong>Claude AI</strong> — Alfred a un Project dédié par client avec le brief, le positionnement, l'historique. Quand il travaille sur la stratégie d'un client, Claude est déjà aligné en 0 seconde.
+      </p>
+      <p>
+        <strong>Claude Code</strong> — Chaque projet a son CLAUDE.md avec la stack technique, les conventions, le design system. Quand on build une feature, Claude Code produit du code cohérent avec le reste du projet sans qu'on ait besoin de superviser le style.
+      </p>
+      <p>
+        <strong>Cowork</strong> — 7 agents planifiés tournent en continu : briefing matinal, rapport client hebdo, veille IA, content planning, suivi facturation, review de la semaine, surveillance concurrentielle. Ces 7 "employés" coûtent le prix d'un abo Pro.
+      </p>
+      <CalloutBox variant="buildrs">
+        Le résultat : Buildrs opère comme une structure de 15 personnes — avec 2 humains et 35 agents.
       </CalloutBox>
     </>
   ),
