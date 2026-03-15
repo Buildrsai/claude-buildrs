@@ -922,9 +922,11 @@ const chapter05: Chapter = {
   subtitle: "Avec les Projects et la mémoire, Claude connaît ton business par cœur.",
   bloc: "Configurer",
   actionPlan: [
-    "Créer son premier Project \"Mon Business\"",
-    "Écrire un prompt système de 10-15 lignes",
-    "Configurer sa mémoire avec les infos de base",
+    "Créer le Project \"Mon Business\" avec prompt système de 10-15 lignes",
+    "Ajouter 1-2 documents de référence",
+    "Créer le Project \"Contenu\" si tu produis du contenu",
+    "Configurer ta mémoire avec tes infos de base",
+    "Passer au chapitre 6",
   ],
   quiz: [
     {
@@ -934,29 +936,239 @@ const chapter05: Chapter = {
     },
     {
       question: "Un Project Claude, c'est :",
-      options: ["Un dossier GitHub", "Un espace avec prompt permanent + documents de référence", "Un projet Notion"],
+      options: ["Un dossier GitHub", "Un espace avec prompt permanent + documents de référence + conversations isolées", "Un projet Notion"],
+      correctIndex: 1,
+    },
+    {
+      question: "Chez Buildrs, les Projects permettent de :",
+      options: ["Décorer l'interface Claude", "Passer d'un contexte à l'autre en un clic sans jamais re-briefer Claude", "Partager des fichiers avec des clients"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>5.1 — La structure d'un bon prompt</h3>
-      <p>4 éléments : <strong>Rôle</strong> (qui est Claude) + <strong>Contexte</strong> (le background) + <strong>Tâche</strong> (quoi faire) + <strong>Format</strong> (comment le rendre).</p>
+      <h3>5.1 — Pourquoi 90% des gens obtiennent des résultats médiocres avec Claude</h3>
+      <p>
+        Ce n'est pas Claude le problème. C'est la façon dont on lui parle.
+      </p>
+      <p>
+        La majorité des utilisateurs écrivent des instructions comme ça :
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.6)", padding: "8px 16px", borderLeft: "2px solid rgba(255,255,255,0.1)" }}>
+        "Écris-moi un post Instagram sur l'IA"
+      </p>
+      <p>
+        Et se plaignent que le résultat est générique. Normal. Claude ne sait rien de toi, de ton audience, de ton ton, de ton objectif. Il fait au mieux avec le peu que tu lui donnes.
+      </p>
+      <p>
+        Maintenant imagine que Claude sait déjà que tu es coach business, que ton audience c'est des freelances de 25-40 ans, que ton ton est direct et bienveillant, que tu tutoies, et que tes posts doivent toujours commencer par un hook de 2 lignes max. Le même prompt produit un résultat 10x meilleur — sans effort supplémentaire de ta part.
+      </p>
+      <p>
+        C'est exactement ce que permettent les Projects et la mémoire. Et c'est ce qu'on va configurer maintenant.
+      </p>
 
-      <h3>5.2 — Les Projects : ton arme secrète</h3>
-      <p>Un Project = prompt système permanent + documents de référence + espace isolé.</p>
-      <p>Exemples à créer :</p>
+      <h3>5.2 — La structure d'un prompt qui obtient des résultats</h3>
+      <p>
+        Un prompt efficace contient 4 éléments. Pas besoin de les écrire dans cet ordre, mais ils doivent tous être là :
+      </p>
+      <p>
+        <strong>Rôle</strong> — Qui est Claude dans cette conversation ?
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.5)", paddingLeft: "16px" }}>
+        "Tu es un expert en copywriting direct-response, spécialisé marché francophone."
+      </p>
+      <p>
+        <strong>Contexte</strong> — Quel est le background de ta demande ?
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.5)", paddingLeft: "16px" }}>
+        "Mon audience : des freelances qui veulent vendre des formations. Mon offre : un programme de 8 semaines à 497€."
+      </p>
+      <p>
+        <strong>Tâche</strong> — Que doit-il faire précisément ?
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.5)", paddingLeft: "16px" }}>
+        "Rédige 5 hooks Instagram de 2 lignes max, format question → promesse."
+      </p>
+      <p>
+        <strong>Format</strong> — Comment tu veux le résultat ?
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.5)", paddingLeft: "16px" }}>
+        "Chaque hook sur une ligne. Pas de hashtags. Pas d'emoji."
+      </p>
+      <p>
+        La différence entre un prompt vague et un prompt structuré, c'est la différence entre demander "fais-moi un truc" à un stagiaire et donner un brief précis à un expert. Claude est l'expert — mais il a besoin de ton brief.
+      </p>
+      <CalloutBox variant="important">
+        Un prompt de 5 lignes bien structuré produit un meilleur résultat qu'une conversation de 20 messages flous. C'est contre-intuitif, mais moins de messages avec plus de clarté = meilleurs résultats + moins de tokens consommés.
+      </CalloutBox>
+
+      <h3>5.3 — Les Projects : le game-changer que personne n'utilise</h3>
+      <p>
+        Les Projects sont la fonctionnalité la plus puissante et la plus sous-utilisée de Claude. C'est celle qui fait passer Claude de "chatbot généraliste" à "collaborateur qui connaît ton business".
+      </p>
+      <p>Un Project, c'est 3 choses :</p>
+      <p>
+        <strong>Un prompt système permanent</strong> — Des instructions que Claude suit dans chaque conversation de ce projet. Tu les écris une fois, elles s'appliquent à chaque message. C'est comme briefer un collaborateur le jour de son arrivée — après, il sait comment travailler.
+      </p>
+      <p>
+        <strong>Des documents de référence</strong> — PDFs, textes, images que Claude peut consulter à tout moment dans ce projet. Ta charte, ton offre, tes exemples, tes process — tout est là, accessible.
+      </p>
+      <p>
+        <strong>Un espace isolé</strong> — Les conversations d'un projet ne polluent pas les autres. Ton projet "Contenu" et ton projet "Stratégie" sont séparés. Claude ne confond pas les contextes.
+      </p>
+
+      <h3>5.4 — Les Projects que tu dois créer (maintenant)</h3>
+      <p>
+        <strong>Project 1 — "Mon Business"</strong>
+      </p>
+      <p>
+        Le projet principal. Prompt système avec ta description d'activité, tes offres, ta cible, ton ton de voix, tes valeurs. Documents de référence : ta page À propos, ton pitch deck, ton manifeste. Tout ce que tu aurais dit à un nouvel employé pour qu'il comprenne ton business en 30 minutes.
+      </p>
+      <p>
+        <strong>Project 2 — "Contenu"</strong>
+      </p>
+      <p>
+        Dédié à la production de contenu. Prompt système avec ta charte éditoriale, tes formats préférés, tes contraintes. Documents : exemples de posts qui marchent, ta ligne éditoriale, tes sujets récurrents. Claude produit du contenu aligné avec ton style dès le premier message.
+      </p>
+      <p>
+        <strong>Project 3 — "Stratégie"</strong>
+      </p>
+      <p>
+        Pour les sessions de réflexion. Prompt système orienté analyse et conseil. Documents : ton business plan, tes objectifs trimestriels, tes KPIs. Claude devient ton sparring partner stratégique avec tout le contexte nécessaire.
+      </p>
+      <p>
+        <strong>Project 4+ — "Client [Nom]"</strong> (si tu as des clients)
+      </p>
+      <p>
+        Un projet par client. Brief, historique, livrables en cours. Quand tu switches d'un client à l'autre, Claude switch de contexte instantanément.
+      </p>
+
+      <h3>5.5 — La mémoire : ce que Claude retient de toi entre les sessions</h3>
+      <p>
+        En parallèle des Projects, Claude a une mémoire persistante globale. Elle retient des choses sur toi à travers toutes tes conversations :
+      </p>
       <ul>
-        <li>"Mon Business" → description, offres, cible, ton</li>
-        <li>"Contenu Social" → charte éditoriale, exemples</li>
-        <li>"Client [Nom]" → brief, historique, livrables</li>
+        <li>Ton prénom, ton activité, ta localisation</li>
+        <li>Tes préférences de format et de ton</li>
+        <li>Des faits sur tes projets en cours</li>
+        <li>Tes instructions récurrentes</li>
       </ul>
+      <p>
+        Tu peux la gérer dans Settings → Memory. Tu peux aussi simplement dire à Claude : <em>"Souviens-toi que j'utilise toujours le tutoiement, que je déteste le ton corporate, et que mes réponses doivent être directes et concrètes."</em>
+      </p>
+      <p>
+        La mémoire + les Projects = Claude qui te connaît par cœur. Tu ouvres une conversation et il sait déjà à qui il parle, dans quel contexte, et comment tu veux qu'il travaille.
+      </p>
 
-      <h3>5.3 — La mémoire persistante</h3>
-      <p>Dans Settings → Memory. Claude retient tes préférences, des faits sur toi, tes instructions récurrentes.</p>
+      <h3>5.6 — Comment Alfred a configuré ses Projects chez Buildrs</h3>
+      <p>
+        Chez Buildrs, Alfred a 6 Projects actifs en permanence :
+      </p>
+      <p>
+        <strong>"Buildrs — Stratégie"</strong> — Le prompt système fait 30 lignes. Vision, positionnement, offres, cible, ton. Quand Alfred brainstorme sur une nouvelle offre ou un pivot, Claude est aligné en 0 seconde. Pas besoin de contexte — il sait tout.
+      </p>
+      <p>
+        <strong>"Buildrs — Contenu"</strong> — Charte éditoriale, exemples de posts qui ont performé, sujets à aborder, sujets à éviter. Alfred décrit un angle en une phrase, Claude sort un contenu calibré.
+      </p>
+      <p>
+        <strong>"Buildrs — Clients"</strong> — Un sous-projet par client actif. Brief, stack technique, avancement. Quand on travaille sur le projet d'un client, on ouvre son Project et Claude a tout le contexte du projet sans qu'on ré-explique quoi que ce soit.
+      </p>
+      <p>
+        <strong>"Buildrs — Recrutement Agents"</strong> — Un Project dédié à la conception de nouveaux agents IA. Les specs de chaque agent, les prompts qui marchent, les retours d'expérience.
+      </p>
+      <p>
+        <strong>"Buildrs — Ops"</strong> — Process internes, templates de livrables, checklists qualité. Tout ce qui fait tourner la machine au quotidien.
+      </p>
+      <p>
+        <strong>"Buildrs — R&D"</strong> — Veille, expérimentations, tests de nouveaux outils et workflows. Le labo.
+      </p>
+      <CalloutBox variant="buildrs">
+        Le résultat : Alfred passe d'un contexte à l'autre en un clic. Chaque Project est un département de l'entreprise avec son propre brief. Claude ne mélange jamais les contextes. Le gain de temps estimé : 15-20 heures par mois de re-briefing évité.
+      </CalloutBox>
 
-      <CalloutBox variant="usecase">
-        Une naturopathe a créé 3 Projects Claude : "Mon offre" (positionnement, cibles, tarifs), "Contenu Instagram" (ton, exemples de posts, hashtags), et "Prospection" (templates d'emails, séquences de relance). En 1 mois, elle a triplé son nombre de leads entrants — parce que Claude produit du contenu aligné avec son positionnement à chaque conversation, sans qu'elle ait besoin de ré-expliquer qui elle est.
+      {/* ── Diagramme : Architecture Projects Buildrs ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          L'architecture Projects de Buildrs
+        </p>
+        {/* Top: Alfred */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Alfred
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* 6 Projects grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px", marginBottom: "20px" }}>
+          {[
+            { label: "Stratégie", desc: "Prompt 30 lignes + docs" },
+            { label: "Contenu", desc: "Charte + exemples" },
+            { label: "Clients", desc: "Brief par client" },
+            { label: "Agents IA", desc: "Specs + prompts" },
+            { label: "Ops", desc: "Process + templates" },
+            { label: "R&D", desc: "Veille + expériences" },
+          ].map((item) => (
+            <div key={item.label} style={{
+              padding: "10px 8px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "8px",
+              textAlign: "center" as const,
+            }}>
+              <div style={{ fontSize: "11px", fontWeight: 600, color: "#EDEEEF", marginBottom: "3px" }}>{item.label}</div>
+              <div style={{ fontSize: "9px", color: "rgba(237,238,239,0.4)" }}>{item.desc}</div>
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Bottom: Result */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Claude aligné en 0 sec
+          </div>
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Crée ton premier Project maintenant. Appelle-le "Mon Business". Écris un prompt système de 10-15 lignes qui décrit : qui tu es, ce que tu fais, pour qui, et comment tu veux que Claude te parle. Ajoute un document de référence (ta page À propos, ton pitch, ou même un simple texte qui décrit ton activité). C'est fait en 5 minutes et ça change tout pour la suite.
       </CalloutBox>
 
       <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
