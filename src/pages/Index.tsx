@@ -691,10 +691,13 @@ const Index = () => {
       {/* SECTION — QUI EST BUILDRS ?                     */}
       {/* ═══════════════════════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-6 py-24">
-        <motion.div {...fadeUp} className="text-center mb-12">
+        <motion.div {...fadeUp} className="mb-12">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+            À propos
+          </p>
           <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            Buildrs — l'IA comme levier.{" "}
-            <span className="italic text-secondary-foreground">Claude comme moteur.</span>
+            Qui est{" "}
+            <span className="italic text-secondary-foreground">Buildrs ?</span>
           </h2>
         </motion.div>
 
@@ -711,7 +714,7 @@ const Index = () => {
             <img src={buildrsLogoIcon} alt="Buildrs" className="h-16 w-auto opacity-90" />
           </div>
 
-          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base text-center">
+          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
             <p>
               Buildrs aide les entrepreneurs à piloter leur business avec l'IA.
             </p>
