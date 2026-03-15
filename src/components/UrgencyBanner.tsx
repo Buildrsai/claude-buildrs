@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { Unlock, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "buildrs_first_visit_timestamp";
 const DURATION_MS = 72 * 60 * 60 * 1000; // 72 hours
