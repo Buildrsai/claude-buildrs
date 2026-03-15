@@ -687,6 +687,74 @@ const Index = () => {
       </div>
 
       {/* ═══════════════════════════════════════════════ */}
+      {/* SECTION — QUI EST BUILDRS ?                     */}
+      {/* ═══════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <motion.div {...fadeUp} className="text-center mb-12">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+            À propos
+          </p>
+          <h2 className="text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+            Mais qui est{" "}
+            <span className="italic text-secondary-foreground">Buildrs ?</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          {...fadeUp}
+          className="relative mx-auto max-w-3xl rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-8 sm:p-12"
+          style={{ boxShadow: "0 0 80px -20px hsl(0 0% 100% / 0.04)" }}
+        >
+          {/* Subtle glow behind */}
+          <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-b from-muted/30 to-transparent blur-2xl" />
+
+          <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p>
+              <span className="font-medium text-foreground">Buildrs</span> a été fondée par{" "}
+              <span className="font-medium text-foreground">Alfred Orsini</span>. Aujourd'hui, Buildrs fonctionne avec{" "}
+              <span className="font-medium text-foreground">32 agents IA</span> pilotés par Alfred — dont{" "}
+              <span className="font-medium text-foreground">20 % sont totalement autonomes</span> et exécutent l'ensemble des tâches opérationnelles et marché.
+            </p>
+
+            <p>
+              Buildrs est spécialisée dans la{" "}
+              <span className="font-medium text-foreground">mise en place d'outils IA, l'orchestration d'agents intelligents</span>{" "}
+              et la construction d'<span className="font-medium text-foreground">écosystèmes complets avec Claude comme moteur central</span>.
+            </p>
+
+            <p>
+              Elle accompagne les{" "}
+              <span className="font-medium text-foreground">indépendants, freelances, entrepreneurs et entreprises</span>{" "}
+              à implémenter des écosystèmes IA pour générer plus de chiffre d'affaires, accélérer leur exécution et automatiser ce qui peut l'être.
+            </p>
+
+            <p>
+              Buildrs a aussi une spécialisation unique : apprendre aux gens à{" "}
+              <span className="font-medium text-foreground">monter des business autour du Vibe Coding</span>{" "}
+              — en combinant agents IA, Claude, et outils no-code pour créer des produits et services sans dépendre d'une équipe technique.
+            </p>
+          </div>
+
+          {/* Tags */}
+          <div className="mt-8 flex flex-wrap gap-2">
+            {["Agents IA", "Vibe Coding", "Écosystème Claude", "Orchestration IA", "Business Automation"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-border/60 bg-secondary/50 px-3 py-1 text-xs font-medium text-secondary-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Divider */}
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      </div>
+
+      {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 6 — CTA FINAL                           */}
       {/* ═══════════════════════════════════════════════ */}
       <section className="mx-auto max-w-3xl px-6 py-28 text-center">
