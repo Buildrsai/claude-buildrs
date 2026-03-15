@@ -436,7 +436,7 @@ const Index = () => {
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border/30 bg-background text-muted-foreground transition-colors group-hover:text-foreground">
                 <point.icon size={18} strokeWidth={1.5} />
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+              <p className="text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
                 {point.text}
               </p>
             </motion.div>
