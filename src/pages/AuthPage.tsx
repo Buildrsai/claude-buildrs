@@ -154,7 +154,7 @@ export default function AuthPage() {
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
-              <img src="/src/assets/claude-icon.png" alt="Claude" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+              <img src={claudeIcon} alt="Claude" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
               <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Claude</span>
             </div>
             <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.4)' }}>×</span>
