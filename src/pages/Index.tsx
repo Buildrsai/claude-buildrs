@@ -451,7 +451,7 @@ const Index = () => {
             </p>
             <div className="h-px w-12 bg-border/60" />
           </div>
-          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground/90">
             Ce guide te montre exactement comment configurer Claude pour qu'il travaille pour toi — pas l'inverse.
           </p>
         </motion.div>
