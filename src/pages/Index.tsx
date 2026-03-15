@@ -480,7 +480,7 @@ const Index = () => {
           <h2 className="mb-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Ce que tu vas apprendre
           </h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-[15px] leading-relaxed text-muted-foreground/90">
             16 chapitres pour passer de "je découvre Claude" à "Claude travaille pour mon business".
           </p>
         </motion.div>
