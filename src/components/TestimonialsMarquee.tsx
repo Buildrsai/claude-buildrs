@@ -32,9 +32,11 @@ const firstRow = reviews.slice(0, reviews.length / 2)
 const secondRow = reviews.slice(reviews.length / 2)
 
 const ReviewCard = ({
+  img,
   name,
   city,
 }: {
+  img: string
   name: string
   city: string
 }) => {
@@ -46,13 +48,22 @@ const ReviewCard = ({
         "transition-colors duration-150"
       )}
     >
-      <div className="flex flex-col gap-1.5">
-        <p className="text-sm font-medium text-foreground">
-          <span className="font-semibold">{name}</span> de {city}
-        </p>
-        <p className="text-[13px] text-muted-foreground">
-          vient de télécharger le guide Claude SuperPowers
-        </p>
+      <div className="flex flex-row items-center gap-3">
+        <img
+          className="rounded-full"
+          width="28"
+          height="28"
+          alt={name}
+          src={img}
+        />
+        <div className="flex flex-col gap-0.5">
+          <p className="text-sm font-medium text-foreground">
+            <span className="font-semibold">{name}</span> de {city}
+          </p>
+          <p className="text-[13px] text-muted-foreground">
+            vient de télécharger le guide Claude SuperPowers
+          </p>
+        </div>
       </div>
     </figure>
   )
