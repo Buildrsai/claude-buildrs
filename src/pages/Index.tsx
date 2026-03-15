@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ChapterCard from "@/components/ChapterCard";
 import { ClaudeEcosystem } from "@/components/ClaudeEcosystem";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
+import { UrgencyBanner } from "@/components/UrgencyBanner";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
 import {
@@ -276,10 +277,13 @@ const Index = () => {
         </div>
       </header>
 
+      {/* ─── URGENCY BANNER ─── */}
+      <UrgencyBanner />
+
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 1 — HERO                                */}
       {/* ═══════════════════════════════════════════════ */}
-      <section className="relative mx-auto max-w-6xl px-6 pb-28 pt-40">
+      <section className="relative mx-auto max-w-6xl px-6 pb-28 pt-[210px] sm:pt-[200px]">
         {/* Subtle radial glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-muted/30 blur-[120px]" />
