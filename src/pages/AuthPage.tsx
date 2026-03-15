@@ -136,19 +136,38 @@ export default function AuthPage() {
         }}
       />
 
-      {/* Modal */}
+      {/* Modal with animated border */}
       <div
         style={{
           position: 'relative',
           zIndex: 2,
           width: '100%',
           maxWidth: '380px',
-          background: '#0C0D0E',
-          border: '1px solid rgba(255,255,255,0.10)',
-          borderRadius: '14px',
-          padding: '32px',
-          boxShadow: '0 24px 64px rgba(0,0,0,0.7)',
+          borderRadius: '15px',
+          padding: '1px',
+          background: 'transparent',
+          overflow: 'hidden',
         }}
+      >
+        {/* Rotating gradient border */}
+        <div
+          className="animate-[spin_4s_linear_infinite]"
+          style={{
+            position: 'absolute',
+            inset: '-50%',
+            background: 'conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(255,255,255,0.15) 70%, rgba(200,180,255,0.3) 75%, rgba(255,200,150,0.2) 80%, rgba(255,255,255,0.15) 85%, transparent 95%, transparent 100%)',
+            zIndex: 0,
+          }}
+        />
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            background: '#0C0D0E',
+            borderRadius: '14px',
+            padding: '32px',
+            boxShadow: '0 24px 64px rgba(0,0,0,0.7)',
+          }}
       >
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
