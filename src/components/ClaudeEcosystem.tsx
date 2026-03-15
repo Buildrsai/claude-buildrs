@@ -55,7 +55,7 @@ export function ClaudeEcosystem() {
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-3">
                 <div className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-[15px] leading-relaxed text-muted-foreground/90">
                   <span className="font-medium text-foreground">{item.label}</span>
                   {" — "}
                   {item.desc}

@@ -714,7 +714,7 @@ const Index = () => {
             <img src={buildrsLogoIcon} alt="Buildrs" className="h-12 w-auto" />
           </div>
 
-          <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
             <p>
               <span className="font-medium text-foreground">Buildrs</span> a été fondée par{" "}
               <span className="font-medium text-foreground">Alfred Orsini</span>. Aujourd'hui, Buildrs fonctionne avec{" "}

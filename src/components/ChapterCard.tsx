@@ -28,7 +28,7 @@ const ChapterCard = ({ number, title, description, icon: Icon, isBonus }: Chapte
       </div>
       <p className="mb-1.5 font-sans text-[11px] font-medium uppercase tracking-widest text-muted-foreground">{number}</p>
       <h3 className="mb-2 font-serif text-base font-medium text-foreground">{title}</h3>
-      <p className="text-xs leading-relaxed text-muted-foreground">{description}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground/90">{description}</p>
     </div>
   );
 };
