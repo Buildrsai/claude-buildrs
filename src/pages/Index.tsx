@@ -472,6 +472,140 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════ */}
+      {/* SECTION 4B — BONUS PLAN D'ACTION (highlight)    */}
+      {/* ═══════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden">
+        {/* Background glow */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, rgba(218,119,86,0.06) 30%, rgba(218,119,86,0.06) 70%, transparent 100%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-6xl px-6 py-20">
+          <motion.div
+            {...fadeUp}
+            className="relative rounded-2xl border overflow-hidden"
+            style={{
+              borderColor: "rgba(218,119,86,0.3)",
+              background: "linear-gradient(135deg, rgba(218,119,86,0.08) 0%, rgba(255,107,53,0.04) 50%, rgba(218,119,86,0.08) 100%)",
+            }}
+          >
+            {/* Top accent bar */}
+            <div
+              style={{
+                height: "3px",
+                background: "linear-gradient(90deg, #DA7756, #FF6B35, #DA7756)",
+              }}
+            />
+
+            {/* Shimmer effect */}
+            <div
+              className="bonus-highlight-shimmer"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "-100%",
+                width: "100%",
+                height: "100%",
+                background: "linear-gradient(90deg, transparent, rgba(218,119,86,0.06), transparent)",
+                animation: "bonus-shimmer 6s infinite",
+                pointerEvents: "none",
+              }}
+            />
+
+            <div className="relative flex flex-col items-center gap-8 px-8 py-12 sm:flex-row sm:px-12 sm:py-14">
+              {/* Left — Icon */}
+              <div className="flex flex-shrink-0 flex-col items-center gap-3 sm:items-start">
+                <div
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(218,119,86,0.2), rgba(255,107,53,0.12))",
+                    border: "1px solid rgba(218,119,86,0.25)",
+                  }}
+                >
+                  <Map size={28} strokeWidth={1.5} style={{ color: "rgba(218,119,86,0.9)" }} />
+                </div>
+                <span
+                  className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em]"
+                  style={{
+                    background: "rgba(218,119,86,0.15)",
+                    color: "rgba(218,119,86,0.95)",
+                    border: "1px solid rgba(218,119,86,0.25)",
+                  }}
+                >
+                  Bonus inclus
+                </span>
+              </div>
+
+              {/* Center — Content */}
+              <div className="flex-1 text-center sm:text-left">
+                <p
+                  className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: "rgba(218,119,86,0.7)" }}
+                >
+                  Chapitre bonus — Durée limitée
+                </p>
+                <h3 className="mb-3 font-serif text-2xl font-medium text-foreground sm:text-3xl" style={{ letterSpacing: "-0.02em" }}>
+                  Le plan d'action A → Z
+                </h3>
+                <p className="mb-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                  La feuille de route complète pour transformer Claude en machine de guerre — chaque étape, chaque outil, chaque Skill, chaque fichier. De zéro à opérationnel.
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground sm:justify-start">
+                  <span className="flex items-center gap-1.5">
+                    <span style={{ color: "rgba(74,222,128,0.7)" }}>✓</span> Checklist étape par étape
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span style={{ color: "rgba(74,222,128,0.7)" }}>✓</span> Fichiers prêts à l'emploi
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span style={{ color: "rgba(74,222,128,0.7)" }}>✓</span> Setup complet en 1 session
+                  </span>
+                </div>
+              </div>
+
+              {/* Right — CTA */}
+              <div className="flex flex-shrink-0 flex-col items-center gap-3">
+                <button
+                  onClick={() => navigate("/auth")}
+                  className="group/btn flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200"
+                  style={{
+                    background: "linear-gradient(135deg, #DA7756, #FF6B35)",
+                    color: "#FFFFFF",
+                    boxShadow: "0 4px 24px rgba(218,119,86,0.3)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 6px 32px rgba(218,119,86,0.45)";
+                    e.currentTarget.style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 4px 24px rgba(218,119,86,0.3)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  Débloquer le bonus
+                  <ArrowRight size={16} />
+                </button>
+                <p className="text-[11px] text-muted-foreground/60">
+                  Inclus avec l'accès gratuit
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <style>{`
+          @keyframes bonus-shimmer {
+            0% { left: -100%; }
+            25% { left: 100%; }
+            100% { left: 100%; }
+          }
+        `}</style>
+      </section>
+
+      {/* ═══════════════════════════════════════════════ */}
       {/* TESTIMONIALS MARQUEE                             */}
       {/* ═══════════════════════════════════════════════ */}
       <TestimonialsMarquee />
