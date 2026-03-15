@@ -1690,42 +1690,205 @@ const chapter08: Chapter = {
   subtitle: "Tu décris. Claude construit. GitHub sauvegarde. Vercel déploie. En ligne avant la fin de la journée.",
   bloc: "Configurer",
   actionPlan: [
-    "Créer un compte GitHub (gratuit)",
-    "Créer un compte Vercel (gratuit)",
-    "Les connecter ensemble",
+    "Créer un compte GitHub (github.com — gratuit)",
+    "Créer un compte Vercel (vercel.com — gratuit, connecte avec GitHub)",
+    "Comprendre le flux : Décrire → Build → Preview → Push → Deploy → Live",
+    "Passer au chapitre 9",
   ],
   quiz: [
     {
       question: "Avec Vercel, le déploiement fonctionne comment ?",
-      options: ["Upload manuel", "Push GitHub = déploiement automatique", "Email au support"],
+      options: ["Tu uploades manuellement tes fichiers", "Tu pushes sur GitHub et Vercel déploie automatiquement à chaque changement", "Tu envoies un email au support Vercel"],
       correctIndex: 1,
     },
     {
       question: "Le workflow VibeCoding c'est :",
       options: [
-        "Coder → Tester → Déployer",
-        "Décrire → Claude construit → Preview → GitHub → Vercel → Live",
-        "Wireframe → Dev",
+        "Coder → Tester → Déployer manuellement",
+        "Décrire → Claude construit → Preview → Push GitHub → Vercel déploie → Live",
+        "Dessiner un wireframe → Envoyer à un dev",
       ],
+      correctIndex: 1,
+    },
+    {
+      question: "Chez Buildrs, le délai entre \"je veux ce changement\" et \"c'est en ligne\" est de :",
+      options: ["2-3 jours", "Souvent moins de 10 minutes", "1-2 heures"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>8.1 — La preview en temps réel</h3>
-      <p>Chaque modification de Claude Code est visible en direct dans ton navigateur. Tu décris → Claude applique → tu vois le résultat.</p>
+      <h3>8.1 — Le workflow qui rend tout le reste obsolète</h3>
+      <p>
+        Ce que tu vas découvrir dans ce chapitre, c'est le pipeline qui permet à Buildrs de livrer des produits en quelques heures au lieu de quelques semaines. Et c'est le même pipeline que tu vas utiliser.
+      </p>
+      <p>
+        Le principe est simple : tu ne touches jamais aux serveurs, tu ne configures jamais d'hébergement, tu ne gères jamais de déploiement manuel. Tout est automatique. Tu décris ce que tu veux, Claude Code le construit, et en quelques clics c'est en ligne — avec une vraie URL, accessible par le monde entier.
+      </p>
+      <p>
+        C'est cette fluidité qui rend le VibeCoding si puissant. Il n'y a plus de mur entre "j'ai une idée" et "c'est en ligne". Ce mur n'existe plus.
+      </p>
 
-      <h3>8.2 — GitHub : ton coffre-fort de code</h3>
-      <p>Stockage de code avec historique complet. Claude Code peut créer des repos, pusher, créer des Pull Requests.</p>
+      <h3>8.2 — La preview en temps réel : ton feedback instantané</h3>
+      <p>
+        Quand Claude Code travaille sur ton projet, tu peux voir chaque modification en direct dans ton navigateur. Pas besoin d'attendre, pas besoin de compiler manuellement. Tu décris un changement, Claude l'applique, et la preview se met à jour.
+      </p>
+      <p>
+        C'est ce qui rend le VibeCoding si naturel. Tu diriges comme un réalisateur — "change cette couleur", "ajoute un bouton ici", "le texte est trop long, raccourcis" — et tu vois le résultat en direct. Si ça ne te plaît pas, tu dis pourquoi, Claude corrige. Boucle de feedback en secondes, pas en jours.
+      </p>
+      <p>
+        C'est la fin du cycle classique : brief → attendre 5 jours → recevoir une maquette → faire des retours → attendre encore → etc. Ici, tout se passe en temps réel.
+      </p>
 
-      <h3>8.3 — Vercel : déploiement en un clic</h3>
-      <p>Connecte GitHub à Vercel → chaque push déploie automatiquement. Ton app est live en quelques secondes.</p>
+      <h3>8.3 — GitHub : chaque version est sauvegardée, pour toujours</h3>
+      <p>
+        GitHub c'est le coffre-fort de ton code. Pense à Google Drive, mais pour le code source.
+      </p>
+      <p>
+        Chaque fois que tu fais un "push" (une sauvegarde), GitHub enregistre l'état complet de ton projet à cet instant. Si tu fais une erreur demain, tu peux revenir à la version d'aujourd'hui en un clic. Si tu veux comparer ce qui a changé entre lundi et vendredi, tout est tracé.
+      </p>
+      <p>Claude Code gère GitHub pour toi. Il peut :</p>
+      <ul>
+        <li>Créer un nouveau repository (dépôt de code)</li>
+        <li>Sauvegarder tes modifications avec un message de commit</li>
+        <li>Créer des Pull Requests (propositions de modification)</li>
+        <li>Gérer les branches (versions parallèles de ton projet)</li>
+      </ul>
+      <p>
+        Tu n'as pas besoin de comprendre Git en profondeur. Tu dis à Claude Code "push le code sur GitHub" et il le fait.
+      </p>
 
-      <h3>8.4 — Le workflow complet</h3>
-      <CodeBlock code="Tu décris → Claude Code construit → Preview locale → Push GitHub → Vercel déploie → App en ligne" />
+      <h3>8.4 — Vercel : ton app en ligne en 30 secondes</h3>
+      <p>
+        Vercel est le service qui met ton application en ligne. L'idée est simple : tu connectes ton repository GitHub à Vercel, et à chaque push, Vercel détecte le changement et déploie automatiquement la nouvelle version.
+      </p>
+      <p>
+        Le résultat : ton app est accessible sur une URL type <code>ton-projet.vercel.app</code> — avec HTTPS, un CDN mondial (ton site est rapide partout dans le monde), et zéro configuration serveur.
+      </p>
+      <p>
+        Tu peux ensuite connecter ton propre nom de domaine si tu veux <code>monoutil.com</code> au lieu de <code>ton-projet.vercel.app</code>.
+      </p>
+      <p>
+        Et le plus beau : <strong>le plan gratuit de Vercel suffit largement pour lancer.</strong> Tu ne paies rien tant que tu n'as pas des milliers d'utilisateurs.
+      </p>
 
-      <CalloutBox variant="usecase">
-        Une freelance copywriter a construit un générateur de landing pages pour ses clients. Elle décrit le positionnement, Claude Code génère la page complète, elle prévisualise en temps réel, ajuste le copy, et déploie sur Vercel en un clic. Ses clients reçoivent la landing page en ligne dans la journée au lieu de 2 semaines. Elle a doublé son tarif — et ses clients sont plus satisfaits qu'avant.
+      <h3>8.5 — Le pipeline complet, étape par étape</h3>
+      <p>Voici comment une modification passe de ton idée à la production :</p>
+      <p>
+        <strong>Étape 1 — Tu décris</strong> ce que tu veux à Claude Code. En français. En langage naturel.
+      </p>
+      <p>
+        <strong>Étape 2 — Claude Code construit.</strong> Il modifie les fichiers, crée du code, installe ce qui manque.
+      </p>
+      <p>
+        <strong>Étape 3 — Tu prévisualises</strong> dans ton navigateur. Tu valides visuellement. Si c'est bon, on avance. Sinon, tu décris ce qu'il faut changer et on boucle.
+      </p>
+      <p>
+        <strong>Étape 4 — Claude Code push sur GitHub.</strong> Le code est sauvegardé avec un historique propre.
+      </p>
+      <p>
+        <strong>Étape 5 — Vercel détecte le push et déploie automatiquement.</strong> En 10-30 secondes, la nouvelle version est en ligne.
+      </p>
+      <p>
+        <strong>Étape 6 — C'est live.</strong> Ton app est accessible au monde entier. Tes utilisateurs voient la dernière version.
+      </p>
+      <p>
+        Ce pipeline tourne en boucle : chaque itération prend quelques minutes. En une après-midi, tu peux faire 20 itérations — ce qui équivaut à 20 jours de cycle de développement classique.
+      </p>
+      <CalloutBox variant="important">
+        Ce workflow, c'est exactement celui que les startups et les agences de développement facturent des milliers d'euros. GitHub + Vercel + un développeur senior = 500-800€/jour. Toi, tu as le même pipeline avec Claude Code pour le prix de ton abonnement Pro. La démocratisation est totale.
+      </CalloutBox>
+
+      {/* ── Diagramme : Le pipeline VibeCoding ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Le pipeline VibeCoding
+        </p>
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "6px" }}>
+          {[
+            { step: "1", label: "Tu décris", detail: "En français, en langage naturel", accent: false },
+            { step: "2", label: "Claude Code construit", detail: "Fichiers, code, dépendances", accent: false },
+            { step: "3", label: "Tu prévisualises", detail: "Feedback en direct dans le navigateur", accent: false },
+            { step: "4", label: "Push GitHub", detail: "Code sauvegardé avec historique", accent: false },
+            { step: "5", label: "Vercel déploie", detail: "Auto en 10-30 secondes", accent: false },
+            { step: "6", label: "C'est live", detail: "Accessible au monde entier", accent: true },
+          ].map((item) => (
+            <div key={item.step} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{
+                width: "24px",
+                height: "24px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: item.accent ? "rgba(218,119,86,0.15)" : "rgba(255,255,255,0.04)",
+                border: `1px solid ${item.accent ? "rgba(218,119,86,0.3)" : "rgba(255,255,255,0.08)"}`,
+                fontSize: "10px",
+                fontWeight: 600,
+                color: item.accent ? "#DA7756" : "rgba(237,238,239,0.5)",
+                flexShrink: 0,
+              }}>
+                {item.step}
+              </div>
+              <div style={{
+                flex: 1,
+                padding: "8px 14px",
+                background: item.accent ? "rgba(218,119,86,0.08)" : "rgba(255,255,255,0.02)",
+                border: `1px solid ${item.accent ? "rgba(218,119,86,0.2)" : "rgba(255,255,255,0.06)"}`,
+                borderRadius: "6px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}>
+                <span style={{ fontSize: "12px", fontWeight: item.accent ? 600 : 500, color: item.accent ? "#DA7756" : "#EDEEEF" }}>{item.label}</span>
+                <span style={{ fontSize: "10px", color: "rgba(237,238,239,0.35)" }}>{item.detail}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          textAlign: "center" as const,
+          fontSize: "10px",
+          color: "rgba(237,238,239,0.3)",
+          marginTop: "12px",
+        }}>
+          ↻ Nouvelle itération → retour à l'étape 1
+        </p>
+      </div>
+
+      <h3>8.6 — Comment ce pipeline tourne chez Buildrs</h3>
+      <p>
+        Chez Buildrs, ce workflow est le cœur de la production. Chaque projet client l'utilise.
+      </p>
+      <p>
+        <strong>Le cas NOAH™</strong> — Le générateur d'offres IA que Buildrs a construit pour les entrepreneurs. Pendant les 5 jours de build, le pipeline tournait en continu : Alfred décrivait une feature, Claude Code la construisait, push sur GitHub, Vercel déployait, le client testait sur l'URL de staging. Délai entre "je veux ce changement" et "c'est en ligne" : souvent moins de 10 minutes. Sur 5 jours, on a fait +100 itérations. En développement classique, ça aurait pris 3-4 mois.
+      </p>
+      <p>
+        <strong>Ce guide que tu lis</strong> — Ce dashboard a été construit avec exactement ce pipeline. La LP, l'onboarding, le contenu des chapitres — tout passe par Claude Code → GitHub → Vercel. Chaque modification que tu vois a été décrite, buildée, et déployée en quelques minutes.
+      </p>
+      <p>
+        <strong>Les mises à jour clients en temps réel</strong> — Quand un client Buildrs demande une modification sur son micro-SaaS, on lance Claude Code, on applique le changement, on push. Le client rafraîchit sa page — c'est déjà en ligne. Pas de ticket Jira, pas d'attente, pas de "ce sera dans la prochaine release". C'est fait.
+      </p>
+      <CalloutBox variant="buildrs">
+        Le pipeline n'est pas juste un gain de temps. C'est un changement de relation avec le produit. Tu n'es plus en mode "je planifie, j'attends, je reçois". Tu es en mode "je veux, c'est fait".
+      </CalloutBox>
+
+      <CalloutBox variant="action">
+        Crée un compte GitHub sur github.com (gratuit, 2 minutes). Crée un compte Vercel sur vercel.com (gratuit, 2 minutes — connecte-toi avec ton compte GitHub directement). C'est tout. La connexion entre les deux est automatique. La prochaine fois que tu pushes du code avec Claude Code, Vercel le déploiera sans que tu fasses quoi que ce soit.
       </CalloutBox>
     </>
   ),
