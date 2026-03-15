@@ -34,7 +34,7 @@ export function ClaudeEcosystem() {
             Claude n'est pas un outil.<br />
             <span className="italic text-secondary-foreground">C'est ton associé qui bosse H24.</span>
           </h2>
-          <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+          <p className="mb-8 text-[15px] leading-relaxed text-muted-foreground/90">
             Au-delà d'un écosystème, ce sont des agents IA qui bossent sur ton projet avec toi. Avec la super-intelligence de Claude, plus besoin d'être développeur. Fini les barrières techniques. Fini les barrières budgétaires.
           </p>
 
@@ -55,7 +55,7 @@ export function ClaudeEcosystem() {
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-3">
                 <div className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-[15px] leading-relaxed text-muted-foreground/90">
                   <span className="font-medium text-foreground">{item.label}</span>
                   {" — "}
                   {item.desc}

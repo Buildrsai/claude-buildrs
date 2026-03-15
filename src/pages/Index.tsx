@@ -352,7 +352,7 @@ const Index = () => {
             {/* Sous-titre */}
             <motion.p
               {...stagger(2)}
-              className="mb-10 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base"
+              className="mb-10 max-w-lg text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base"
             >
               Ce guide gratuit t'installe l'écosystème complet — Claude AI, Claude Code, Cowork, Skills, connecteurs — pour en faire ton copilote business. Même si tu pars de zéro.
             </motion.p>
@@ -436,7 +436,7 @@ const Index = () => {
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border/30 bg-background text-muted-foreground transition-colors group-hover:text-foreground">
                 <point.icon size={18} strokeWidth={1.5} />
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+              <p className="text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
                 {point.text}
               </p>
             </motion.div>
@@ -451,7 +451,7 @@ const Index = () => {
             </p>
             <div className="h-px w-12 bg-border/60" />
           </div>
-          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-lg text-[15px] leading-relaxed text-muted-foreground/90">
             Ce guide te montre exactement comment configurer Claude pour qu'il travaille pour toi — pas l'inverse.
           </p>
         </motion.div>
@@ -480,7 +480,7 @@ const Index = () => {
           <h2 className="mb-4 text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Ce que tu vas apprendre
           </h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-[15px] leading-relaxed text-muted-foreground/90">
             16 chapitres pour passer de "je découvre Claude" à "Claude travaille pour mon business".
           </p>
         </motion.div>
@@ -583,7 +583,7 @@ const Index = () => {
                 <h3 className="mb-3 font-serif text-2xl font-medium text-foreground sm:text-3xl" style={{ letterSpacing: "-0.02em" }}>
                   Le plan d'action A → Z
                 </h3>
-                <p className="mb-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                <p className="mb-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground/90">
                   La feuille de route complète pour transformer Claude en machine de guerre — chaque étape, chaque outil, chaque Skill, chaque fichier. De zéro à opérationnel.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground sm:justify-start">
@@ -674,7 +674,7 @@ const Index = () => {
               <h3 className="mb-2 font-serif text-lg font-medium text-foreground">
                 {profile.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-[15px] leading-relaxed text-muted-foreground/90">
                 {profile.description}
               </p>
             </motion.div>
@@ -714,7 +714,7 @@ const Index = () => {
             <img src={buildrsLogoIcon} alt="Buildrs" className="h-12 w-auto" />
           </div>
 
-          <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
             <p>
               <span className="font-medium text-foreground">Buildrs</span> a été fondée par{" "}
               <span className="font-medium text-foreground">Alfred Orsini</span>. Aujourd'hui, Buildrs fonctionne avec{" "}
