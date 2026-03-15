@@ -159,7 +159,7 @@ export default function AuthPage() {
             </div>
             <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.4)' }}>×</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 14px', background: 'rgba(255,255,255,0.06)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.10)' }}>
-              <img src="/src/assets/buildrs-logo.png" alt="Buildrs" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+              <img src={buildrsLogo} alt="Buildrs" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
               <span style={{ fontSize: '14px', color: 'rgba(237,238,239,0.7)', fontWeight: 500 }}>Buildrs</span>
             </div>
           </div>
