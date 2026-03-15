@@ -657,8 +657,23 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 6 — CTA FINAL                           */}
       {/* ═══════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-3xl px-6 py-24 flex flex-col items-center">
-        <motion.div {...fadeUp} className="relative group">
+      <section className="mx-auto max-w-3xl px-6 py-28 text-center">
+        <motion.h2
+          {...fadeUp}
+          className="mb-5 text-3xl font-medium tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+        >
+          Prêt à débloquer{" "}
+          <span className="italic text-secondary-foreground">100% de Claude ?</span>
+        </motion.h2>
+
+        <motion.p
+          {...stagger(1)}
+          className="mb-10 text-sm leading-relaxed text-muted-foreground sm:text-base"
+        >
+          Accède gratuitement aux 16 chapitres et transforme Claude en machine de guerre pour ton activité.
+        </motion.p>
+
+        <motion.div {...stagger(2)} className="relative group inline-block">
           {/* SVG border beam */}
           <svg
             className="absolute inset-0 pointer-events-none"
@@ -687,7 +702,6 @@ const Index = () => {
               }}
             />
           </svg>
-          {/* Static subtle border */}
           <div className="absolute -inset-px rounded-full border border-border/40" />
           <Button
             variant="hero"
@@ -698,9 +712,10 @@ const Index = () => {
             Accéder au guide gratuit <ArrowRight size={14} />
           </Button>
         </motion.div>
-        <p className="mt-5 text-xs text-muted-foreground/60">
+
+        <motion.p {...stagger(3)} className="mt-5 text-xs text-muted-foreground/60">
           100% gratuit · Pas de CB · Accès instantané
-        </p>
+        </motion.p>
 
         <style>{`
           @keyframes border-beam {
