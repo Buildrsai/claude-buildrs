@@ -659,22 +659,36 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════ */}
       <section className="mx-auto max-w-3xl px-6 py-24 flex flex-col items-center">
         <motion.div {...fadeUp} className="relative group">
-          {/* Rotating neon border */}
-          <div
-            className="absolute -inset-[2px] rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-            style={{
-              background: "conic-gradient(from 0deg, transparent, hsl(var(--foreground)), transparent, transparent)",
-              animation: "spin 3s linear infinite",
-            }}
-          />
-          {/* Glow effect */}
-          <div
-            className="absolute -inset-[2px] rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300"
-            style={{
-              background: "conic-gradient(from 0deg, transparent, hsl(var(--foreground)), transparent, transparent)",
-              animation: "spin 3s linear infinite",
-            }}
-          />
+          {/* SVG border beam */}
+          <svg
+            className="absolute inset-0 pointer-events-none"
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            style={{ overflow: "visible" }}
+          >
+            <defs>
+              <linearGradient id="beam-grad" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="transparent" />
+                <stop offset="50%" stopColor="hsl(0 0% 93%)" />
+                <stop offset="100%" stopColor="transparent" />
+              </linearGradient>
+            </defs>
+            <rect
+              x="0" y="0" width="100" height="100"
+              rx="22" ry="22"
+              fill="none"
+              stroke="url(#beam-grad)"
+              strokeWidth="0.8"
+              strokeDasharray="40 160"
+              style={{
+                animation: "border-beam 4s linear infinite",
+              }}
+            />
+          </svg>
+          {/* Static subtle border */}
+          <div className="absolute -inset-px rounded-full border border-border/40" />
           <Button
             variant="hero"
             size="lg"
@@ -687,6 +701,13 @@ const Index = () => {
         <p className="mt-5 text-xs text-muted-foreground/60">
           100% gratuit · Pas de CB · Accès instantané
         </p>
+
+        <style>{`
+          @keyframes border-beam {
+            0% { stroke-dashoffset: 200; }
+            100% { stroke-dashoffset: 0; }
+          }
+        `}</style>
       </section>
 
       {/* ─── FOOTER ─── */}
