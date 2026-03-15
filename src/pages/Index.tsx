@@ -583,7 +583,7 @@ const Index = () => {
                 <h3 className="mb-3 font-serif text-2xl font-medium text-foreground sm:text-3xl" style={{ letterSpacing: "-0.02em" }}>
                   Le plan d'action A → Z
                 </h3>
-                <p className="mb-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                <p className="mb-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground/90">
                   La feuille de route complète pour transformer Claude en machine de guerre — chaque étape, chaque outil, chaque Skill, chaque fichier. De zéro à opérationnel.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground sm:justify-start">
