@@ -95,7 +95,6 @@ const BLOCS = [
       { number: "13", title: "Le business derrière Claude", description: "Comment des entrepreneurs non-techniques génèrent du revenu avec cet écosystème.", icon: Monitor },
       { number: "14", title: "Builder son 1er MVP", description: "De l'idée au produit déployé — la méthode complète, étape par étape.", icon: Rocket },
       { number: "15", title: "Les outils indispensables", description: "Vercel, Supabase, GitHub, Stripe — les briques à connecter absolument et comment les relier.", icon: Wrench },
-      { number: "BONUS", title: "Le plan d'action A → Z pour un Super Claude", description: "La feuille de route complète : chaque étape, chaque outil, chaque Skill, chaque fichier — de zéro à machine de guerre.", icon: Map, isBonus: true },
     ],
   },
 ];
