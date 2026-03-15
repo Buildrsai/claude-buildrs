@@ -34,7 +34,7 @@ export function ClaudeEcosystem() {
             Claude n'est pas un outil.<br />
             <span className="italic text-secondary-foreground">C'est ton associé qui bosse H24.</span>
           </h2>
-          <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+          <p className="mb-8 text-[15px] leading-relaxed text-muted-foreground/90">
             Au-delà d'un écosystème, ce sont des agents IA qui bossent sur ton projet avec toi. Avec la super-intelligence de Claude, plus besoin d'être développeur. Fini les barrières techniques. Fini les barrières budgétaires.
           </p>
 
