@@ -184,7 +184,28 @@ function ChapterCarousel({ chapters }: { chapters: typeof BLOCS[0]["chapters"] }
         }}
       />
 
-      {/* Left arrow (desktop only) */}
+      {/* Mobile arrows - always visible below carousel */}
+      <div className="mt-4 flex items-center justify-center gap-3 lg:hidden">
+        <button
+          onClick={() => scroll("left")}
+          disabled={!canScrollLeft}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-card/80 text-muted-foreground transition-all active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Précédent"
+        >
+          <ChevronLeft size={18} strokeWidth={1.5} />
+        </button>
+        <span className="text-xs text-muted-foreground">Glisser ou utiliser les flèches</span>
+        <button
+          onClick={() => scroll("right")}
+          disabled={!canScrollRight}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-card/80 text-muted-foreground transition-all active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Suivant"
+        >
+          <ChevronRight size={18} strokeWidth={1.5} />
+        </button>
+      </div>
+
+      {/* Desktop arrows - hover to show */}
       {canScrollLeft && (
         <button
           onClick={() => scroll("left")}
@@ -195,7 +216,6 @@ function ChapterCarousel({ chapters }: { chapters: typeof BLOCS[0]["chapters"] }
         </button>
       )}
 
-      {/* Right arrow (desktop only) */}
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
