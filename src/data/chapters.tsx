@@ -1433,46 +1433,252 @@ const chapter07: Chapter = {
   subtitle: "Tu décris, il construit. Pas besoin de savoir coder.",
   bloc: "Configurer",
   actionPlan: [
-    "Installer Node.js (nodejs.org)",
+    "Installer Node.js (nodejs.org — version LTS)",
     "npm install -g @anthropic-ai/claude-code",
-    "Créer ton premier Hello World",
+    "mkdir mon-premier-projet && cd mon-premier-projet && claude",
+    "Faire ton premier Hello World",
+    "Passer au chapitre 8",
   ],
   quiz: [
     {
-      question: "Pourquoi le local plutôt que le navigateur ?",
-      options: ["Moins cher", "Accès complet au projet + exécution + déploiement", "Plus rapide"],
+      question: "Pourquoi utiliser Claude Code en local plutôt que dans le navigateur ?",
+      options: ["C'est moins cher", "Claude Code a accès complet au projet, exécute des commandes, et déploie — impossible depuis le navigateur", "C'est plus rapide"],
       correctIndex: 1,
     },
     {
       question: "Pour installer Claude Code il faut :",
-      options: ["Python", "Node.js + npm install", "Un Mac"],
+      options: ["Python", "Node.js + la commande npm install", "Obligatoirement un Mac"],
+      correctIndex: 1,
+    },
+    {
+      question: "Le temps moyen d'un MVP complet chez Buildrs avec Claude Code :",
+      options: ["2-3 semaines", "Environ 4 heures", "3-6 mois"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>7.1 — C'est quoi Claude Code</h3>
-      <p>Un programme qui tourne dans ton terminal. Quand tu le lances dans un dossier, il a accès à tous les fichiers, peut les lire, les modifier, exécuter des commandes, et déployer.</p>
+      <h3>7.1 — Claude Code : le truc qui change les règles du jeu</h3>
+      <p>
+        Jusqu'ici, on a vu Claude AI (le chat intelligent) et Cowork (l'agent autonome). Claude Code, c'est le troisième pilier — et pour beaucoup d'entrepreneurs, c'est celui qui transforme tout.
+      </p>
+      <p>
+        Claude Code est un agent qui tourne dans ton terminal — la ligne de commande de ton ordinateur. Tu le lances dans un dossier, et il a accès à tout : les fichiers, le code, les dépendances, le serveur. Il ne suggère pas du code dans un chat. Il crée des fichiers réels, exécute de vraies commandes, et te montre le résultat en preview live.
+      </p>
+      <p>
+        La différence avec Claude AI c'est simple : Claude AI travaille avec ce que tu lui donnes dans la conversation. Claude Code voit tout ton projet et agit dessus directement.
+      </p>
+      <p>
+        Et la magie du VibeCoding : tu décris ce que tu veux en français, Claude Code le construit. Tu n'as pas besoin de savoir coder. Tu as besoin de savoir ce que tu veux.
+      </p>
+      <CalloutBox variant="important">
+        Claude Code est la raison pour laquelle des gens sans background technique construisent et déploient des applications en quelques heures. Avant, il fallait savoir coder ou payer un développeur. Ce paradigme est terminé.
+      </CalloutBox>
 
-      <h3>7.2 — Les 3 options</h3>
-      <ul>
-        <li><strong>Local (recommandé)</strong> : <code>npm install -g @anthropic-ai/claude-code</code> → la plus puissante</li>
-        <li><strong>VS Code</strong> : extension Claude Code dans l'éditeur</li>
-        <li><strong>Anti-Gravity IDE</strong> : IDE conçu pour le VibeCoding</li>
-      </ul>
+      <h3>7.2 — Les 3 façons d'installer Claude Code</h3>
+      <p>
+        <strong>Option A — En local dans ton terminal (recommandé)</strong>
+      </p>
+      <p>
+        C'est la méthode la plus puissante. Claude Code a accès à tout ton système de fichiers, peut installer des packages, lancer des serveurs, et déployer. C'est la configuration qu'on utilise chez Buildrs pour tous les projets.
+      </p>
+      <p>
+        Prérequis : Node.js installé sur ton ordinateur (télécharge sur nodejs.org).
+      </p>
+      <CodeBlock
+        language="Terminal"
+        code="npm install -g @anthropic-ai/claude-code"
+      />
+      <p>C'est tout. Une commande. Claude Code est installé.</p>
+      <p>
+        <strong>Option B — Dans VS Code</strong>
+      </p>
+      <p>
+        Si tu utilises déjà VS Code (un éditeur de code gratuit et populaire), tu peux installer l'extension Claude Code. Tu gardes l'interface familière de VS Code avec Claude Code en panel latéral. C'est un bon compromis si tu veux voir le code ET parler à Claude dans la même fenêtre.
+      </p>
+      <p>
+        <strong>Option C — Anti-Gravity IDE</strong>
+      </p>
+      <p>
+        Anti-Gravity est un éditeur de code nouvelle génération conçu spécifiquement pour le VibeCoding. Il intègre Claude Code nativement avec une interface pensée pour la collaboration homme-IA. C'est l'option la plus "clé en main" — mais c'est aussi un nouvel outil à apprendre.
+      </p>
+      <p>
+        Notre recommandation : <strong>commence en local.</strong> C'est le plus flexible, le plus puissant, et c'est celui qu'on utilise au quotidien. Tu pourras toujours migrer vers VS Code ou Anti-Gravity plus tard.
+      </p>
 
-      <h3>7.3 — Ta première session</h3>
+      <h3>7.3 — Pourquoi le local est supérieur au navigateur</h3>
+      <p>
+        Tu pourrais te dire "pourquoi installer un truc alors que Claude AI fait déjà du code dans le navigateur ?" La réponse :
+      </p>
+      <p>
+        <strong>Claude AI dans le navigateur</strong> — Il génère du code dans la conversation. Toi, tu dois le copier, le coller dans un fichier, installer les dépendances manuellement, configurer l'environnement, résoudre les erreurs. C'est du ping-pong.
+      </p>
+      <p>
+        <strong>Claude Code en local</strong> — Il crée directement les fichiers dans ton projet. Il installe les dépendances lui-même. Il lance le serveur. Il voit le résultat. Si ça plante, il debug et corrige. Tu ne touches à rien. Tu décris, il fait.
+      </p>
+      <p>
+        C'est la différence entre donner des instructions par téléphone à quelqu'un qui est dans une autre pièce, et avoir quelqu'un à côté de toi qui fait le travail devant tes yeux.
+      </p>
+
+      <h3>7.4 — Ta première session : de zéro à une app en 5 minutes</h3>
+      <p>Ouvre ton terminal. Tape exactement ça :</p>
       <CodeBlock
         language="Terminal"
         code={`mkdir mon-premier-projet
 cd mon-premier-projet
-claude
-> "Crée une application React avec une page Hello World, design sombre et moderne"`}
+claude`}
       />
-      <p>Claude Code crée la structure, installe les dépendances, écrit le code, lance le serveur. Zéro ligne de code de ta part.</p>
+      <p>
+        Claude Code se lance. Tu es dans une conversation — mais cette fois, Claude voit ton dossier et peut agir dessus.
+      </p>
+      <p>Tape :</p>
+      <CodeBlock
+        language="Prompt"
+        code={`Crée une application React avec une page d'accueil moderne.
+Design sombre, minimaliste, avec un titre "Hello World" centré
+et un sous-titre "Mon premier projet avec Claude Code".`}
+      />
+      <p>Regarde ce qui se passe :</p>
+      <ol>
+        <li>Claude crée la structure du projet (dossiers, fichiers de config)</li>
+        <li>Il installe les dépendances (React, Tailwind, etc.)</li>
+        <li>Il écrit le code de l'interface</li>
+        <li>Il lance le serveur de développement</li>
+        <li>Il t'affiche l'URL de preview — tu ouvres dans ton navigateur et tu vois ton app</li>
+      </ol>
+      <p>
+        Tu viens de construire une application web. Sans écrire une seule ligne de code. En décrivant ce que tu voulais.
+      </p>
+      <p>
+        Maintenant imagine faire ça avec un vrai projet : un outil pour tes clients, une landing page, un tableau de bord, un micro-SaaS. C'est exactement le même processus — tu décris, Claude construit.
+      </p>
 
-      <CalloutBox variant="usecase">
-        Un coach business sans aucune compétence technique a installé Claude Code un mardi soir. Le mercredi matin, il avait un outil de scoring d'offres — les prospects répondent à 5 questions, et l'app génère un diagnostic avec recommandations personnalisées. Il l'a mis en ligne sur Vercel (gratuit) et l'utilise comme lead magnet. 200 leads en 2 semaines. Coût de développement : 0€.
+      <h3>7.5 — Comment on utilise Claude Code chez Buildrs</h3>
+      <p>
+        Claude Code est l'outil principal de production chez Buildrs. Chaque projet client passe par là.
+      </p>
+      <p>
+        <strong>Le process standard :</strong> Alfred ou l'équipe définit les specs dans un Project Claude AI. Ensuite, on lance Claude Code dans le dossier du projet — qui contient déjà un CLAUDE.md (on verra ça au chapitre 11) avec toutes les conventions, le design system, la stack technique. Claude Code lit le CLAUDE.md et sait exactement comment travailler.
+      </p>
+      <p>
+        <strong>Les chiffres :</strong> Temps moyen pour un MVP fonctionnel avec authentification, base de données, paiement Stripe et design premium → 4 heures. Avant Claude Code, le même périmètre nécessitait 2-3 semaines de développement. Le ratio est de 1 à 20.
+      </p>
+      <p><strong>Ce qu'on a construit avec Claude Code cette année :</strong></p>
+      <ul>
+        <li>NOAH™ — un générateur d'offres IA pour entrepreneurs (buildé en 5 jours)</li>
+        <li>Ce guide que tu lis en ce moment — le dashboard, l'onboarding, la LP</li>
+        <li>Des outils internes : scoring clients, générateur de briefs, dashboard de KPIs</li>
+        <li>Des micro-SaaS clients : facturation, booking, matching, automation</li>
+      </ul>
+      <CalloutBox variant="buildrs">
+        Tout ça avec Claude Code comme moteur. Pas de développeurs externalisés. Pas de no-code limité. Du VibeCoding pur.
+      </CalloutBox>
+
+      {/* ── Diagramme : Claude Code en action ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Claude Code en action
+        </p>
+        {/* Flow: Toi → Claude Code → Actions → Preview → Loop */}
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "8px" }}>
+          {/* Row 1: Toi */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{
+              padding: "10px 24px",
+              background: "rgba(218,119,86,0.12)",
+              border: "1px solid rgba(218,119,86,0.25)",
+              borderRadius: "8px",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#DA7756",
+            }}>
+              Toi — tu décris
+            </div>
+          </div>
+          {/* Connector */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+          </div>
+          {/* Row 2: Claude Code */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{
+              padding: "10px 24px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "8px",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#EDEEEF",
+            }}>
+              Claude Code
+            </div>
+          </div>
+          {/* Connector */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+          </div>
+          {/* Row 3: 4 actions */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "6px" }}>
+            {["Crée les fichiers", "Installe les deps", "Écrit le code", "Lance le serveur"].map((action) => (
+              <div key={action} style={{
+                padding: "8px 4px",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "6px",
+                textAlign: "center" as const,
+                fontSize: "10px",
+                color: "rgba(237,238,239,0.6)",
+              }}>
+                {action}
+              </div>
+            ))}
+          </div>
+          {/* Connector */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+          </div>
+          {/* Row 4: Preview */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{
+              padding: "10px 24px",
+              background: "rgba(218,119,86,0.12)",
+              border: "1px solid rgba(218,119,86,0.25)",
+              borderRadius: "8px",
+              fontSize: "13px",
+              fontWeight: 600,
+              color: "#DA7756",
+            }}>
+              Preview live → tu vois ton app en direct
+            </div>
+          </div>
+          {/* Loop indicator */}
+          <p style={{
+            textAlign: "center" as const,
+            fontSize: "10px",
+            color: "rgba(237,238,239,0.3)",
+            marginTop: "8px",
+          }}>
+            ↻ Tu décris un changement → Claude Code l'applique en temps réel
+          </p>
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Installe Node.js maintenant (nodejs.org — prends la version LTS). Puis ouvre ton terminal et lance : npm install -g @anthropic-ai/claude-code. Crée un dossier, lance claude, et fais ton premier Hello World. Chronomètre-toi : 20 minutes max, tout inclus.
       </CalloutBox>
     </>
   ),
