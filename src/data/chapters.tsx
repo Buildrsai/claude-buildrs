@@ -1184,54 +1184,240 @@ const chapter06: Chapter = {
   subtitle: "Drive, Gmail, Slack, Notion, Chrome — Claude accède à tout et agit directement dedans.",
   bloc: "Configurer",
   actionPlan: [
-    "Connecter Google Drive + Gmail (minimum vital)",
-    "Installer le plugin Chrome",
-    "Connecter Slack et Calendar si tu les utilises",
+    "Brancher Google Drive + Gmail (20 secondes chacun)",
+    "Brancher Slack + Calendar si tu les utilises",
+    "Installer l'extension Chrome",
+    "Passer au chapitre 7",
   ],
   quiz: [
     {
       question: "Les connecteurs permettent de :",
-      options: ["Brancher Claude à tes outils en un clic", "Accélérer Claude", "Relier plusieurs comptes Claude"],
+      options: ["Brancher Claude directement à tes outils pour qu'il y accède et y agisse", "Accélérer la vitesse de réponse de Claude", "Relier plusieurs comptes Claude entre eux"],
       correctIndex: 0,
     },
     {
       question: "Le plugin Chrome permet à Claude de :",
-      options: ["Changer le thème de Chrome", "Naviguer, extraire des données et agir sur n'importe quel site", "Bloquer les pubs"],
+      options: ["Changer le thème de Chrome", "Naviguer sur des sites, extraire des données, remplir des formulaires et agir sur le web", "Bloquer les publicités"],
+      correctIndex: 1,
+    },
+    {
+      question: "L'ordre optimal pour brancher les connecteurs c'est :",
+      options: ["Tous en même temps", "Drive + Gmail d'abord, puis Slack + Calendar, puis le reste selon les besoins", "Chrome en premier"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>6.1 — Les connecteurs Claude</h3>
-      <p>Dans Claude Desktop → Settings → Extensions. Chaque connecteur = 1 clic (OAuth) :</p>
-      <TableBlock
-        headers={["Connecteur", "Ce que Claude peut faire"]}
-        rows={[
-          ["Google Drive", "Lire, chercher, créer des documents"],
-          ["Gmail", "Lire tes emails, rédiger des réponses"],
-          ["Google Calendar", "Voir ton agenda, planifier"],
-          ["Slack", "Lire les channels, envoyer des messages"],
-          ["Notion", "Accéder à tes bases de données"],
-          ["Figma", "Voir tes designs"],
-          ["Stripe", "Accéder aux données de paiement"],
-        ]}
-      />
+      <h3>6.1 — Le problème quand Claude travaille en vase clos</h3>
+      <p>
+        Sans connecteurs, Claude est intelligent mais aveugle. Il ne sait rien de tes emails, de ton agenda, de tes documents, de tes conversations Slack. À chaque fois que tu veux qu'il travaille avec tes données, tu dois copier-coller, uploader, réexpliquer.
+      </p>
+      <p>
+        C'est comme avoir un assistant brillant mais enfermé dans une pièce sans fenêtre. Il peut réfléchir — mais il n'a accès à rien.
+      </p>
+      <p>
+        Les connecteurs ouvrent les fenêtres. Claude se branche directement à tes outils et agit dedans. Plus de copier-coller. Plus de contexte perdu. Il voit ce que tu vois, et il peut agir là où tu agis.
+      </p>
 
-      <h3>6.2 — Le Plugin Chrome "Claude in Chrome"</h3>
-      <p>L'extension qui transforme Claude en agent web. Il peut :</p>
-      <ul>
-        <li>Naviguer sur des pages</li>
-        <li>Extraire des données</li>
-        <li>Remplir des formulaires</li>
-        <li>Effectuer des actions sur n'importe quel site</li>
-      </ul>
-      <p>Combiné avec Cowork + tâches planifiées = automatisation web puissante.</p>
+      <h3>6.2 — Les connecteurs : ce que chaque branchement débloque</h3>
+      <p>
+        Tout se passe dans Claude Desktop → Settings → Extensions. Chaque connecteur se branche en un clic (autorisation OAuth, 10 secondes).
+      </p>
+      <p>
+        <strong>Google Drive</strong> — Claude lit, cherche et crée des documents dans ton Drive. Tu lui dis "trouve le brief du projet X" ou "crée un doc avec le récap de notre conversation" — il le fait directement dans ton Drive.
+      </p>
+      <p>
+        <strong>Gmail</strong> — Claude accède à ta boîte mail. Il peut lire tes emails non lus, chercher un message ancien, rédiger une réponse, préparer un brouillon. Tu lui dis "résume mes 10 derniers emails non lus" — il le fait en 5 secondes.
+      </p>
+      <p>
+        <strong>Google Calendar</strong> — Claude voit ton planning. Il sait quand tu es libre, quand tu as des réunions, avec qui. Combiné avec Cowork, il peut préparer tes briefings pré-réunion automatiquement.
+      </p>
+      <p>
+        <strong>Slack</strong> — Claude lit tes channels et tes DMs. Il peut résumer les conversations, identifier les messages importants, et même envoyer des messages. Parfait pour le briefing matinal automatisé.
+      </p>
+      <p>
+        <strong>Notion</strong> — Claude accède à tes bases de données, tes pages, tes wikis. Si ton business tourne sur Notion, Claude peut y lire et y écrire.
+      </p>
+      <p>
+        <strong>Figma</strong> — Claude voit tes designs. Utile quand tu travailles sur un projet qui a un volet visuel — il comprend le design existant avant de coder.
+      </p>
+      <p>
+        <strong>Stripe</strong> — Claude accède à tes données de paiement. Revenus, abonnements, transactions. Tu lui demandes "combien j'ai fait ce mois-ci" et il te répond avec les vrais chiffres.
+      </p>
+      <CalloutBox variant="important">
+        Chaque connecteur que tu branches multiplie ce que Claude peut faire pour toi. Un Claude sans connecteur = un chat. Un Claude avec 5 connecteurs = un assistant qui a accès à tout ton écosystème de travail. La différence de productivité est massive.
+      </CalloutBox>
 
-      <h3>6.3 — Pourquoi les connecteurs changent tout</h3>
-      <p>Sans connecteurs, tu dois copier-coller des infos entre tes outils et Claude. Avec connecteurs, Claude accède directement à tes données — il peut analyser tes emails, consulter ton planning, et rédiger un document dans ton Drive en une seule conversation.</p>
+      <h3>6.3 — Le Plugin Chrome : Claude prend le contrôle du web</h3>
+      <p>
+        L'extension "Claude in Chrome" transforme Claude en agent web. Installe-la depuis le Chrome Web Store, et Claude peut :
+      </p>
+      <p>
+        <strong>Naviguer</strong> — Il ouvre des pages, suit des liens, parcourt des sites.
+      </p>
+      <p>
+        <strong>Extraire</strong> — Il récupère des données, des prix, des contenus depuis n'importe quelle page.
+      </p>
+      <p>
+        <strong>Remplir</strong> — Il remplit des formulaires, complète des champs.
+      </p>
+      <p>
+        <strong>Agir</strong> — Il clique, soumet, effectue des actions sur les sites.
+      </p>
+      <p>
+        Tout seul, c'est déjà utile pour du scraping ou de la veille. Combiné avec Cowork et les tâches planifiées, ça devient de l'automatisation web pure. Un agent qui navigue sur le web pour toi chaque jour, extrait ce qui t'intéresse, et te livre un résumé.
+      </p>
 
-      <CalloutBox variant="usecase">
-        Un agent immobilier a branché Claude à son Drive (mandats), Gmail (prospects), et Calendar (visites). Résultat : quand un prospect envoie un email, Claude analyse le besoin, matche avec les biens disponibles dans le Drive, rédige une réponse personnalisée avec 3 suggestions, et propose des créneaux de visite depuis l'agenda. Temps de réponse : de 2h à 2 minutes. Taux de conversion visite : +40%.
+      <h3>6.4 — L'ordre optimal pour brancher tes connecteurs</h3>
+      <p>
+        Ne branche pas tout d'un coup sans réfléchir. Voici l'ordre qu'on recommande — du plus impactant au plus optionnel :
+      </p>
+      <p>
+        <strong>Étape 1 (immédiat) — Le duo fondamental :</strong>
+      </p>
+      <p>
+        Google Drive + Gmail. Ces deux-là couvrent 80% des besoins. Claude accède à tes documents et tes emails — c'est le minimum pour qu'il soit utile au quotidien.
+      </p>
+      <p>
+        <strong>Étape 2 (jour 2) — La communication :</strong>
+      </p>
+      <p>
+        Slack + Google Calendar. Claude voit avec qui tu parles et quand tu es dispo. C'est ce qui rend les briefings automatiques Cowork possibles.
+      </p>
+      <p>
+        <strong>Étape 3 (quand tu en as besoin) — Le spécifique :</strong>
+      </p>
+      <p>
+        Notion si tu y travailles. Figma si tu fais du design. Stripe si tu vends. Branche-les quand le besoin se présente, pas avant.
+      </p>
+      <p>
+        <strong>Étape 4 — Chrome :</strong>
+      </p>
+      <p>
+        L'extension Chrome en dernier. C'est puissant mais tu n'en auras pas besoin tant que tu n'as pas configuré Cowork et les tâches planifiées (chapitre 12).
+      </p>
+
+      <h3>6.5 — Comment les connecteurs fonctionnent chez Buildrs</h3>
+      <p>
+        Chez Buildrs, chaque connecteur a un rôle précis dans la machine :
+      </p>
+      <p>
+        <strong>Gmail + Slack</strong> — Ce sont les deux sources du briefing matinal d'Alfred. Chaque matin à 7h30, un agent Cowork lit les emails non lus et les messages Slack importants des dernières 24h, et compile un résumé structuré avec les priorités. Alfred ouvre son Mac, tout est prêt. Avant les connecteurs, ça prenait 25 minutes de scroll manuel. Maintenant : 0 minutes.
+      </p>
+      <p>
+        <strong>Google Calendar</strong> — Combiné avec Gmail, Claude prépare un briefing pré-réunion pour chaque meeting du jour. Qui participe, quel est le contexte (emails échangés avec cette personne), quels sujets aborder. Alfred arrive en réunion préparé sans avoir rien fait.
+      </p>
+      <p>
+        <strong>Google Drive</strong> — Tous les livrables clients sont dans Drive. Quand Claude Code finit un build, le rapport de livraison est généré automatiquement et déposé dans le dossier du client. Quand Alfred travaille sur la stratégie dans un Project Claude, il peut dire "consulte le brief dans le Drive" et Claude le lit en temps réel.
+      </p>
+      <p>
+        <strong>Stripe</strong> — Un agent Cowork hebdomadaire compile les métriques business : MRR, nombre de clients, transactions de la semaine, taux de churn. Le rapport arrive chaque lundi sans qu'Alfred ouvre Stripe une seule fois.
+      </p>
+      <CalloutBox variant="buildrs">
+        Le résultat global : Alfred touche rarement à ses outils directement. Claude y accède pour lui, compile, analyse, et livre. Les outils sont devenus des sources de données pour les agents — pas des interfaces qu'Alfred utilise manuellement.
+      </CalloutBox>
+
+      {/* ── Diagramme : Les connecteurs en action ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Les connecteurs en action
+        </p>
+        {/* Top: Claude */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Claude
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Sources grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px", marginBottom: "20px" }}>
+          {["Gmail", "Drive", "Slack", "Calendar", "Notion", "Stripe", "Figma", "Chrome"].map((tool) => (
+            <div key={tool} style={{
+              padding: "8px 4px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "6px",
+              textAlign: "center" as const,
+              fontSize: "10px",
+              fontWeight: 500,
+              color: "rgba(237,238,239,0.6)",
+            }}>
+              {tool}
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Outputs */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px", marginBottom: "20px" }}>
+          {[
+            { label: "Briefing matinal auto", sources: "Gmail + Slack + Drive" },
+            { label: "Briefing pré-réunion", sources: "Calendar + Gmail" },
+            { label: "Rapport business hebdo", sources: "Stripe" },
+          ].map((item) => (
+            <div key={item.label} style={{
+              padding: "10px 8px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "8px",
+              textAlign: "center" as const,
+            }}>
+              <div style={{ fontSize: "11px", fontWeight: 500, color: "#EDEEEF", marginBottom: "3px" }}>{item.label}</div>
+              <div style={{ fontSize: "9px", color: "rgba(237,238,239,0.35)" }}>{item.sources}</div>
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Bottom */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Tout arrive prêt. Tu ne fais rien.
+          </div>
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Ouvre Claude Desktop → Settings → Extensions. Branche Google Drive et Gmail maintenant — ça prend 20 secondes chacun. Si tu utilises Slack, branche-le aussi. Tu sentiras la différence dès ta prochaine conversation avec Claude.
       </CalloutBox>
 
       <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
