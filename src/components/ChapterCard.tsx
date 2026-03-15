@@ -12,7 +12,14 @@ const ChapterCard = ({ number, title, description, icon: Icon, isBonus }: Chapte
   return (
     <div className="group relative rounded-xl border border-border/60 bg-card/50 p-6 transition-all duration-300 hover:border-border hover:bg-card">
       {isBonus && (
-        <span className="mb-3 inline-block rounded-md border border-border bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-secondary-foreground">
+        <span
+          className="mb-3 inline-block rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+          style={{
+            background: "rgba(218, 119, 86, 0.15)",
+            color: "rgba(218, 119, 86, 0.9)",
+            border: "1px solid rgba(218, 119, 86, 0.25)",
+          }}
+        >
           Bonus
         </span>
       )}

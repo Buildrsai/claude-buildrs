@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -13,18 +13,23 @@ import {
   Layers,
   Settings,
   MessageSquare,
+  Plug,
   Code2,
   Eye,
   Zap,
+  Link,
   PenLine,
+  Bot,
   Monitor,
-  CheckCircle2,
-  Gift,
-  ArrowRight,
   Rocket,
+  Wrench,
+  Map,
+  ArrowRight,
   Briefcase,
   Target,
   Lightbulb,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 /* ─── Animation presets ─── */
@@ -49,14 +54,14 @@ const stagger = (i: number) => ({
   transition: { ...fadeUp.transition, delay: i * 0.08 },
 });
 
-/* ─── Chapters data — 3 blocs ─── */
+/* ─── Chapters data — 4 blocs ─── */
 const BLOCS = [
   {
     label: "Comprendre",
     chapters: [
       { number: "01", title: "Introduction", description: "Pourquoi Claude change la donne en 2026 — et pourquoi maintenant.", icon: Clock },
       { number: "02", title: "Claude AI vs Claude Code vs Cowork", description: "Trois produits, trois rôles — comment ils travaillent ensemble pour toi.", icon: LayoutGrid },
-      { number: "03", title: "Les modèles", description: "Haiku, Sonnet 4.6, Opus 4.6 — lequel utiliser, quand, et sans cramer tes tokens.", icon: Layers },
+      { number: "03", title: "Les modèles & les tokens", description: "Haiku, Sonnet 4.6, Opus 4.6 — lequel utiliser, quand, et sans cramer ton quota.", icon: Layers },
       { number: "04", title: "Configuration & abonnements", description: "Le bon plan, les bons paramètres — setup optimal en 10 minutes.", icon: Settings },
     ],
   },
@@ -64,18 +69,27 @@ const BLOCS = [
     label: "Configurer",
     chapters: [
       { number: "05", title: "Prompts & Projects", description: "Comment donner des instructions que Claude comprend vraiment — et qu'il retient.", icon: MessageSquare },
-      { number: "06", title: "Claude Code — Installation", description: "Local, VS Code ou Anti-Gravity — opérationnel en 20 min, pas une de plus.", icon: Code2 },
-      { number: "07", title: "Preview & Workflow", description: "Prévisualise, pousse sur GitHub, déploie sur Vercel — sans friction.", icon: Eye },
-      { number: "08", title: "Skills & SuperPowers", description: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton dev.", icon: Zap },
-      { number: "09", title: "CLAUDE.md & Mémoire", description: "Fais en sorte que Claude se souvienne de tout — projet par projet, automatiquement.", icon: PenLine },
+      { number: "06", title: "Extensions, Chrome & Connecteurs", description: "Plugin Chrome, Google Drive, Gmail, Slack, Notion — branche Claude à tout ton écosystème.", icon: Plug },
+      { number: "07", title: "Claude Code — Installation", description: "Local, VS Code ou Anti-Gravity — opérationnel en 20 min, pas une de plus.", icon: Code2 },
+      { number: "08", title: "Preview & Workflow", description: "Prévisualise, pousse sur GitHub, déploie sur Vercel — sans friction.", icon: Eye },
+    ],
+  },
+  {
+    label: "Supercharger",
+    chapters: [
+      { number: "09", title: "Skills & SuperPowers", description: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton dev.", icon: Zap },
+      { number: "10", title: "MCP — Connecter Claude au monde", description: "Les serveurs qui branchent Claude Code à GitHub, Supabase, Stripe et 100+ services.", icon: Link },
+      { number: "11", title: "CLAUDE.md & Mémoire", description: "Fais en sorte que Claude se souvienne de tout — projet par projet, automatiquement.", icon: PenLine },
+      { number: "12", title: "Tes employés IA — disponibles 24/7", description: "Crée des agents qui bossent pour toi en continu. Tâches planifiées, rapports auto, veille — ton équipe IA ne dort jamais.", icon: Bot },
     ],
   },
   {
     label: "Exploiter",
     chapters: [
-      { number: "10", title: "Le business derrière Claude", description: "Comment des entrepreneurs non-techniques génèrent du revenu avec cet écosystème.", icon: Monitor },
-      { number: "11", title: "Builder son 1er MVP", description: "De l'idée au produit déployé — la méthode complète, étape par étape.", icon: CheckCircle2 },
-      { number: "BONUS", title: "Ressources & Templates", description: "Mon CLAUDE.md template, mes prompts favoris et la checklist de lancement MVP.", icon: Gift, isBonus: true },
+      { number: "13", title: "Le business derrière Claude", description: "Comment des entrepreneurs non-techniques génèrent du revenu avec cet écosystème.", icon: Monitor },
+      { number: "14", title: "Builder son 1er MVP", description: "De l'idée au produit déployé — la méthode complète, étape par étape.", icon: Rocket },
+      { number: "15", title: "Les outils indispensables", description: "Vercel, Supabase, GitHub, Stripe — les briques à connecter absolument et comment les relier.", icon: Wrench },
+      { number: "BONUS", title: "Le plan d'action A → Z pour un Super Claude", description: "La feuille de route complète : chaque étape, chaque outil, chaque Skill, chaque fichier — de zéro à machine de guerre.", icon: Map, isBonus: true },
     ],
   },
 ];
@@ -112,6 +126,86 @@ const PROFILES = [
     description: "Tu n'as jamais codé mais tu veux comprendre le VibeCoding. Ce guide te montre que builder un produit est à ta portée.",
   },
 ];
+
+/* ─── Chapter Carousel component ─── */
+function ChapterCarousel({ chapters }: { chapters: typeof BLOCS[0]["chapters"] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 8);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 8);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = 300 + 16; // card min-width + gap
+    el.scrollBy({
+      left: direction === "left" ? -cardWidth : cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="group/carousel relative">
+      {/* Scroll container */}
+      <div
+        ref={scrollRef}
+        onScroll={checkScroll}
+        className="flex gap-4 overflow-x-auto pr-[20%] scrollbar-hide"
+        style={{
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        {chapters.map((chapter, i) => (
+          <motion.div
+            key={chapter.number}
+            {...stagger(i)}
+            className="min-w-[280px] max-w-[320px] flex-shrink-0 sm:min-w-[300px]"
+            style={{ scrollSnapAlign: "start" }}
+          >
+            <ChapterCard {...chapter} />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Right fade gradient */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 bottom-0 w-16"
+        style={{
+          background: "linear-gradient(to right, transparent, #080909)",
+        }}
+      />
+
+      {/* Left arrow (desktop only) */}
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-background/80 backdrop-blur-sm text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200"
+          aria-label="Précédent"
+        >
+          <ChevronLeft size={16} strokeWidth={1.5} />
+        </button>
+      )}
+
+      {/* Right arrow (desktop only) */}
+      {canScrollRight && (
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-16 top-1/2 -translate-y-1/2 z-10 hidden h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-background/80 backdrop-blur-sm text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:flex opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200"
+          aria-label="Suivant"
+        >
+          <ChevronRight size={16} strokeWidth={1.5} />
+        </button>
+      )}
+    </div>
+  );
+}
 
 /* ─── Email capture component ─── */
 function EmailCapture({
@@ -211,7 +305,7 @@ const Index = () => {
               {...stagger(0)}
               className="mb-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground"
             >
-              Guide gratuit — 12 chapitres
+              Guide gratuit — 16 chapitres
             </motion.p>
 
             {/* Headline */}
@@ -266,7 +360,7 @@ const Index = () => {
               <div className="relative h-64 w-64 rounded-2xl border border-border bg-card p-8 flex flex-col justify-between">
                 <div>
                   <p className="text-xs text-muted-foreground mb-2">GUIDE GRATUIT</p>
-                  <p className="font-serif text-2xl text-foreground">12 chapitres</p>
+                  <p className="font-serif text-2xl text-foreground">16 chapitres</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src={claudeLogo} alt="Claude" className="h-8 w-8 rounded-sm" />
@@ -342,7 +436,7 @@ const Index = () => {
       </div>
 
       {/* ═══════════════════════════════════════════════ */}
-      {/* SECTION 4 — LES 12 CHAPITRES (3 blocs)          */}
+      {/* SECTION 4 — LES 16 CHAPITRES (4 blocs carousel) */}
       {/* ═══════════════════════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <motion.div {...fadeUp} className="mb-16 max-w-lg">
@@ -350,12 +444,12 @@ const Index = () => {
             Ce que tu vas apprendre
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            12 chapitres pour passer de "je découvre Claude" à "Claude travaille pour mon business".
+            16 chapitres pour passer de "je découvre Claude" à "Claude travaille pour mon business".
           </p>
         </motion.div>
 
         {BLOCS.map((bloc, blocIndex) => (
-          <div key={bloc.label} className={blocIndex > 0 ? "mt-12" : ""}>
+          <div key={bloc.label} className={blocIndex > 0 ? "mt-14" : ""}>
             {/* Bloc label */}
             <motion.div {...fadeIn} className="mb-5 flex items-center gap-3">
               <span
@@ -367,14 +461,8 @@ const Index = () => {
               <div className="h-px flex-1 bg-border/30" />
             </motion.div>
 
-            {/* Cards grid */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {bloc.chapters.map((chapter, i) => (
-                <motion.div key={chapter.number} {...stagger(i)}>
-                  <ChapterCard {...chapter} />
-                </motion.div>
-              ))}
-            </div>
+            {/* Carousel */}
+            <ChapterCarousel chapters={bloc.chapters} />
           </div>
         ))}
       </section>
@@ -444,7 +532,7 @@ const Index = () => {
           {...stagger(1)}
           className="mb-10 text-sm leading-relaxed text-muted-foreground sm:text-base"
         >
-          Accède gratuitement aux 12 chapitres et transforme Claude en machine de guerre pour ton activité.
+          Accède gratuitement aux 16 chapitres et transforme Claude en machine de guerre pour ton activité.
         </motion.p>
 
         <motion.div {...stagger(2)} className="mx-auto max-w-md">
