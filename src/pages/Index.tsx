@@ -714,7 +714,7 @@ const Index = () => {
             <img src={buildrsLogoIcon} alt="Buildrs" className="h-16 w-auto opacity-90" />
           </div>
 
-          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base text-center">
+          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
             <p>
               Buildrs aide les entrepreneurs à piloter leur business avec l'IA.
             </p>
