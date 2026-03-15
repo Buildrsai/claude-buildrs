@@ -519,8 +519,9 @@ const chapter03: Chapter = {
   bloc: "Comprendre",
   actionPlan: [
     "Rester sur Sonnet 4.6 par défaut",
-    "Réserver Opus pour la stratégie et l'architecture",
-    "Haiku pour les tâches simples et répétitives",
+    "Switcher sur Haiku pour les tâches simples",
+    "Réserver Opus + Extended Thinking pour la stratégie (2-3x/jour max)",
+    "Passer au chapitre 4",
   ],
   quiz: [
     {
@@ -530,45 +531,185 @@ const chapter03: Chapter = {
     },
     {
       question: "L'Extended Thinking sert à :",
-      options: ["Accélérer Claude", "Le faire réfléchir étape par étape avant de répondre", "Réduire les tokens"],
+      options: ["Accélérer Claude", "Permettre à Claude de réfléchir étape par étape avant de répondre, pour des résultats plus profonds", "Réduire la consommation de tokens"],
+      correctIndex: 1,
+    },
+    {
+      question: "La règle Buildrs pour les modèles c'est :",
+      options: ["Toujours utiliser Opus pour tout", "Haiku pour le mécanique, Sonnet pour 80% du quotidien, Opus 2-3x/jour en Extended Thinking", "Alterner aléatoirement entre les 3"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>3.1 — Les 3 modèles expliqués simplement</h3>
-      <ul>
-        <li><strong>Haiku</strong> = le stagiaire ultra-rapide. Tâches simples, pas cher, efficace.</li>
-        <li><strong>Sonnet 4.6</strong> = le cadre senior. Meilleur rapport qualité/vitesse/prix. 80% de ton usage.</li>
-        <li><strong>Opus 4.6</strong> = le directeur stratégique. Le plus intelligent, le plus lent, le plus coûteux.</li>
-      </ul>
+      <h3>3.1 — 3 modèles, 3 niveaux de puissance</h3>
+      <p>
+        Quand tu utilises Claude, tu ne parles pas toujours au même "cerveau". Anthropic propose 3 modèles, chacun calibré pour un type de tâche. Choisir le bon au bon moment, c'est la différence entre cramer ton quota en 2 heures et tenir toute la journée avec des résultats supérieurs.
+      </p>
+      <p>Pense à une entreprise avec 3 profils :</p>
+      <p>
+        <strong>Haiku — L'exécutant ultra-rapide.</strong> Il fait le boulot simple en un clin d'œil. Résumer un texte, reformuler un email, classer des données, trier des infos. Il ne réfléchit pas en profondeur — il exécute vite et bien. Et il consomme très peu de tokens.
+      </p>
+      <p>
+        <strong>Sonnet 4.6 — Le bras droit polyvalent.</strong> C'est lui que tu utilises 80% du temps. Il rédige du contenu de qualité, analyse des documents, code des applications, gère des conversations complexes. Le meilleur rapport entre intelligence, vitesse et coût. C'est le modèle par défaut de Claude Code et de Cowork — et c'est pas un hasard.
+      </p>
+      <p>
+        <strong>Opus 4.6 — Le stratège.</strong> Le plus intelligent. Le plus profond. Celui que tu appelles quand il faut réfléchir vraiment : architecture d'un projet complexe, décision stratégique, analyse de marché en profondeur. Il prend plus de temps, consomme plus de tokens — mais la qualité de raisonnement est sur un autre niveau.
+      </p>
+      <CalloutBox variant="important">
+        La majorité des utilisateurs laissent le modèle par défaut et ne changent jamais. Résultat : ils utilisent Sonnet pour résumer un email de 3 lignes (gaspillage) ou pire, ils n'activent jamais Opus quand ils ont une décision critique à prendre (sous-performance). Savoir switcher, c'est un superpouvoir.
+      </CalloutBox>
 
-      <h3>3.2 — Les tokens</h3>
-      <p>Les tokens = l'unité de mesure de l'IA. Chaque mot envoyé et généré en consomme.</p>
+      <h3>3.2 — Les tokens : comprendre ta "monnaie" IA</h3>
+      <p>
+        Chaque mot que tu envoies à Claude et chaque mot qu'il génère consomme des tokens. C'est la monnaie de l'IA.
+      </p>
+      <p>Quelques repères :</p>
       <ul>
         <li>1 mot français ≈ 1.3 tokens</li>
-        <li>Plan Pro ($20/mois) = allocation quotidienne. Limite atteinte = mode dégradé.</li>
-        <li>Plan Max ($100/mois) = quasi-illimité.</li>
+        <li>Un email de 200 mots ≈ 260 tokens</li>
+        <li>Une conversation longue peut atteindre 10 000 à 100 000 tokens</li>
       </ul>
+      <p>
+        Avec le <strong>plan Pro</strong> ($20/mois), tu as une allocation quotidienne. Si tu l'atteins, Claude passe en mode dégradé — modèle plus lent, réponses moins riches. Pas idéal quand tu es en plein build.
+      </p>
+      <p>
+        Avec le <strong>plan Max</strong> ($100/mois), cette limite saute. Tu ne penses plus aux tokens. C'est l'option si tu utilises Claude Code intensivement.
+      </p>
+      <p>
+        La clé pour ne jamais être limité, même en Pro : <strong>utiliser le bon modèle pour chaque tâche.</strong> Haiku pour le simple, Sonnet pour le quotidien, Opus pour le stratégique. C'est comme ça qu'on triple l'efficacité sans tripler le budget.
+      </p>
 
-      <h3>3.3 — Quand utiliser quoi ?</h3>
-      <TableBlock
-        headers={["Tâche", "Modèle", "Pourquoi"]}
-        rows={[
-          ["Résumer un texte", "Haiku", "Rapide, économique"],
-          ["Rédiger du contenu", "Sonnet 4.6", "Bon équilibre"],
-          ["Stratégie business", "Opus 4.6", "Raisonnement profond"],
-          ["Coder une app", "Sonnet 4.6", "Défaut de Claude Code"],
-          ["Architecture complexe", "Opus 4.6", "Extended Thinking"],
-          ["Tâches Cowork planifiées", "Sonnet 4.6", "Meilleur ratio"],
-        ]}
-      />
+      <h3>3.3 — Le guide pratique : quel modèle pour quelle situation</h3>
+      <p><strong>Utilise Haiku quand :</strong></p>
+      <ul>
+        <li>Tu résumes un article ou un document</li>
+        <li>Tu reformules un email ou un message</li>
+        <li>Tu classes, tries ou extrais des données</li>
+        <li>Tu fais des tâches répétitives en volume</li>
+      </ul>
+      <p style={{ fontSize: "13px", color: "rgba(237,238,239,0.5)", marginTop: "-4px" }}>
+        → Rapide, économique, pas besoin de réflexion profonde.
+      </p>
 
-      <h3>3.4 — L'Extended Thinking</h3>
-      <p>Opus et Sonnet ont un mode "réflexion étendue" : Claude prend le temps de structurer sa pensée avant de répondre. À activer pour les problèmes complexes.</p>
+      <p><strong>Utilise Sonnet 4.6 quand :</strong></p>
+      <ul>
+        <li>Tu rédiges du contenu (posts, articles, pages de vente)</li>
+        <li>Tu codes une application avec Claude Code</li>
+        <li>Tu analyses un document complexe</li>
+        <li>Tu planifies des features ou des workflows</li>
+        <li>Tu lances des tâches Cowork planifiées</li>
+      </ul>
+      <p style={{ fontSize: "13px", color: "rgba(237,238,239,0.5)", marginTop: "-4px" }}>
+        → C'est ton défaut. 80% de ton usage sera ici.
+      </p>
 
-      <CalloutBox variant="usecase">
-        Un e-commerçant Buildrs utilise Haiku pour classer automatiquement ses 200 avis clients par catégorie (prix, livraison, qualité). Sonnet pour rédiger ses fiches produits optimisées SEO — 15 fiches/heure au lieu de 2. Et Opus une fois par trimestre pour analyser toute sa data et réorienter sa stratégie produit. Résultat : il a divisé par 3 ses coûts IA et doublé sa vélocité de publication. Le bon modèle au bon moment = plus de résultat pour moins cher.
+      <p><strong>Utilise Opus 4.6 quand :</strong></p>
+      <ul>
+        <li>Tu travailles sur une stratégie business</li>
+        <li>Tu prends une décision d'architecture technique</li>
+        <li>Tu analyses un marché en profondeur</li>
+        <li>Tu as besoin que Claude "réfléchisse vraiment" avant de répondre</li>
+      </ul>
+      <p style={{ fontSize: "13px", color: "rgba(237,238,239,0.5)", marginTop: "-4px" }}>
+        → Active l'Extended Thinking. Réserve Opus pour 2-3 sessions par jour, max.
+      </p>
+
+      <h3>3.4 — L'Extended Thinking : quand Claude prend le temps de réfléchir</h3>
+      <p>
+        Opus 4.6 et Sonnet 4.6 ont une fonctionnalité que la plupart des utilisateurs ignorent : le mode Extended Thinking.
+      </p>
+      <p>
+        Au lieu de répondre immédiatement, Claude prend le temps de structurer sa réflexion étape par étape avant de formuler sa réponse. C'est la différence entre quelqu'un qui te répond du tac au tac et quelqu'un qui prend 30 secondes pour organiser sa pensée.
+      </p>
+      <p>
+        Le résultat est significativement meilleur sur les problèmes complexes — architecture de projet, stratégie business, analyse de données, debugging d'un problème technique épineux.
+      </p>
+      <p>
+        <strong>Quand l'activer :</strong> dès que ta demande nécessite du raisonnement en profondeur. Pas pour résumer un email — pour construire un plan de lancement.
+      </p>
+
+      <h3>3.5 — La règle Buildrs : comment on gère nos modèles au quotidien</h3>
+      <p>
+        Chez Buildrs, on a une règle simple qu'Alfred applique chaque jour :
+      </p>
+      <p>
+        <strong>Haiku</strong> — Pour tout ce qui est mécanique. Les agents Cowork qui font du tri, du classement, des résumés courts. Les messages internes. Les tâches de reformulation. On ne gaspille jamais du Sonnet sur une tâche que Haiku peut faire aussi bien.
+      </p>
+      <p>
+        <strong>Sonnet 4.6</strong> — Pour 80% du travail réel. Le contenu des clients, le code des projets, les analyses de documents, les conversations stratégiques de niveau intermédiaire. C'est le modèle par défaut partout — Claude AI, Claude Code, et les agents Cowork.
+      </p>
+      <p>
+        <strong>Opus 4.6</strong> — Alfred l'utilise 2-3 fois par jour, maximum. Toujours en Extended Thinking. Pour les décisions d'architecture sur les projets clients, les stratégies go-to-market, et les moments où il faut que Claude creuse vraiment un sujet avant de répondre.
+      </p>
+      <p>
+        Le résultat de cette discipline : on a divisé par 3 notre consommation de tokens par rapport à quand on utilisait Sonnet pour tout. La qualité n'a pas bougé — elle a même augmenté, parce qu'Opus sur les bons sujets donne des résultats qu'aucun autre modèle ne peut atteindre.
+      </p>
+
+      {/* ── Diagramme : La règle des modèles ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          La règle des modèles
+        </p>
+        {/* Top: TA TÂCHE */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#EDEEEF",
+            textAlign: "center" as const,
+          }}>
+            Ta tâche → Complexité ?
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* 3 columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", marginBottom: "20px" }}>
+          {[
+            { label: "Haiku", type: "Simple · Mécanique · Volume", tokens: "~10% de tes tokens", color: "rgba(74,222,128,0.7)", bg: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.2)" },
+            { label: "Sonnet 4.6", type: "Quotidien · Contenu · Code", tokens: "~70% de tes tokens", color: "#DA7756", bg: "rgba(218,119,86,0.08)", border: "rgba(218,119,86,0.2)" },
+            { label: "Opus 4.6", type: "Stratégique · Architecture", tokens: "~20% de tes tokens", color: "rgba(168,130,255,0.8)", bg: "rgba(168,130,255,0.08)", border: "rgba(168,130,255,0.2)" },
+          ].map((item) => (
+            <div key={item.label} style={{ textAlign: "center" as const }}>
+              <div style={{
+                padding: "12px 8px",
+                background: item.bg,
+                border: `1px solid ${item.border}`,
+                borderRadius: "8px",
+                marginBottom: "8px",
+              }}>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: item.color, marginBottom: "4px" }}>{item.label}</div>
+                <div style={{ fontSize: "10px", color: "rgba(237,238,239,0.4)", lineHeight: "1.4" }}>{item.type}</div>
+              </div>
+              <div style={{ fontSize: "11px", fontWeight: 500, color: "rgba(237,238,239,0.5)" }}>{item.tokens}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Dans Claude AI, le sélecteur de modèle est en bas à gauche de la zone de chat. Change-le en fonction de la tâche. Règle simple : si la tâche prend moins de 30 secondes à expliquer, c'est Haiku. Si c'est du travail quotidien, Sonnet. Si c'est stratégique, Opus + Extended Thinking.
       </CalloutBox>
     </>
   ),
