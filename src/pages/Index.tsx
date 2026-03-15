@@ -9,6 +9,7 @@ import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SocialProofPopup } from "@/components/SocialProofPopup";
 import claudeLogo from "@/assets/claude-logo.png";
 import buildrsLogo from "@/assets/buildrs-logo.png";
+import buildrsLogoIcon from "@/assets/buildrs-logo-icon.png";
 import {
   Clock,
   LayoutGrid,
@@ -707,6 +708,11 @@ const Index = () => {
         >
           {/* Subtle glow behind */}
           <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-b from-muted/30 to-transparent blur-2xl" />
+
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
+            <img src={buildrsLogoIcon} alt="Buildrs" className="h-12 w-auto" />
+          </div>
 
           <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
             <p>
