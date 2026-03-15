@@ -32,37 +32,28 @@ const firstRow = reviews.slice(0, reviews.length / 2)
 const secondRow = reviews.slice(reviews.length / 2)
 
 const ReviewCard = ({
-  img,
   name,
-  body,
+  city,
 }: {
-  img: string
   name: string
-  body: string
+  city: string
 }) => {
   return (
     <figure
       className={cn(
-        "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-80 cursor-pointer overflow-hidden rounded-xl border p-4",
         "border-white/[.08] bg-white/[.04] hover:bg-white/[.07]",
         "transition-colors duration-150"
       )}
     >
-      <div className="flex flex-row items-center gap-3">
-        <img
-          className="rounded-full"
-          width="28"
-          height="28"
-          alt={name}
-          src={img}
-        />
-        <figcaption className="text-sm font-medium text-foreground">
-          {name}
-        </figcaption>
+      <div className="flex flex-col gap-1.5">
+        <p className="text-sm font-medium text-foreground">
+          <span className="font-semibold">{name}</span> de {city}
+        </p>
+        <p className="text-[13px] text-muted-foreground">
+          vient de télécharger le guide Claude SuperPowers
+        </p>
       </div>
-      <blockquote className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-        {body}
-      </blockquote>
     </figure>
   )
 }
