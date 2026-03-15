@@ -713,48 +713,35 @@ const Index = () => {
 
           <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base text-center">
             <p>
-              <span className="font-medium text-foreground">Buildrs</span> aide les entrepreneurs à piloter leur business avec l'IA.
+              Buildrs aide les entrepreneurs à piloter leur business avec l'IA.
             </p>
 
             <p>
               Fondé par <span className="font-medium text-foreground">Alfred Orsini</span> — piloté avec{" "}
-              <span className="font-medium text-foreground">+35 agents IA</span>
-              <br />
-              dont <span className="font-medium text-foreground">20% tournent en autonomie totale</span>.
+              <span className="font-medium text-foreground">+35 agents IA</span> dont{" "}
+              <span className="font-medium text-foreground">20% tournent en autonomie totale</span>.
             </p>
 
             <p>
-              On construit des <span className="font-medium text-foreground">écosystèmes IA complets</span> avec Claude comme moteur central.
+              Chez Buildrs, on construit des{" "}
+              <span className="font-medium text-foreground">écosystèmes IA complets avec Claude comme moteur central</span>. 
+              On orchestre des <span className="font-medium text-foreground">agents intelligents et autonomes</span> qui travaillent pour toi. 
+              Et on apprend aux entrepreneurs à créer leurs propres produits et business grâce au{" "}
+              <span className="font-medium text-foreground">VibeCoding</span> — sans dépendre de personne.
             </p>
 
             <p>
-              On orchestre des <span className="font-medium text-foreground">agents intelligents et autonomes</span> qui travaillent pour toi.
-            </p>
-
-            <p>
-              Et on apprend aux entrepreneurs à créer leurs propres produits et business
-              <br />
-              grâce au <span className="font-medium text-foreground">VibeCoding</span> — sans dépendre de personne.
-            </p>
-
-            <p className="pt-4 border-t border-border/40">
-              Ni agence classique. Ni formation théorique.
-            </p>
-
-            <p>
+              Nous ne sommes ni une agence classique. Ni une formation théorique.{" "}
               <span className="font-medium text-foreground">Buildrs, c'est un accélérateur pour entrepreneurs augmentés par l'IA.</span>
             </p>
 
-            <p className="text-lg font-medium text-foreground pt-2">
-              Stop working. Start building.
-            </p>
-
-            <p className="text-sm text-muted-foreground/70">
-              Rejoins le mouvement.
+            <p className="text-lg font-medium text-foreground pt-4">
+              Stop working. Start building.{" "}
+              <span className="text-muted-foreground/90 font-normal text-[15px]">Rejoins le mouvement.</span>
             </p>
           </div>
 
-          {/* Tags - conservés mais optionnel */}
+          {/* Tags */}
           <div className="mt-10 flex flex-wrap justify-center gap-2">
             {["Agents IA", "VibeCoding", "Écosystème Claude", "Orchestration IA", "Business Automation"].map((tag) => (
               <span
