@@ -721,14 +721,18 @@ const chapter04: Chapter = {
   subtitle: "Le bon abonnement, les bons paramètres — tu repars avec un Claude qui travaille vraiment.",
   bloc: "Comprendre",
   actionPlan: [
-    "Choisir son plan (Pro recommandé)",
+    "Souscrire au plan Pro ($20/mois)",
     "Installer Claude Desktop",
-    "Activer les 4 paramètres essentiels",
+    "Activer Mémoire + Web + Code + Fichiers",
+    "Connecter Google Drive + Gmail",
+    "Faire la conversation de calibration",
+    "Installer l'extension Chrome",
+    "Passer au chapitre 5",
   ],
   quiz: [
     {
       question: "Pourquoi Claude Desktop est indispensable ?",
-      options: ["Plus joli", "Seul accès à Cowork, tâches planifiées et fichiers locaux", "Plus rapide"],
+      options: ["Il est plus joli que le navigateur", "C'est le seul accès à Cowork, aux tâches planifiées, aux fichiers locaux et aux plugins", "Il est plus rapide"],
       correctIndex: 1,
     },
     {
@@ -736,40 +740,173 @@ const chapter04: Chapter = {
       options: ["Free", "Pro ($20/mois)", "Enterprise"],
       correctIndex: 1,
     },
+    {
+      question: "Les 4 paramètres à activer en priorité :",
+      options: ["Thème sombre, police grande, notifications, langue", "Mémoire, recherche web, exécution de code, création de fichiers", "GPS, Bluetooth, NFC, mode avion"],
+      correctIndex: 1,
+    },
   ],
   content: (
     <>
-      <h3>4.1 — Les plans</h3>
-      <TableBlock
-        headers={["Plan", "Prix", "Accès"]}
-        rows={[
-          ["Free", "0€", "Limité, pas de Cowork"],
-          ["Pro", "$20/mois", "Tout : Claude AI + Code + Cowork + tâches planifiées"],
-          ["Max", "$100/mois", "Tout Pro + usage quasi-illimité"],
-          ["Team", "$30/user/mois", "Pro + collaboration"],
-          ["Enterprise", "Sur devis", "Team + SSO + conformité"],
-        ]}
-      />
-      <p>→ <strong>Recommandation : Pro pour débuter, Max si tu utilises Claude Code intensivement.</strong></p>
-
-      <h3>4.2 — Installer Claude Desktop</h3>
-      <ol>
-        <li>claude.ai/download → Mac ou Windows</li>
-        <li>Se connecter avec ton compte</li>
-        <li>Tu accèdes à Chat + Cowork + Connecteurs</li>
-      </ol>
-
-      <h3>4.3 — Paramètres essentiels à activer</h3>
-      <p>Dans Settings :</p>
+      <h3>4.1 — Choisir le bon plan (sans réfléchir 3 heures)</h3>
+      <p>
+        C'est simple. Il y a 5 plans, mais tu n'as besoin de connaître que 2 :
+      </p>
+      <p>
+        <strong>Pro — $20/mois</strong> — C'est celui qu'on recommande pour 90% des gens. Il débloque tout : Claude AI complet, Claude Code, Cowork avec les tâches planifiées, tous les modèles (Haiku, Sonnet, Opus), tous les connecteurs. C'est le plan pour suivre ce guide et commencer à exploiter Claude sérieusement.
+      </p>
+      <p>
+        <strong>Max — $100/mois</strong> — Pour ceux qui utilisent Claude Code intensivement. La différence : tu ne seras jamais limité. Si tu codes tous les jours, si tu lances des builds de plusieurs heures, si tu as 10 agents Cowork qui tournent en parallèle — c'est le Max qu'il te faut. Sinon, le Pro suffit largement.
+      </p>
+      <p>Les autres plans en bref :</p>
       <ul>
-        <li>✅ Mémoire (Claude se souvient de toi)</li>
-        <li>✅ Recherche web (infos en temps réel)</li>
-        <li>✅ Exécution de code</li>
-        <li>✅ Création de fichiers</li>
+        <li><strong>Free</strong> — Très limité, pas de Cowork, pas de tâches planifiées. Pour tester 5 minutes, pas pour travailler.</li>
+        <li><strong>Team</strong> ($30/user/mois) — Si tu es une équipe qui veut collaborer sur Claude.</li>
+        <li><strong>Enterprise</strong> (sur devis) — Grandes entreprises, SSO, conformité.</li>
       </ul>
+      <CalloutBox variant="important">
+        Beaucoup de gens restent sur le plan Free et se disent "Claude c'est moyen". Non — Claude Free c'est moyen. Claude Pro c'est un autre monde. C'est la différence entre la version d'essai d'un logiciel et la version complète. $20/mois pour un assistant qui travaille 24h/24, c'est l'investissement le plus rentable que tu feras cette année.
+      </CalloutBox>
 
-      <CalloutBox variant="usecase">
-        Un créateur de formation en ligne a setup son Claude Pro en 10 minutes avec cette méthode. Dès le lendemain, il avait généré l'intégralité de son programme de 8 modules — structurés, scriptés, avec exercices. Avant : 3 semaines de rédaction. Après : 1 journée. La différence ? Pas le talent. La configuration. Même Claude, 10x plus de résultat.
+      <h3>4.2 — Installer Claude Desktop (obligatoire)</h3>
+      <p>
+        Ce point est crucial : <strong>le navigateur web ne suffit pas.</strong>
+      </p>
+      <p>
+        Claude dans le navigateur (claude.ai), c'est bien pour du chat rapide. Mais tu n'as pas accès à Cowork, pas aux tâches planifiées, pas à tes fichiers locaux, pas aux plugins. C'est Claude en mode limité.
+      </p>
+      <p>
+        Claude Desktop, c'est Claude en mode professionnel. C'est là que tout se passe.
+      </p>
+      <p><strong>L'installation prend 2 minutes :</strong></p>
+      <ol>
+        <li>Va sur <strong>claude.ai/download</strong></li>
+        <li>Télécharge la version Mac ou Windows</li>
+        <li>Installe et connecte-toi avec ton compte</li>
+        <li>Tu as maintenant accès à Chat + Cowork + Connecteurs + Plugins</li>
+      </ol>
+      <p>
+        À partir de maintenant, oublie le navigateur. Travaille dans Claude Desktop.
+      </p>
+
+      <h3>4.3 — Les 4 paramètres à activer immédiatement</h3>
+      <p>
+        Ouvre Claude Desktop. Va dans Settings. Active ces 4 choses :
+      </p>
+      <p>
+        <strong>Mémoire — ON.</strong> Claude va commencer à retenir des choses sur toi : ton nom, ton activité, tes préférences, tes projets. Plus tu l'utilises, plus il devient pertinent. Sans la mémoire, chaque conversation repart de zéro.
+      </p>
+      <p>
+        <strong>Recherche web — ON.</strong> Claude accède à des informations en temps réel. Il peut chercher des données, vérifier des faits, trouver des sources. Sans ça, il est limité à ses connaissances d'entraînement.
+      </p>
+      <p>
+        <strong>Exécution de code — ON.</strong> Claude peut tester du code, faire des calculs, manipuler des données directement dans la conversation. Indispensable dès que tu travailles avec des chiffres ou du développement.
+      </p>
+      <p>
+        <strong>Création de fichiers — ON.</strong> Claude génère des documents Word, des tableurs Excel, des présentations, des PDFs — directement téléchargeables. Sans cette option, tu dois tout copier-coller manuellement.
+      </p>
+      <p>
+        Ces 4 activations prennent 30 secondes. Elles multiplient par 10 ce que Claude peut faire pour toi.
+      </p>
+
+      <h3>4.4 — Le setup Buildrs en 10 minutes chrono</h3>
+      <p>
+        Voici exactement ce qu'on fait chez Buildrs quand on onboarde un client ou quand Alfred configure un nouveau compte :
+      </p>
+      <p>
+        <strong>Minute 0-2 :</strong> Souscription au plan Pro. Téléchargement et installation de Claude Desktop. Connexion.
+      </p>
+      <p>
+        <strong>Minute 2-4 :</strong> Activation des 4 paramètres (mémoire, web, code, fichiers). C'est fait en 30 secondes mais on vérifie que tout est bien ON.
+      </p>
+      <p>
+        <strong>Minute 4-7 :</strong> Configuration des connecteurs essentiels (on verra le détail au chapitre 6, mais voici le minimum vital) :
+      </p>
+      <ul>
+        <li>Google Drive → Claude accède à tes documents</li>
+        <li>Gmail → Claude lit et rédige tes emails</li>
+      </ul>
+      <p>Chaque connecteur = 1 clic, autorisation OAuth, c'est branché.</p>
+      <p>
+        <strong>Minute 7-9 :</strong> Première conversation de calibration. On dit à Claude :
+      </p>
+      <p style={{ fontStyle: "italic", color: "rgba(237,238,239,0.6)", padding: "8px 16px", borderLeft: "2px solid rgba(255,255,255,0.1)" }}>
+        "Je m'appelle [Prénom]. Je suis [activité]. Mon audience c'est [cible]. Mon ton est [style]. Souviens-toi de ces informations."
+      </p>
+      <p>Claude mémorise. À partir de maintenant, il te connaît.</p>
+      <p>
+        <strong>Minute 9-10 :</strong> Installation de l'extension Chrome "Claude in Chrome" depuis le Chrome Web Store. Claude peut maintenant naviguer sur le web et agir sur les sites.
+      </p>
+      <p>
+        C'est tout. 10 minutes. Ton Claude est passé de "chatbot générique" à "assistant personnel configuré pour toi".
+      </p>
+
+      {/* ── Diagramme : Le setup en 10 minutes ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Le setup en 10 minutes
+        </p>
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "8px" }}>
+          {[
+            { time: "0-2 min", label: "Pro + Desktop", color: "rgba(237,238,239,0.6)" },
+            { time: "2-4 min", label: "4 paramètres ON", color: "rgba(237,238,239,0.6)" },
+            { time: "4-7 min", label: "Drive + Gmail connectés", color: "rgba(237,238,239,0.6)" },
+            { time: "7-9 min", label: "Conversation de calibration", color: "rgba(237,238,239,0.6)" },
+            { time: "9-10 min", label: "Extension Chrome", color: "rgba(237,238,239,0.6)" },
+          ].map((step, i) => (
+            <div key={step.time} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{
+                width: "64px",
+                flexShrink: 0,
+                fontSize: "11px",
+                fontWeight: 600,
+                color: "rgba(218,119,86,0.8)",
+                textAlign: "right" as const,
+                fontVariantNumeric: "tabular-nums",
+              }}>
+                {step.time}
+              </div>
+              <div style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                background: i === 4 ? "#DA7756" : "rgba(255,255,255,0.15)",
+                border: i === 4 ? "none" : "1px solid rgba(255,255,255,0.1)",
+                flexShrink: 0,
+              }} />
+              <div style={{
+                flex: 1,
+                padding: "8px 14px",
+                background: i === 4 ? "rgba(218,119,86,0.08)" : "rgba(255,255,255,0.02)",
+                border: `1px solid ${i === 4 ? "rgba(218,119,86,0.2)" : "rgba(255,255,255,0.06)"}`,
+                borderRadius: "6px",
+                fontSize: "12px",
+                color: i === 4 ? "#DA7756" : step.color,
+                fontWeight: i === 4 ? 600 : 400,
+              }}>
+                {step.label}{i === 4 ? " → Claude opérationnel ✅" : ""}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Fais-le maintenant. Littéralement. Ouvre un nouvel onglet, va sur claude.ai/download, installe, active les 4 paramètres, connecte Drive et Gmail. Chronomètre-toi — tu verras que 10 minutes c'est même large.
       </CalloutBox>
     </>
   ),
