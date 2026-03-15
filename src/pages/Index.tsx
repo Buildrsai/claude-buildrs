@@ -32,6 +32,9 @@ import {
   Lightbulb,
   ChevronLeft,
   ChevronRight,
+  Shuffle,
+  RefreshCw,
+  TrendingUp,
 } from "lucide-react";
 
 /* ─── Animation presets ─── */
@@ -96,13 +99,16 @@ const BLOCS = [
   },
 ];
 
-/* ─── Pain points ─── */
+/* ─── Pain points — 8 cards d'identification ─── */
 const PAIN_POINTS = [
-  { icon: Zap, text: "Tu paies l'abo Pro mais tu utilises Claude comme un ChatGPT amélioré" },
-  { icon: LayoutGrid, text: "Tu ne sais pas quand utiliser Haiku, Sonnet 4.6 ou Opus 4.6" },
-  { icon: Settings, text: "Tu n'as configuré aucun Skill, aucun connecteur, aucun CLAUDE.md" },
-  { icon: Target, text: "Tu vois des gens builder des apps et tu te dis \"c'est pas pour moi\"" },
-  { icon: Monitor, text: "Tu passes d'un outil IA à l'autre sans système et sans méthode" },
+  { icon: Eye, text: "Tout le monde parle de Claude, d'agents IA, de VibeCoding — et toi tu regardes passer le train sans savoir comment monter dedans" },
+  { icon: Shuffle, text: "Tu paies ChatGPT ou un autre outil et tu commences à te demander si t'as pas misé sur le mauvais cheval — pendant que d'autres automatisent tout avec Claude" },
+  { icon: Zap, text: "Tu as Claude Pro mais tu l'utilises pour reformuler des emails — alors que des entrepreneurs l'utilisent pour gérer leur business entier" },
+  { icon: Settings, text: "Skills, MCP, CLAUDE.md, agents autonomes — tu sais que c'est puissant mais ça te paraît trop technique pour toi" },
+  { icon: RefreshCw, text: "Tu perds des heures chaque semaine sur des tâches qu'une IA bien configurée ferait en 5 minutes — pendant que tu dors" },
+  { icon: Rocket, text: "Tu as une idée de produit, d'app ou de service — et tu veux enfin la concrétiser sans dépendre d'un développeur à 500€/jour" },
+  { icon: TrendingUp, text: "Tu veux des employés IA qui bossent 24h/24 sur ton business — prospection, contenu, reporting, veille — sans recruter" },
+  { icon: Lightbulb, text: "Tu sais que l'IA va tout changer. Tu veux être de ceux qui en profitent — pas de ceux qui subissent" },
 ];
 
 /* ─── Profiles ─── */
@@ -413,13 +419,13 @@ const Index = () => {
 
         <motion.h2
           {...fadeUp}
-          className="mx-auto mb-16 max-w-3xl font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl"
+          className="mx-auto mb-16 max-w-3xl font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl lg:text-5xl"
         >
-          Tu utilises Claude tous les jours…{" "}
-          <span className="italic text-secondary-foreground">mais tu sens que tu passes à côté.</span>
+          L'IA avance.{" "}
+          <span className="italic text-secondary-foreground">Et toi ?</span>
         </motion.h2>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           {PAIN_POINTS.map((point, i) => (
             <motion.div
               key={i}
@@ -436,12 +442,17 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="mt-16 flex items-center justify-center gap-4">
-          <div className="h-px w-12 bg-border/60" />
-          <p className="max-w-lg font-serif text-xl italic leading-relaxed text-secondary-foreground/80 sm:text-2xl">
-            Ce n'est pas un problème de compétence. C'est un problème de configuration.
+        <motion.div {...fadeUp} className="mt-16 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-4">
+            <div className="h-px w-12 bg-border/60" />
+            <p className="max-w-lg font-serif text-xl italic leading-relaxed text-secondary-foreground/80 sm:text-2xl">
+              Ce n'est pas un problème de compétence. C'est un problème de configuration.
+            </p>
+            <div className="h-px w-12 bg-border/60" />
+          </div>
+          <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
+            Ce guide te montre exactement comment configurer Claude pour qu'il travaille pour toi — pas l'inverse.
           </p>
-          <div className="h-px w-12 bg-border/60" />
         </motion.div>
       </section>
 
