@@ -715,11 +715,7 @@ const Index = () => {
 
           <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground/90 sm:text-base">
             <p>
-              Buildrs aide les entrepreneurs à piloter leur business avec l'IA.
-            </p>
-
-            <p>
-              Fondé par <span className="font-medium text-foreground">Alfred Orsini</span> — piloté avec{" "}
+              Buildrs aide les entrepreneurs à piloter leur business avec l'IA. Fondé par <span className="font-medium text-foreground">Alfred Orsini</span> — piloté avec{" "}
               <span className="font-medium text-foreground">+35 agents IA</span> dont{" "}
               <span className="font-medium text-foreground">20% tournent en autonomie totale</span>.
             </p>
