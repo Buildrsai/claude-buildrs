@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { Unlock, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "buildrs_first_visit_timestamp";
 const DURATION_MS = 72 * 60 * 60 * 1000; // 72 hours
@@ -53,10 +54,7 @@ export function UrgencyBanner() {
     navigate("/auth");
   }, [navigate]);
 
-  const ctaLabel = time.expired ? "Accéder pour 27€ →" : "Accéder gratuitement →";
-  const mainText = time.expired
-    ? "Offre expirée — Accès à 27€"
-    : "🔓 Accès gratuit pendant 72h — ensuite 27€";
+  const ctaLabel = time.expired ? "Accéder pour 27€" : "Accéder gratuitement";
 
   return (
     <>
@@ -64,93 +62,133 @@ export function UrgencyBanner() {
         className="urgency-banner"
         style={{
           position: "fixed",
-          top: "64px", /* below header h-16 */
+          top: "64px",
           left: 0,
           right: 0,
           zIndex: 40,
           width: "100%",
-          padding: "10px 24px",
-          background: "linear-gradient(90deg, #DA7756 0%, #FF6B35 50%, #DA7756 100%)",
+          padding: "0",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "24px",
           overflow: "hidden",
+          background: "#0A0A0A",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        {/* Shimmer overlay */}
+        {/* Inner content bar */}
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: "-100%",
             width: "100%",
-            height: "100%",
-            background:
-              "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)",
-            animation: "urgency-shimmer 5s infinite",
-            pointerEvents: "none",
-          }}
-        />
-
-        {/* Main text */}
-        <span
-          className="urgency-text"
-          style={{
-            color: "#FFFFFF",
-            fontSize: "14px",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
+            padding: "8px 24px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "16px",
             position: "relative",
-            zIndex: 1,
+            background: "linear-gradient(90deg, rgba(218,119,86,0.08) 0%, rgba(218,119,86,0.15) 50%, rgba(218,119,86,0.08) 100%)",
           }}
         >
-          {mainText}
-        </span>
-
-        {/* Countdown */}
-        {!time.expired && (
-          <span
-            className="urgency-countdown"
+          {/* Shimmer overlay */}
+          <div
             style={{
+              position: "absolute",
+              top: 0,
+              left: "-100%",
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(90deg, transparent, rgba(218,119,86,0.08), transparent)",
+              animation: "urgency-shimmer 5s infinite",
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Icon + Main text */}
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", position: "relative", zIndex: 1 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "22px",
+                height: "22px",
+                borderRadius: "6px",
+                background: "rgba(218,119,86,0.15)",
+                border: "1px solid rgba(218,119,86,0.25)",
+                flexShrink: 0,
+              }}
+            >
+              <Unlock size={12} color="#DA7756" strokeWidth={2.5} />
+            </div>
+            <span
+              className="urgency-text"
+              style={{
+                color: "rgba(237,238,239,0.8)",
+                fontSize: "13px",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              {time.expired
+                ? "Offre expirée — Accès à 27€"
+                : "Accès gratuit pendant 72h — ensuite 27€"}
+            </span>
+          </div>
+
+          {/* Countdown pill */}
+          {!time.expired && (
+            <span
+              className="urgency-countdown"
+              style={{
+                color: "#DA7756",
+                fontSize: "12px",
+                fontWeight: 600,
+                fontVariantNumeric: "tabular-nums",
+                letterSpacing: "0.02em",
+                position: "relative",
+                zIndex: 1,
+                padding: "3px 10px",
+                borderRadius: "20px",
+                background: "rgba(218,119,86,0.1)",
+                border: "1px solid rgba(218,119,86,0.2)",
+              }}
+            >
+              {pad(time.hours)}:{pad(time.minutes)}:{pad(time.seconds)}
+            </span>
+          )}
+
+          {/* CTA Button */}
+          <button
+            onClick={handleClick}
+            className="urgency-cta group"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              background: "#DA7756",
               color: "#FFFFFF",
-              fontSize: "16px",
-              fontWeight: 700,
-              fontVariantNumeric: "tabular-nums",
-              letterSpacing: "0.5px",
+              padding: "5px 14px",
+              borderRadius: "6px",
+              fontSize: "12px",
+              fontWeight: 600,
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              border: "none",
+              transition: "all 0.2s",
               position: "relative",
               zIndex: 1,
-              animation: "urgency-pulse 2s ease-in-out infinite",
+              fontFamily: "'Geist', sans-serif",
+              letterSpacing: "-0.01em",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#c56a4c")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#DA7756")}
           >
-            {pad(time.hours)}h {pad(time.minutes)}m {pad(time.seconds)}s
-          </span>
-        )}
-
-        {/* CTA Button */}
-        <button
-          onClick={handleClick}
-          className="urgency-cta"
-          style={{
-            background: "#FFFFFF",
-            color: "#0A0A0A",
-            padding: "6px 16px",
-            borderRadius: "20px",
-            fontSize: "13px",
-            fontWeight: 600,
-            cursor: "pointer",
-            whiteSpace: "nowrap",
-            border: "none",
-            transition: "opacity 0.2s",
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "'Geist', sans-serif",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
-          {ctaLabel}
-        </button>
+            {ctaLabel}
+            <ArrowRight size={13} strokeWidth={2.5} />
+          </button>
+        </div>
       </div>
 
       <style>{`
@@ -159,31 +197,25 @@ export function UrgencyBanner() {
           20% { left: 100%; }
           100% { left: 100%; }
         }
-        @keyframes urgency-pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
 
-        /* ─── Mobile responsive ─── */
         @media (max-width: 640px) {
-          .urgency-banner {
+          .urgency-banner > div {
             flex-wrap: wrap !important;
             gap: 6px !important;
             padding: 8px 16px !important;
             justify-content: center !important;
           }
           .urgency-text {
-            width: 100% !important;
-            text-align: center !important;
-            font-size: 12px !important;
+            font-size: 11px !important;
             white-space: normal !important;
+            text-align: center !important;
           }
           .urgency-countdown {
-            font-size: 14px !important;
+            font-size: 11px !important;
           }
           .urgency-cta {
-            font-size: 12px !important;
-            padding: 5px 14px !important;
+            font-size: 11px !important;
+            padding: 4px 12px !important;
           }
         }
       `}</style>
