@@ -737,6 +737,8 @@ const Index = () => {
           </Button>
         </div>
       </footer>
+
+      <SocialProofPopup />
     </div>
   );
 };
