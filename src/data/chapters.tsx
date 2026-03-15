@@ -18,8 +18,8 @@ export interface Chapter {
 
 const chapter01: Chapter = {
   number: "01",
-  title: "Pourquoi Claude change la donne en 2026",
-  subtitle: "Et pourquoi maintenant, c'est le moment de s'y mettre.",
+  title: "Pourquoi Claude va tout changer pour toi",
+  subtitle: "L'IA a évolué. Ceux qui comprennent le nouvel écosystème prennent une longueur d'avance.",
   bloc: "Comprendre",
   actionPlan: [
     "Créer son compte Claude (si pas encore fait)",
@@ -103,7 +103,7 @@ const chapter01: Chapter = {
         <li><strong>Un accélérateur pour entrepreneurs</strong> — on aide ceux qui veulent lancer un business pérenne autour de l'IA à implémenter, comprendre et exploiter tout l'écosystème Claude.</li>
       </ol>
       <CalloutBox variant="usecase">
-        Chez Buildrs, Alfred a configuré un agent Cowork qui chaque matin à 7h30 compile : les emails importants, les messages Slack de l'équipe, l'agenda du jour, et les KPIs business de la veille. Résultat : un briefing complet sur son bureau avant même qu'il ouvre son Mac. Temps de configuration : 15 minutes. Valeur quotidienne : inestimable. C'est ce genre de setup que tu vas apprendre dans ce guide.
+        Un utilisateur Buildrs — coach sportif, zéro background tech — a utilisé Claude pour créer un outil de génération de programmes d'entraînement personnalisés. En 3 jours, il avait une app fonctionnelle avec paiement Stripe intégré. Aujourd'hui, il vend l'accès à 19€/mois et a 47 abonnés. Son "développeur" ? Claude Code + le workflow de ce guide. Coût d'infra : 0€.
       </CalloutBox>
     </>
   ),
@@ -111,8 +111,8 @@ const chapter01: Chapter = {
 
 const chapter02: Chapter = {
   number: "02",
-  title: "Trois produits, trois rôles",
-  subtitle: "Comment ils travaillent ensemble — et lequel utiliser pour quoi.",
+  title: "3 produits. Un seul écosystème. Zéro limite.",
+  subtitle: "Claude AI pense. Claude Code construit. Cowork exécute. Ensemble, ils remplacent une équipe.",
   bloc: "Comprendre",
   actionPlan: [
     "Identifier lequel des 3 produits correspond à ton besoin immédiat",
@@ -179,7 +179,7 @@ const chapter02: Chapter = {
       />
 
       <CalloutBox variant="usecase">
-        Quand Buildrs lance un nouveau projet client, voici comment les 3 produits s'articulent : <strong>Claude AI</strong> (avec un Project dédié) gère la stratégie, le brief et le contenu. <strong>Claude Code</strong> construit l'application avec le CLAUDE.md du client. <strong>Cowork</strong> automatise le reporting hebdo et la veille concurrentielle. Les 3 tournent en parallèle sur le même projet. C'est comme avoir 3 départements qui collaborent — sauf que c'est un seul écosystème.
+        Une consultante RH a utilisé les 3 produits pour lancer son activité en parallèle de son CDI : <strong>Claude AI</strong> pour brainstormer son offre et rédiger ses pages de vente. <strong>Claude Code</strong> pour builder un outil de matching candidat/entreprise en 2 jours. <strong>Cowork</strong> pour automatiser sa veille LinkedIn et générer 3 posts/semaine pendant qu'elle dort. Elle a signé ses 2 premiers clients en 3 semaines — sans toucher une ligne de code.
       </CalloutBox>
     </>
   ),
@@ -187,8 +187,8 @@ const chapter02: Chapter = {
 
 const chapter03: Chapter = {
   number: "03",
-  title: "Haiku, Sonnet 4.6, Opus 4.6",
-  subtitle: "Lequel utiliser, quand, et comment ne pas cramer ton quota.",
+  title: "Utilise le bon modèle au bon moment",
+  subtitle: "Divise par 3 tes coûts et double la qualité de tes résultats.",
   bloc: "Comprendre",
   actionPlan: [
     "Rester sur Sonnet 4.6 par défaut",
@@ -241,7 +241,7 @@ const chapter03: Chapter = {
       <p>Opus et Sonnet ont un mode "réflexion étendue" : Claude prend le temps de structurer sa pensée avant de répondre. À activer pour les problèmes complexes.</p>
 
       <CalloutBox variant="usecase">
-        Chez Buildrs, on a une règle simple : Haiku pour les messages Slack internes et les résumés. Sonnet pour 80% du travail quotidien (code, contenu, analyse). Opus uniquement pour les décisions d'architecture et les stratégies go-to-market. Résultat : on a divisé par 3 notre consommation de tokens sans perdre en qualité. Alfred utilise Opus max 2-3 fois par jour, toujours en Extended Thinking.
+        Un e-commerçant Buildrs utilise Haiku pour classer automatiquement ses 200 avis clients par catégorie (prix, livraison, qualité). Sonnet pour rédiger ses fiches produits optimisées SEO — 15 fiches/heure au lieu de 2. Et Opus une fois par trimestre pour analyser toute sa data et réorienter sa stratégie produit. Résultat : il a divisé par 3 ses coûts IA et doublé sa vélocité de publication. Le bon modèle au bon moment = plus de résultat pour moins cher.
       </CalloutBox>
     </>
   ),
@@ -249,8 +249,8 @@ const chapter03: Chapter = {
 
 const chapter04: Chapter = {
   number: "04",
-  title: "Le bon plan, les bons paramètres",
-  subtitle: "Setup optimal en 10 minutes.",
+  title: "10 minutes pour un Claude opérationnel",
+  subtitle: "Le bon abonnement, les bons paramètres — tu repars avec un Claude qui travaille vraiment.",
   bloc: "Comprendre",
   actionPlan: [
     "Choisir son plan (Pro recommandé)",
@@ -301,7 +301,7 @@ const chapter04: Chapter = {
       </ul>
 
       <CalloutBox variant="usecase">
-        Quand on onboarde un nouveau client chez Buildrs, la première chose qu'on fait c'est le setup de son Claude en 10 minutes chrono. Plan Pro, Desktop installé, mémoire activée, Drive + Gmail connectés. Le client repart avec un Claude opérationnel dès le premier jour. Pas de formation théorique de 3 heures — un setup concret qui marche immédiatement.
+        Un créateur de formation en ligne a setup son Claude Pro en 10 minutes avec cette méthode. Dès le lendemain, il avait généré l'intégralité de son programme de 8 modules — structurés, scriptés, avec exercices. Avant : 3 semaines de rédaction. Après : 1 journée. La différence ? Pas le talent. La configuration. Même Claude, 10x plus de résultat.
       </CalloutBox>
     </>
   ),
@@ -313,8 +313,8 @@ const chapter04: Chapter = {
 
 const chapter05: Chapter = {
   number: "05",
-  title: "Comment donner des instructions que Claude comprend vraiment",
-  subtitle: "Et qu'il retient — d'une conversation à l'autre.",
+  title: "Donne des instructions que Claude n'oublie jamais",
+  subtitle: "Avec les Projects et la mémoire, Claude connaît ton business par cœur.",
   bloc: "Configurer",
   actionPlan: [
     "Créer son premier Project \"Mon Business\"",
@@ -351,7 +351,7 @@ const chapter05: Chapter = {
       <p>Dans Settings → Memory. Claude retient tes préférences, des faits sur toi, tes instructions récurrentes.</p>
 
       <CalloutBox variant="usecase">
-        Alfred a un Project "Buildrs — Stratégie" avec un prompt système de 30 lignes qui décrit la vision, les offres, le positionnement, et le ton de communication. Chaque fois qu'il brainstorme dans ce projet, Claude est déjà aligné. Pas besoin de re-briefer à chaque conversation. Le gain de temps sur un mois : estimé à 15-20 heures.
+        Une naturopathe a créé 3 Projects Claude : "Mon offre" (positionnement, cibles, tarifs), "Contenu Instagram" (ton, exemples de posts, hashtags), et "Prospection" (templates d'emails, séquences de relance). En 1 mois, elle a triplé son nombre de leads entrants — parce que Claude produit du contenu aligné avec son positionnement à chaque conversation, sans qu'elle ait besoin de ré-expliquer qui elle est.
       </CalloutBox>
 
       <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
@@ -363,8 +363,8 @@ const chapter05: Chapter = {
 
 const chapter06: Chapter = {
   number: "06",
-  title: "Branche Claude à tout ton écosystème",
-  subtitle: "Plugin Chrome, Drive, Gmail, Slack, Notion — en quelques clics.",
+  title: "Branche Claude à tous tes outils en un clic",
+  subtitle: "Drive, Gmail, Slack, Notion, Chrome — Claude accède à tout et agit directement dedans.",
   bloc: "Configurer",
   actionPlan: [
     "Connecter Google Drive + Gmail (minimum vital)",
@@ -414,7 +414,7 @@ const chapter06: Chapter = {
       <p>Sans connecteurs, tu dois copier-coller des infos entre tes outils et Claude. Avec connecteurs, Claude accède directement à tes données — il peut analyser tes emails, consulter ton planning, et rédiger un document dans ton Drive en une seule conversation.</p>
 
       <CalloutBox variant="usecase">
-        L'agent Cowork "Daily Briefing" d'Alfred utilise 4 connecteurs simultanément : Gmail (emails non lus), Slack (messages importants), Google Calendar (réunions du jour), et Google Drive (documents modifiés récemment). Chaque matin, un rapport structuré est généré automatiquement. Sans les connecteurs, cette tâche nécessiterait de consulter 4 apps séparément pendant 20 minutes. Avec : 0 minutes, c'est automatique.
+        Un agent immobilier a branché Claude à son Drive (mandats), Gmail (prospects), et Calendar (visites). Résultat : quand un prospect envoie un email, Claude analyse le besoin, matche avec les biens disponibles dans le Drive, rédige une réponse personnalisée avec 3 suggestions, et propose des créneaux de visite depuis l'agenda. Temps de réponse : de 2h à 2 minutes. Taux de conversion visite : +40%.
       </CalloutBox>
 
       <OfferCTA variant="subtle" buttonLabel="Découvrir le Kit → 97€" buttonLink="/dashboard/offres">
@@ -426,8 +426,8 @@ const chapter06: Chapter = {
 
 const chapter07: Chapter = {
   number: "07",
-  title: "Ton agent de code, opérationnel en 20 minutes",
-  subtitle: "Local, VS Code ou Anti-Gravity — on t'explique tout.",
+  title: "Installe ton agent de code en 20 minutes",
+  subtitle: "Tu décris, il construit. Pas besoin de savoir coder.",
   bloc: "Configurer",
   actionPlan: [
     "Installer Node.js (nodejs.org)",
@@ -469,7 +469,7 @@ claude
       <p>Claude Code crée la structure, installe les dépendances, écrit le code, lance le serveur. Zéro ligne de code de ta part.</p>
 
       <CalloutBox variant="usecase">
-        Chez Buildrs, chaque nouveau projet client démarre avec Claude Code en local. Temps moyen pour avoir un MVP fonctionnel avec authentification, base de données et design premium : 4 heures. Avant Claude Code, le même scope nécessitait 2-3 semaines de développement. Le ratio est de 1 à 20.
+        Un coach business sans aucune compétence technique a installé Claude Code un mardi soir. Le mercredi matin, il avait un outil de scoring d'offres — les prospects répondent à 5 questions, et l'app génère un diagnostic avec recommandations personnalisées. Il l'a mis en ligne sur Vercel (gratuit) et l'utilise comme lead magnet. 200 leads en 2 semaines. Coût de développement : 0€.
       </CalloutBox>
     </>
   ),
@@ -477,8 +477,8 @@ claude
 
 const chapter08: Chapter = {
   number: "08",
-  title: "Prévisualise, pousse, déploie — sans friction",
-  subtitle: "GitHub + Vercel = ton pipeline de production.",
+  title: "Du code à la mise en ligne — sans friction",
+  subtitle: "Tu décris. Claude construit. GitHub sauvegarde. Vercel déploie. En ligne avant la fin de la journée.",
   bloc: "Configurer",
   actionPlan: [
     "Créer un compte GitHub (gratuit)",
@@ -516,7 +516,7 @@ const chapter08: Chapter = {
       <CodeBlock code="Tu décris → Claude Code construit → Preview locale → Push GitHub → Vercel déploie → App en ligne" />
 
       <CalloutBox variant="usecase">
-        Pour le projet NOAH™ (générateur d'offres IA), Buildrs a utilisé ce workflow exact. Alfred décrit les features, Claude Code les construit, push automatique sur GitHub, déploiement Vercel instantané. Le client voit les mises à jour en temps réel sur l'URL de prod. Délai entre la demande et la mise en ligne d'une modification : souvent moins de 10 minutes.
+        Une freelance copywriter a construit un générateur de landing pages pour ses clients. Elle décrit le positionnement, Claude Code génère la page complète, elle prévisualise en temps réel, ajuste le copy, et déploie sur Vercel en un clic. Ses clients reçoivent la landing page en ligne dans la journée au lieu de 2 semaines. Elle a doublé son tarif — et ses clients sont plus satisfaits qu'avant.
       </CalloutBox>
     </>
   ),
@@ -528,8 +528,8 @@ const chapter08: Chapter = {
 
 const chapter09: Chapter = {
   number: "09",
-  title: "Claude est livré nu. Habille-le.",
-  subtitle: "Les Skills qui transforment Claude en machine de guerre.",
+  title: "Transforme Claude en spécialiste de ton métier",
+  subtitle: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton dev.",
   bloc: "Supercharger",
   actionPlan: [
     "Installer Frontend Design + SuperPowers",
@@ -578,7 +578,7 @@ const chapter09: Chapter = {
       <p>Un SKILL.md dans <code>~/.claude/skills/mon-skill/SKILL.md</code> = ton skill personnel, dispo dans tous tes projets.</p>
 
       <CalloutBox variant="usecase">
-        Buildrs a créé un skill custom "buildrs-brand" qui contient le design system complet (couleurs, typo, glassmorphism, ton). Chaque fois que Claude Code crée une interface pour un projet Buildrs, il applique automatiquement le style maison. Résultat : cohérence visuelle parfaite sur tous les projets, sans briefer manuellement le design à chaque fois.
+        Un entrepreneur a créé un Skill "expert-pricing" qui contient les frameworks de pricing SaaS (value-based, tiered, freemium). Quand il lance un nouveau produit, il demande à Claude "analyse cette offre et propose 3 structures de prix". Claude applique automatiquement les bonnes méthodes et sort un pricing optimisé en 30 secondes. Il a testé 4 structures de prix en une semaine et trouvé celle qui maximise son MRR — sans consultant à 3000€.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="LES SKILLS BUILDRS — PRÊTS À INSTALLER" buttonLabel="Obtenir le Kit d'implémentation → 97€" buttonLink="/dashboard/offres">
@@ -592,8 +592,8 @@ const chapter09: Chapter = {
 
 const chapter10: Chapter = {
   number: "10",
-  title: "Les serveurs qui branchent Claude Code à tout",
-  subtitle: "GitHub, Supabase, Stripe, et 100+ services — depuis ton terminal.",
+  title: "Connecte Claude à 100+ services externes",
+  subtitle: "GitHub, Supabase, Stripe, Google Workspace — Claude Code interagit directement avec tes outils.",
   bloc: "Supercharger",
   actionPlan: [
     "Ajouter Context7 MCP (indispensable)",
@@ -640,7 +640,7 @@ const chapter10: Chapter = {
       </ul>
 
       <CalloutBox variant="usecase">
-        Pour chaque projet client, Buildrs configure 3 MCP minimum : Context7 (documentation à jour), GitHub (gestion du code), et Supabase (base de données). Quand Alfred demande à Claude Code "ajoute l'authentification avec Supabase", Claude consulte la doc exacte via Context7, construit le code, et le connecte directement à la base Supabase du projet via le MCP. Zéro copier-coller de documentation, zéro erreur d'API obsolète.
+        Un fondateur de marketplace a connecté Claude Code à Stripe via MCP. Résultat : il dit "ajoute un plan annuel à 197€ avec 14 jours d'essai gratuit" et Claude crée le produit Stripe, le price, le checkout flow, et le webhook — en une seule commande. Ce qui prenait 2h de documentation Stripe + code manuel se fait maintenant en 3 minutes. Il a lancé 3 formules d'abonnement en une après-midi.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="LE FICHIER .MCP.JSON COMPLET DE BUILDRS" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
@@ -652,8 +652,8 @@ const chapter10: Chapter = {
 
 const chapter11: Chapter = {
   number: "11",
-  title: "Fais en sorte que Claude se souvienne de tout",
-  subtitle: "Projet par projet, automatiquement.",
+  title: "Un Claude qui se souvient de tout, automatiquement",
+  subtitle: "Chaque projet a son contexte. Claude le retient entre les sessions.",
   bloc: "Supercharger",
   actionPlan: [
     "Créer un CLAUDE.md dans ton projet principal",
@@ -723,7 +723,7 @@ Pas de ton corporate. Pas de clichés motivationnels.`}
       />
 
       <CalloutBox variant="usecase">
-        Le CLAUDE.md du projet "Claude SuperPowers" (ce guide que tu lis) fait 45 lignes. Il contient le design system (dark mode, terracotta, glassmorphism), les conventions React, et les instructions de ton éditorial. Résultat : chaque fois que Claude Code travaille sur ce projet, il produit du contenu et du code cohérents avec la vision — sans qu'on ait besoin de re-briefer. Ce fichier a été écrit une seule fois et a servi sur +50 sessions de développement.
+        Un créateur de contenu a écrit un CLAUDE.md de 20 lignes pour son projet : ton, audience cible, sujets interdits, format préféré. Depuis, chaque fois qu'il ouvre Claude Code, ses articles de blog sortent directement dans le bon ton, avec les bonnes références, sans aucun re-briefing. Il publie 5 articles/semaine au lieu de 2. Sa newsletter a pris +800 abonnés en 2 mois — grâce à la régularité que la mémoire de Claude lui permet de tenir.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="5 TEMPLATES CLAUDE.MD PAR TYPE DE PROJET" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
@@ -735,8 +735,8 @@ Pas de ton corporate. Pas de clichés motivationnels.`}
 
 const chapter12: Chapter = {
   number: "12",
-  title: "Crée des agents qui bossent pour toi en continu",
-  subtitle: "Tâches planifiées, rapports auto, veille — ton équipe IA ne dort jamais.",
+  title: "Tes employés IA — disponibles 24/7",
+  subtitle: "Crée des agents qui bossent pour toi en continu. Prospection, contenu, reporting, veille.",
   bloc: "Supercharger",
   actionPlan: [
     "Créer ton premier agent \"Morning Brief\"",
@@ -818,17 +818,15 @@ Propose 5 idées de contenu (posts, articles, vidéos) avec :
       <p>Cowork a un écosystème de plugins vérifiés (design, RH, ops, etc.) que tu peux installer pour étendre les capacités de tes agents.</p>
 
       <CalloutBox variant="usecase">
-        Chez Buildrs, Alfred a 7 agents Cowork en production :
+        Un entrepreneur solo dans le SaaS B2B a monté une "équipe" de 5 agents IA :
         <ol>
-          <li><strong>Daily Brief</strong> (7h30) — emails + Slack + agenda + KPIs</li>
-          <li><strong>Client Report</strong> (lundi 9h) — rapport de progression pour chaque client actif</li>
-          <li><strong>Veille IA</strong> (quotidien 12h) — news et annonces de l'écosystème Claude/Anthropic</li>
-          <li><strong>Content Planner</strong> (mercredi 10h) — 5 idées de contenu pour la semaine</li>
-          <li><strong>Invoice Reminder</strong> (vendredi 14h) — rappel des factures en attente</li>
-          <li><strong>Week Review</strong> (vendredi 17h) — résumé de la semaine avec métriques</li>
-          <li><strong>Competitor Watch</strong> (quotidien) — veille sur 3 concurrents directs</li>
+          <li><strong>Prospecteur</strong> (quotidien 8h) — identifie 10 leads qualifiés/jour sur LinkedIn et rédige les messages d'approche</li>
+          <li><strong>Content Machine</strong> (lundi + jeudi 9h) — génère 2 posts LinkedIn + 1 article de blog/semaine</li>
+          <li><strong>Analyste Churn</strong> (vendredi 10h) — détecte les clients inactifs et propose des actions de rétention</li>
+          <li><strong>Veille Produit</strong> (quotidien 12h) — surveille les features des concurrents et suggère des améliorations</li>
+          <li><strong>Rapport Investisseur</strong> (1er du mois) — compile MRR, churn, LTV et génère un rapport formaté</li>
         </ol>
-        Total : 7 "employés" qui coûtent $20/mois (le prix de l'abo Pro). L'équivalent salarial ? Incalculable.
+        Résultat : il gère seul un SaaS à 8K€ MRR avec zéro employé. Coût de son "équipe IA" : $20/mois.
       </CalloutBox>
 
       <OfferCTA
@@ -849,8 +847,8 @@ Propose 5 idées de contenu (posts, articles, vidéos) avec :
 
 const chapter13: Chapter = {
   number: "13",
-  title: "Comment des entrepreneurs non-techniques génèrent du revenu",
-  subtitle: "Le VibeCoding, les micro-SaaS IA, et l'automatisation comme business model.",
+  title: "Des entrepreneurs génèrent du revenu avec Claude",
+  subtitle: "Ils ne codent pas. Ils n'ont pas d'équipe tech. Ils ont juste le bon écosystème.",
   bloc: "Exploiter",
   actionPlan: [
     "Identifier UN problème dans ton activité",
@@ -909,7 +907,13 @@ const chapter13: Chapter = {
       </ul>
 
       <CalloutBox variant="usecase">
-        Le premier micro-SaaS construit par Buildrs avec Claude Code — NOAH™, un générateur d'offres IA pour les entrepreneurs — a été buildé en 5 jours. Le MVP complet : onboarding, génération d'offres en 4 tiers, intégration Stripe, landing page. Coût de développement : $100 (abo Claude Max pendant le build). Aujourd'hui NOAH™ est proposé à 67€ et a généré ses premiers revenus dès la première semaine de lancement.
+        3 exemples de micro-SaaS lancés avec la méthode Buildrs :
+        <ol>
+          <li><strong>Outil de devis pour artisans</strong> — lancé en 4 jours. 29€/mois. 23 abonnés au bout de 6 semaines. Le fondateur est plombier.</li>
+          <li><strong>Générateur de fiches produits e-commerce</strong> — lancé en 2 jours. Vendu 67€ en one-shot. +40 ventes le premier mois via un post LinkedIn viral.</li>
+          <li><strong>Dashboard KPIs pour coachs</strong> — lancé en 5 jours. 19€/mois. 12 abonnés beta. Le fondateur n'avait jamais ouvert un terminal avant Buildrs.</li>
+        </ol>
+        Point commun : aucun ne sait coder. Tous ont utilisé Claude Code + ce guide.
       </CalloutBox>
 
       <OfferCTA variant="implementation" buttonLabel="Découvrir l'implémentation complète → 997€" buttonLink="/dashboard/offres">
@@ -921,8 +925,8 @@ const chapter13: Chapter = {
 
 const chapter14: Chapter = {
   number: "14",
-  title: "De l'idée au produit déployé",
-  subtitle: "La méthode complète, étape par étape.",
+  title: "Lance ton premier produit en une journée",
+  subtitle: "De l'idée au produit en ligne qui accepte des paiements — même si tu pars de zéro.",
   bloc: "Exploiter",
   actionPlan: [
     "Définir ton MVP (1 problème, 1 audience, 1 feature)",
@@ -984,7 +988,13 @@ Commence par la structure du projet et la landing page.`}
       />
 
       <CalloutBox variant="usecase">
-        Buildrs a un process interne pour lancer un MVP client en 5 jours. Jour 1 : brief + CLAUDE.md + architecture. Jour 2-3 : Claude Code construit les features. Jour 4 : intégrations (Stripe, Supabase Auth, emails). Jour 5 : QA + déploiement prod. Ce framework a été utilisé pour 12 projets clients en 2025-2026, avec un taux de satisfaction de 100%. Le secret : le CLAUDE.md du projet est hyper-détaillé dès le jour 1.
+        Chronologie réelle du lancement d'un MVP par un membre Buildrs (agence événementielle) :
+        <ol>
+          <li><strong>Matin (2h)</strong> — Identifie le problème : ses clients perdent du temps à recueillir les besoins par email. Écrit le brief + CLAUDE.md.</li>
+          <li><strong>Après-midi (3h)</strong> — Claude Code construit un formulaire intelligent qui génère un cahier des charges automatique avec devis estimé.</li>
+          <li><strong>Soir (1h)</strong> — Stripe intégré. Déploiement Vercel. URL partagée aux 3 premiers clients.</li>
+          <li><strong>J+7</strong> — 2 clients paient 49€/mois pour l'outil. ROI positif dès la première semaine.</li>
+        </ol>
       </CalloutBox>
 
       <OfferCTA variant="accompagnement" buttonLabel="En savoir plus →" buttonLink="/dashboard/offres">
@@ -996,8 +1006,8 @@ Commence par la structure du projet et la landing page.`}
 
 const chapter15: Chapter = {
   number: "15",
-  title: "Les briques à connecter absolument",
-  subtitle: "Vercel, Supabase, GitHub, Stripe — et comment les relier.",
+  title: "La stack gratuite qui remplace une équipe",
+  subtitle: "Les 4 outils à connecter pour avoir l'infrastructure d'une startup — sans recruter.",
   bloc: "Exploiter",
   actionPlan: [
     "Créer les 4 comptes (GitHub, Vercel, Supabase, Stripe)",
@@ -1044,7 +1054,12 @@ Stripe ← Claude Code intègre les paiements`} />
       </ul>
 
       <CalloutBox variant="usecase">
-        La stack standard de Buildrs pour chaque projet client : GitHub (code) + Vercel (hosting) + Supabase (backend) + Stripe (paiements) + Resend (emails). Cette stack est 100% gratuite au lancement. Le premier euro de coût infra arrive quand le projet dépasse les limites des plans gratuits — souvent autour de 1000+ utilisateurs. Pour un MVP, le coût est littéralement de 0€ en infra.
+        Comparaison concrète — lancer un SaaS en 2024 vs 2026 :
+        <ol>
+          <li><strong>Avant</strong> : Dev freelance (8000€) + Hébergement (50€/mois) + Designer (2000€) + 3 mois de dev = <strong>~12 000€ et 3 mois</strong></li>
+          <li><strong>Maintenant</strong> : Claude Code ($20/mois) + GitHub (gratuit) + Vercel (gratuit) + Supabase (gratuit) + Stripe (commission uniquement) = <strong>~20€ et 1-5 jours</strong></li>
+        </ol>
+        La barrière à l'entrée n'existe plus. Le seul frein, c'est de ne pas avoir le bon setup — et c'est exactement ce que ce guide résout.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="TOUS CES OUTILS CONNECTÉS EN UN CLIC" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
@@ -1056,8 +1071,8 @@ Stripe ← Claude Code intègre les paiements`} />
 
 const chapterBonus: Chapter = {
   number: "BONUS",
-  title: "La feuille de route complète",
-  subtitle: "28 étapes, 8 phases, ~2h30 — de zéro à machine de guerre.",
+  title: "Ton plan d'action de A à Z",
+  subtitle: "28 étapes. 8 phases. ~2h30. De zéro à machine de guerre.",
   bloc: "Exploiter",
   isBonus: true,
   actionPlan: [
