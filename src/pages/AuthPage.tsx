@@ -358,6 +358,7 @@ export default function AuthPage() {
             Ton email ne sera jamais partagé.
           </p>
         </div>
+        </div>
       </div>
     </div>
   )
