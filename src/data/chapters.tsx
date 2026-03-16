@@ -2974,70 +2974,148 @@ const chapter13: Chapter = {
   subtitle: "Ils ne codent pas. Ils n'ont pas d'équipe tech. Ils ont juste le bon écosystème.",
   bloc: "Exploiter",
   actionPlan: [
-    "Identifier UN problème dans ton activité",
-    "Noter l'audience précise",
-    "Évaluer si des gens paieraient",
+    "Identifier UN problème dans ton activité ou celle de ton audience",
+    "Décrire l'audience précise qui a ce problème",
+    "Évaluer si des gens paieraient pour la solution",
+    "Passer au chapitre 14 pour le construire",
   ],
   quiz: [
     {
       question: "Un micro-SaaS c'est :",
       options: [
-        "Un gros logiciel",
-        "Un petit logiciel qui résout UN problème pour UNE audience, avec abonnement",
+        "Un gros logiciel d'entreprise",
+        "Un petit logiciel qui résout UN problème pour UNE audience, avec abonnement mensuel",
         "Un réseau social",
       ],
       correctIndex: 1,
     },
     {
-      question: "Le coût pour lancer est d'environ :",
-      options: ["10 000€", "$20-100/mois", "500€/mois"],
+      question: "Le coût d'infrastructure pour lancer :",
+      options: ["~10 000€", "$20-100/mois (surtout l'abo Claude, le reste est gratuit au démarrage)", "~500€/mois"],
       correctIndex: 1,
+    },
+    {
+      question: "L'automatisation Cowork peut se vendre en prestation entre :",
+      options: ["10-50€", "500-3000€ par workflow", "Ça ne se vend pas"],
+      correctIndex: 1,
+      explanation: "Parce que tu configures en 1-2h ce qui économise des dizaines d'heures par mois à ton client. Marge quasi-100%.",
     },
   ],
   content: (
     <>
-      <h3>13.1 — Le paradigme a changé</h3>
-      <p>Avant : coder ou payer un dev (300-800€/jour), des mois de développement, des dizaines de milliers d'euros.</p>
-      <p>Maintenant : MVP en quelques heures, déploiement gratuit, monétisation immédiate.</p>
+      <h3>13.1 — Ce qui a changé (et pourquoi ça te concerne)</h3>
+      <p>Jusqu'en 2024, pour créer un logiciel, tu avais 2 options : apprendre à coder (des mois) ou payer un développeur (300-800€/jour, des semaines). Dans les deux cas, la barrière d'entrée était massive. Des milliers d'idées de produits sont mortes parce que leur créateur n'avait ni le temps, ni le budget, ni les compétences techniques.</p>
+      <p><strong>En 2026, cette barrière n'existe plus.</strong></p>
+      <p>Avec l'écosystème que tu as configuré dans les 12 chapitres précédents — Claude AI pour penser, Claude Code pour construire, Cowork pour automatiser, les Skills pour la qualité, les MCP pour les connexions — tu as entre les mains ce qui coûtait 50 000€ à mettre en place il y a 2 ans.</p>
+      <p>Le coût d'entrée est passé de <strong>50 000€ à $20/mois</strong>. C'est le prix de ton abonnement Claude Pro.</p>
+      <p>Et les entrepreneurs qui ont compris ça en premier ne sont pas des développeurs. Ce sont des gens comme toi — avec un problème à résoudre, une audience à servir, et maintenant les outils pour le faire.</p>
 
-      <h3>13.2 — C'est quoi un micro-SaaS ?</h3>
-      <p>Un petit logiciel en ligne qui résout UN problème pour UNE audience, avec un abonnement mensuel.</p>
-      <ul>
-        <li>Outil de facturation pour coachs → 19€/mois</li>
-        <li>Générateur de contenu pour agents immo → 29€/mois</li>
-        <li>Dashboard KPIs pour freelances → 9€/mois</li>
-      </ul>
+      <h3>13.2 — Le micro-SaaS : le business model le plus accessible de l'histoire</h3>
+      <p>Un micro-SaaS, c'est un petit logiciel en ligne qui résout <strong>UN problème spécifique</strong> pour <strong>UNE audience précise</strong>. Pas une usine à gaz avec 200 features. Un outil simple, utile, qui se vend en abonnement mensuel.</p>
+      <p>Pourquoi c'est le business model idéal avec Claude :</p>
+      <p><strong>Revenu récurrent</strong> — chaque client paie chaque mois. Tu ne repars pas de zéro.</p>
+      <p><strong>Pas besoin d'équipe</strong> — Claude Code build et maintient. Tu es seul et ça suffit.</p>
+      <p><strong>Coût quasi-nul</strong> — la stack est gratuite au démarrage (on y vient).</p>
+      <p><strong>Itération rapide</strong> — un client demande une feature, tu la builds dans l'heure.</p>
+      <p><strong>Scalable</strong> — 10 clients ou 1000 clients, le coût d'infra reste négligeable.</p>
+      <p>Des exemples concrets de ce que des entrepreneurs non-techniques construisent :</p>
+      <p>• Un outil de facturation simple pour les coachs → <strong>19€/mois</strong></p>
+      <p>• Un générateur de contenu spécialisé pour les agents immobiliers → <strong>29€/mois</strong></p>
+      <p>• Un dashboard de suivi de KPIs pour les freelances → <strong>9€/mois</strong></p>
+      <p>• Un système de booking pour les praticiens → <strong>39€/mois</strong></p>
+      <p>• Un outil de scoring d'offres pour les consultants → <strong>49€/mois</strong></p>
+      <p>Le revenu d'un micro-SaaS qui fonctionne : entre <strong>500€ et 5 000€ de MRR</strong> (revenu mensuel récurrent). Certains vont beaucoup plus loin.</p>
 
-      <h3>13.3 — La stack (coût de lancement)</h3>
-      <TableBlock
-        headers={["Brique", "Outil", "Coût"]}
-        rows={[
-          ["Intelligence", "Claude Code", "$20-100/mois"],
-          ["Frontend", "React + Tailwind", "Gratuit"],
-          ["Backend", "Supabase", "Gratuit"],
-          ["Paiements", "Stripe", "Commission uniquement"],
-          ["Hébergement", "Vercel", "Gratuit"],
-        ]}
-      />
-      <p><strong>Total : ~$20-100/mois</strong></p>
+      <h3>13.3 — La stack : l'infrastructure d'une startup pour 0€</h3>
+      <p>Grâce aux outils que tu as configurés dans ce guide, le coût de lancement d'un micro-SaaS est quasi-nul :</p>
+      <p><strong>Claude Code</strong> ($20-100/mois) — C'est ton développeur. Il construit l'application, la maintient, l'améliore. Le seul vrai coût fixe.</p>
+      <p><strong>React + Tailwind</strong> (gratuit) — Le frontend de ton app. Claude Code le génère automatiquement.</p>
+      <p><strong>Supabase</strong> (gratuit au démarrage) — Ta base de données, ton système d'authentification, ton stockage de fichiers. Le plan gratuit supporte des milliers d'utilisateurs.</p>
+      <p><strong>Vercel</strong> (gratuit au démarrage) — Ton hébergement. Déploiement automatique à chaque push. Le plan gratuit tient largement pour un lancement.</p>
+      <p><strong>Stripe</strong> (commission uniquement) — Les paiements. Tu ne paies rien tant que tu ne gagnes pas d'argent. Stripe prend une commission sur chaque transaction.</p>
+      <p>Total au lancement : <strong>$20-100/mois</strong>. C'est tout. Pas de serveur à louer. Pas de licence à acheter. Pas de développeur à payer. L'infrastructure d'une startup financée — pour le prix d'un abonnement Netflix.</p>
 
-      <h3>13.4 — L'automatisation comme business</h3>
-      <p>Au-delà des SaaS, vendre des workflows Cowork :</p>
-      <ul>
-        <li>Rapports hebdo automatiques pour des clients → 500-3000€/workflow</li>
-        <li>Veille concurrentielle automatisée</li>
-        <li>Organisation et traitement de documents</li>
-      </ul>
+      <h3>13.4 — L'autre business : vendre de l'automatisation</h3>
+      <p>Le micro-SaaS n'est pas le seul chemin. Les agents Cowork que tu as créés au chapitre 12 ouvrent un autre business model : <strong>la prestation d'automatisation</strong>.</p>
+      <p>Tu maîtrises maintenant quelque chose que 99% des entrepreneurs ne savent pas faire : configurer des agents IA qui travaillent en autonomie. Cette compétence a une valeur énorme.</p>
+      <p>Des freelances facturent entre <strong>500€ et 3 000€ par workflow d'automatisation</strong>. Le client décrit ce qu'il veut ("je veux un rapport hebdomadaire de mes KPIs", "je veux que mes leads soient qualifiés automatiquement", "je veux un briefing quotidien"), tu le configures dans Cowork en 1-2 heures, et il le paie parce que ça lui économise des dizaines d'heures par mois.</p>
+      <p>C'est du service haut de gamme avec un coût de production quasi-nul. <strong>Ta marge est de presque 100%.</strong></p>
 
-      <CalloutBox variant="usecase">
-        3 exemples de micro-SaaS lancés avec la méthode Buildrs :
-        <ol>
-          <li><strong>Outil de devis pour artisans</strong> — lancé en 4 jours. 29€/mois. 23 abonnés au bout de 6 semaines. Le fondateur est plombier.</li>
-          <li><strong>Générateur de fiches produits e-commerce</strong> — lancé en 2 jours. Vendu 67€ en one-shot. +40 ventes le premier mois via un post LinkedIn viral.</li>
-          <li><strong>Dashboard KPIs pour coachs</strong> — lancé en 5 jours. 19€/mois. 12 abonnés beta. Le fondateur n'avait jamais ouvert un terminal avant Buildrs.</li>
-        </ol>
-        Point commun : aucun ne sait coder. Tous ont utilisé Claude Code + ce guide.
+      <h3>13.5 — Le parcours type : de la configuration au revenu</h3>
+      <p>Ce n'est pas de la théorie. Voici le chemin que suivent les entrepreneurs qui passent par Buildrs :</p>
+      <p><strong>Mois 1</strong> — Tu configures ton écosystème Claude (ce guide). Tu mets en place tes agents. Tu comprends le système.</p>
+      <p><strong>Mois 2</strong> — Tu identifies un problème dans ton activité ou celle de ton audience. Tu builds un premier micro-outil avec Claude Code — d'abord pour toi. Tu le testes, tu l'utilises, tu l'améliores.</p>
+      <p><strong>Mois 3</strong> — Tu le proposes à d'autres. Premiers utilisateurs. Premiers retours. Premières itérations. Si tu factures, premiers revenus.</p>
+      <p><strong>Mois 4+</strong> — Tu itères, tu améliores, tu monétises. Chaque nouveau client est du MRR. Chaque nouvelle feature prend des heures, pas des semaines.</p>
+      <p>En parallèle, tu peux vendre des prestations d'automatisation à des clients qui veulent le même type de setup que celui que tu as.</p>
+
+      <h3>13.6 — Ce que Buildrs a construit avec cette méthode</h3>
+      <p><strong>NOAH™</strong> — Un générateur d'offres IA pour les entrepreneurs. Tu décris ton expertise, NOAH génère 4 offres structurées en 60 secondes avec pricing, positionnement et argumentaire. Buildé en 5 jours avec Claude Code. Stack : React + Supabase + Stripe. Proposé à 67€. Les premiers revenus sont arrivés la première semaine de lancement. Coût de développement : $100 (un abo Max pendant le build).</p>
+      <p><strong>Ce guide que tu lis</strong> — Le dashboard, la LP, l'onboarding, le système d'offres. Tout construit avec Claude Code + le pipeline GitHub → Vercel. Des dizaines d'itérations en quelques jours. La preuve vivante que la méthode fonctionne.</p>
+      <p><strong>Les outils internes Buildrs</strong> — Dashboard de KPIs, générateur de briefs clients, scoring de leads, système de suivi projet. Chaque outil a été buildé en quelques heures quand le besoin s'est présenté. Pas de cahier des charges. Pas de sprint de développement. "J'ai besoin de ça" → Claude Code le construit → c'est en ligne.</p>
+      <p><strong>Les micro-SaaS clients</strong> — Des outils de facturation, de booking, de matching, d'automatisation — construits pour des clients qui n'ont jamais ouvert un terminal. Buildrs configure l'écosystème, Claude Code build le produit, le client le monétise.</p>
+      <p>Le point commun de tout ça : la méthode est toujours la même. Identifier un problème → décrire la solution → Claude Code construit → déployer → monétiser. <strong>C'est ce que tu as appris à faire dans ce guide.</strong></p>
+
+      <CalloutBox variant="important">
+        On n'est pas dans la promesse vide. Chaque produit mentionné ici existe, tourne, et génère de la valeur. La méthode fonctionne parce qu'elle repose sur des outils qui marchent — et que tu as maintenant configurés. La question n'est plus "est-ce que c'est possible ?" La question c'est "quel problème tu résous en premier ?"
       </CalloutBox>
+
+      {/* Diagramme — De l'idée au revenu */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          DE L'IDÉE AU REVENU
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap" as const, justifyContent: "center", alignItems: "center", gap: "8px" }}>
+          {[
+            { label: "Un problème identifié", color: "rgba(255,255,255,0.08)", border: "rgba(255,255,255,0.15)", text: "#EDEEEF" },
+            { label: "→", color: "transparent", border: "transparent", text: "rgba(237,238,239,0.3)" },
+            { label: "Claude Code le construit", color: "rgba(255,255,255,0.08)", border: "rgba(255,255,255,0.15)", text: "#EDEEEF" },
+            { label: "→", color: "transparent", border: "transparent", text: "rgba(237,238,239,0.3)" },
+            { label: "Supabase + Vercel déploient", color: "rgba(255,255,255,0.08)", border: "rgba(255,255,255,0.15)", text: "#EDEEEF" },
+            { label: "→", color: "transparent", border: "transparent", text: "rgba(237,238,239,0.3)" },
+            { label: "Stripe monétise", color: "rgba(255,255,255,0.08)", border: "rgba(255,255,255,0.15)", text: "#EDEEEF" },
+            { label: "→", color: "transparent", border: "transparent", text: "rgba(237,238,239,0.3)" },
+            { label: "MRR — Revenu récurrent", color: "rgba(218,119,86,0.12)", border: "rgba(218,119,86,0.25)", text: "#DA7756" },
+          ].map((item, i) => (
+            item.label === "→" ? (
+              <span key={i} style={{ color: item.text, fontSize: "16px", fontWeight: 300 }}>→</span>
+            ) : (
+              <div key={i} style={{
+                padding: "10px 18px",
+                background: item.color,
+                border: `1px solid ${item.border}`,
+                borderRadius: "8px",
+                fontSize: "12px",
+                fontWeight: 500,
+                color: item.text,
+                textAlign: "center" as const,
+                fontFamily: "'Geist', sans-serif",
+              }}>
+                {item.label}
+              </div>
+            )
+          ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
+          <span style={{ fontSize: "11px", color: "rgba(237,238,239,0.3)", fontStyle: "italic" }}>
+            ↻ Retours utilisateurs → itération continue
+          </span>
+        </div>
+      </div>
 
       <OfferCTA variant="implementation" buttonLabel="Découvrir l'implémentation complète → 997€" buttonLink="/dashboard/offres">
         Tu veux passer directement à l'action ? Buildrs installe ton écosystème Claude complet en 48h.
@@ -3053,72 +3131,185 @@ const chapter14: Chapter = {
   bloc: "Exploiter",
   actionPlan: [
     "Définir ton MVP (1 problème, 1 audience, 1 feature)",
-    "Lancer Claude Code avec le prompt de démarrage",
-    "Déployer sur Vercel",
-    "Partager avec 10 personnes",
+    "Copier le prompt de démarrage et l'adapter",
+    "Lancer Claude Code et construire",
+    "Déployer sur Vercel + intégrer Stripe",
+    "Partager avec 10 personnes de ta cible",
+    "Passer au chapitre 15",
   ],
   quiz: [
     {
       question: "MVP signifie :",
-      options: ["Maximum Value Product", "Minimum Viable Product", "Most Valuable Player"],
+      options: ["Maximum Value Product", "Minimum Viable Product — le produit le plus simple qui valide ton idée", "Most Valuable Player"],
       correctIndex: 1,
     },
     {
-      question: "Temps moyen pour un MVP déployé :",
-      options: ["3-6 mois", "~1 journée", "2-3 semaines"],
+      question: "Temps moyen pour un MVP déployé avec ce framework :",
+      options: ["3-6 mois", "~1 journée (définir + planifier + construire + déployer)", "2-3 semaines"],
       correctIndex: 1,
+    },
+    {
+      question: "L'erreur la plus courante au lancement :",
+      options: ["Ne pas avoir assez de couleurs dans le design", "Vouloir trop de features au lieu de se concentrer sur un seul problème bien résolu", "Ne pas avoir de logo"],
+      correctIndex: 1,
+      explanation: "1 problème. 1 audience. 1 feature. Le reste vient après les retours.",
     },
   ],
   content: (
     <>
-      <h3>14.1 — Le framework en 5 étapes</h3>
-      <ol>
-        <li><strong>Étape 1 : Définir (30 min)</strong> — Problème, audience, feature principale, modèle de revenus</li>
-        <li><strong>Étape 2 : Planifier (1h)</strong> — Architecture avec Claude Code + skill SuperPowers</li>
-        <li><strong>Étape 3 : Construire (2-4h)</strong> — Claude Code build le MVP</li>
-        <li><strong>Étape 4 : Déployer (30 min)</strong> — GitHub → Vercel + Stripe</li>
-        <li><strong>Étape 5 : Valider (1 semaine)</strong> — 10-20 beta-testeurs → itérer</li>
-      </ol>
+      <h3>14.1 — Tu as tout ce qu'il faut. Il ne manque que l'action.</h3>
+      <p>Récapitulons ce que tu as maintenant :</p>
+      <p>• Claude AI configuré avec Projects et mémoire (chapitre 5)</p>
+      <p>• Tes outils branchés via les connecteurs (chapitre 6)</p>
+      <p>• Claude Code installé et opérationnel (chapitre 7)</p>
+      <p>• Le pipeline GitHub → Vercel en place (chapitre 8)</p>
+      <p>• Les Skills qui garantissent la qualité (chapitre 9)</p>
+      <p>• Les MCP qui connectent aux services (chapitre 10)</p>
+      <p>• Le CLAUDE.md qui donne le contexte (chapitre 11)</p>
+      <p>• Des agents Cowork qui tournent en arrière-plan (chapitre 12)</p>
+      <p>Tu as l'écosystème complet. L'infrastructure d'une équipe tech. Le pipeline de déploiement d'une startup. Les automatisations d'une entreprise structurée. Le tout pour <strong>$20/mois</strong>.</p>
+      <p>Ce chapitre, c'est le moment de l'utiliser. <strong>On passe à la construction.</strong></p>
 
-      <h3>14.2 — Le prompt de démarrage (à copier)</h3>
+      <h3>14.2 — Le framework en 5 étapes</h3>
+      <p>Ce framework, c'est celui que Buildrs utilise pour chaque projet client. Il a été testé sur des dizaines de lancements. Il fonctionne parce qu'il est séquencé, concret, et limité dans le temps.</p>
+      <p><strong>Étape 1 — Définir (30 minutes)</strong></p>
+      <p>Pas de brainstorming de 3 semaines. 30 minutes chrono pour répondre à 4 questions :</p>
+      <p>• Quel problème tu résous ? (en une phrase)</p>
+      <p>• Pour qui ? (une audience précise, pas "tout le monde")</p>
+      <p>• Quelle est LA feature principale ? (une seule — pas trois, pas cinq)</p>
+      <p>• Comment les gens paient ? (abonnement mensuel, achat unique, freemium)</p>
+      <p>Utilise Claude AI dans ton Project "Mon Business" pour brainstormer. Il connaît déjà ton contexte — la conversation sera immédiatement pertinente.</p>
+      <p><strong>Étape 2 — Planifier (1 heure)</strong></p>
+      <p>Demande à Claude Code de créer un plan d'architecture. Avec le skill SuperPowers ou Feature Dev installé, il va structurer le projet proprement : les pages nécessaires, la structure de la base de données (Supabase), le système d'authentification, la logique métier principale, le modèle de données.</p>
+      <p>Tu ne codes rien à cette étape. Tu valides le plan. Si ça te semble cohérent, on passe à la construction.</p>
+      <p><strong>Étape 3 — Construire (2-4 heures)</strong></p>
+      <p>C'est le cœur. Tu lances Claude Code dans ton dossier projet (qui a déjà son CLAUDE.md) et tu lui décris ce que tu veux. Le prompt de démarrage est dans la section suivante — prêt à copier.</p>
+      <p>Claude Code va créer la structure, installer les dépendances, construire l'interface, implémenter la logique, et te montrer la preview. Tu guides, tu valides, tu ajustes. En 2-4 heures, tu as un produit fonctionnel.</p>
+      <p><strong>Étape 4 — Déployer (30 minutes)</strong></p>
+      <p>Tu dis à Claude Code "push sur GitHub et déploie sur Vercel". Il le fait. Ensuite, tu intègres Stripe pour les paiements : "intègre un abonnement mensuel à [prix] avec Stripe Checkout". Claude Code crée le produit Stripe, configure le checkout, et met en place les webhooks.</p>
+      <p>Ton produit est en ligne. Avec un paiement fonctionnel. En une journée.</p>
+      <p><strong>Étape 5 — Valider (1 semaine)</strong></p>
+      <p>Partage le lien avec 10-20 personnes de ta cible. Pas des amis — des gens qui ont le problème que tu résous. Recueille les retours. Itère avec Claude Code : "les utilisateurs disent que [X], modifie [Y]". Chaque itération prend quelques minutes grâce au pipeline.</p>
+      <p>Si des gens paient → le produit a de la valeur. Continue. Si personne ne paie → le problème n'est pas assez douloureux, ou l'audience n'est pas la bonne. Pivote.</p>
+
+      <h3>14.3 — Le prompt de démarrage (à copier tel quel)</h3>
+      <p>Ce prompt est optimisé pour lancer n'importe quel micro-SaaS. Copie-le, adapte les parties entre crochets, et colle-le dans Claude Code.</p>
       <CodeBlock
         language="Prompt Claude Code"
         code={`Je veux créer un micro-SaaS appelé [NOM].
 
 ## Le problème
-[2-3 phrases]
+[Décris le problème en 2-3 phrases. Sois spécifique.]
 
 ## L'audience
-[Qui ?]
+[Qui sont les utilisateurs ? Quel est leur profil, leur métier, leur niveau ?]
 
 ## La solution
-[Feature principale]
+[Décris la feature principale en 2-3 phrases. Qu'est-ce que l'outil fait concrètement ?]
 
-## Stack
+## Stack technique
 - Frontend : React + TypeScript + Tailwind CSS
-- Backend : Supabase (PostgreSQL + Auth + Storage)
+- Backend : Supabase (PostgreSQL + Auth + Storage + Edge Functions)
 - Paiements : Stripe (abonnement mensuel)
 - Déploiement : Vercel
 - Design : Dark mode, premium, glassmorphism
 
 ## Pages
-1. Landing page (présentation + CTA)
-2. Login/Signup (Supabase Auth)
-3. Dashboard (feature principale)
-4. Settings (profil + abonnement)
+1. Landing page (présentation + CTA d'inscription)
+2. Login / Signup (Supabase Auth)
+3. Dashboard (feature principale de l'outil)
+4. Settings (profil utilisateur + gestion de l'abonnement)
 
-Commence par la structure du projet et la landing page.`}
+Commence par créer la structure du projet et la landing page.
+Utilise le skill frontend-design pour un design premium.`}
       />
 
-      <CalloutBox variant="usecase">
-        Chronologie réelle du lancement d'un MVP par un membre Buildrs (agence événementielle) :
-        <ol>
-          <li><strong>Matin (2h)</strong> — Identifie le problème : ses clients perdent du temps à recueillir les besoins par email. Écrit le brief + CLAUDE.md.</li>
-          <li><strong>Après-midi (3h)</strong> — Claude Code construit un formulaire intelligent qui génère un cahier des charges automatique avec devis estimé.</li>
-          <li><strong>Soir (1h)</strong> — Stripe intégré. Déploiement Vercel. URL partagée aux 3 premiers clients.</li>
-          <li><strong>J+7</strong> — 2 clients paient 49€/mois pour l'outil. ROI positif dès la première semaine.</li>
-        </ol>
+      <h3>14.4 — Les erreurs qui tuent un lancement (et comment les éviter)</h3>
+      <p><strong>Erreur 1 — Trop de features.</strong> Tu veux résoudre un problème, pas construire une suite logicielle. 1 feature principale, bien exécutée. Le reste viendra après les premiers retours.</p>
+      <p><strong>Erreur 2 — Pas d'audience identifiée.</strong> "Tout le monde peut l'utiliser" = personne ne l'achète. Cible un métier, un profil, une douleur spécifique. Plus c'est précis, plus ça convertit.</p>
+      <p><strong>Erreur 3 — Attendre la perfection.</strong> Le MVP est imparfait par définition. Il sert à valider, pas à impressionner. Lance avec 80% de ce que tu voudrais, et améliore avec les retours réels.</p>
+      <p><strong>Erreur 4 — Ne pas mettre de paiement dès le jour 1.</strong> Si tu lances en "gratuit pour tester", tu ne sauras jamais si les gens sont prêts à payer. Mets un prix dès le départ — même petit. L'argent est la seule validation qui compte.</p>
+      <p><strong>Erreur 5 — Construire en isolation.</strong> Partage avec ta cible dès que c'est déployé. Pas dans 3 semaines quand ce sera "prêt". Maintenant. Les retours réels valent 100x ton intuition.</p>
+
+      <h3>14.5 — Comment Buildrs lance un MVP en 5 jours</h3>
+      <p>Le process interne de Buildrs pour chaque projet client. C'est exactement ce framework, mais structuré sur une semaine :</p>
+      <p><strong>Jour 1 — Brief + CLAUDE.md + Architecture</strong></p>
+      <p>Alfred fait un call avec le client. En 45 minutes : problème, audience, feature principale, modèle de revenus. Le CLAUDE.md est rédigé dans la foulée. Claude Code génère le plan d'architecture. Le client valide.</p>
+      <p><strong>Jour 2-3 — Construction</strong></p>
+      <p>Claude Code build les features. Le CLAUDE.md assure la cohérence. Les Skills (Frontend Design, SuperPowers) assurent la qualité. Les MCP (Supabase, Stripe) connectent les services. Le client voit la preview en temps réel — il peut faire des retours en direct.</p>
+      <p><strong>Jour 4 — Intégrations</strong></p>
+      <p>Stripe pour les paiements. Supabase Auth pour l'authentification. Resend pour les emails transactionnels. Tout est configuré et testé.</p>
+      <p><strong>Jour 5 — QA + Déploiement</strong></p>
+      <p>Tests finaux. Push sur GitHub. Déploiement sur Vercel. Le client a son produit en ligne, avec paiement fonctionnel, et une URL à partager au monde.</p>
+      <p>Ce process a été utilisé pour NOAH™, pour des outils de facturation, de booking, de matching, de scoring — à chaque fois avec le même résultat : <strong>un produit fonctionnel en 5 jours, pas en 5 mois.</strong></p>
+      <p>Le temps que tu y passes seul avec ce guide : probablement 1-2 jours au lieu de 5, parce que tu n'as pas la complexité d'un projet client multi-parties.</p>
+
+      <CalloutBox variant="action">
+        Reprends l'idée que tu as identifiée au chapitre 13. Copie le prompt de démarrage ci-dessus. Remplace les crochets par tes réponses. Ouvre ton terminal, lance Claude Code, colle le prompt. Ton MVP sera en ligne avant la fin de la journée.
       </CalloutBox>
+
+      {/* Diagramme — Le framework de lancement */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          LE FRAMEWORK DE LANCEMENT
+        </p>
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "12px", alignItems: "center" }}>
+          {[
+            { label: "30 min — Définir", desc: "Problème · Audience · Feature · Pricing", accent: false },
+            { label: "1h — Planifier", desc: "Architecture · BDD · Pages · Logique", accent: false },
+            { label: "2-4h — Construire", desc: "Claude Code build le MVP complet", accent: true },
+            { label: "30 min — Déployer", desc: "GitHub → Vercel + Stripe", accent: false },
+            { label: "1 sem — Valider", desc: "10-20 testeurs → Itérer → Monétiser", accent: true },
+          ].map((step, i) => (
+            <div key={i} style={{ width: "100%", maxWidth: "400px" }}>
+              {i > 0 && (
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: "12px" }}>
+                  <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+                </div>
+              )}
+              <div style={{
+                padding: "14px 20px",
+                background: step.accent ? "rgba(218,119,86,0.12)" : "rgba(255,255,255,0.05)",
+                border: `1px solid ${step.accent ? "rgba(218,119,86,0.25)" : "rgba(255,255,255,0.1)"}`,
+                borderRadius: "8px",
+                textAlign: "center" as const,
+              }}>
+                <div style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: step.accent ? "#DA7756" : "#EDEEEF",
+                  marginBottom: "4px",
+                  fontFamily: "'Geist', sans-serif",
+                }}>{step.label}</div>
+                <div style={{
+                  fontSize: "11px",
+                  color: "rgba(237,238,239,0.4)",
+                  fontFamily: "'Geist', sans-serif",
+                }}>{step.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
+          <span style={{ fontSize: "11px", color: "rgba(237,238,239,0.3)", fontStyle: "italic" }}>
+            Retours → Itérer (boucle Étape 3-5) → Business validé
+          </span>
+        </div>
+      </div>
 
       <OfferCTA variant="accompagnement" buttonLabel="En savoir plus →" buttonLink="/dashboard/offres">
         Tu veux être accompagné de A à Z pour lancer ton activité avec Claude ? Découvre l'accompagnement Buildrs — 3 mois pour transformer ton business.
@@ -3130,63 +3321,249 @@ Commence par la structure du projet et la landing page.`}
 const chapter15: Chapter = {
   number: "15",
   title: "La stack gratuite qui remplace une équipe",
-  subtitle: "Les 4 outils à connecter pour avoir l'infrastructure d'une startup — sans recruter.",
+  subtitle: "Tous les outils pour avoir l'infrastructure d'une startup — sans recruter et sans budget.",
   bloc: "Exploiter",
   actionPlan: [
-    "Créer les 4 comptes (GitHub, Vercel, Supabase, Stripe)",
+    "Créer les 4 comptes piliers (GitHub, Vercel, Supabase, Stripe)",
     "Connecter GitHub ↔ Vercel",
-    "Tous gratuits au lancement",
+    "Explorer Mobbin pour l'inspiration design",
+    "Bookmarker Magic UI pour les composants premium",
+    "Passer au chapitre BONUS",
   ],
   quiz: [
     {
       question: "Le coût d'infrastructure pour lancer un MVP :",
-      options: ["~500€/mois", "0€ (plans gratuits sur les 4 outils)", "100€/mois"],
+      options: ["~500€/mois", "~0€ au lancement (plans gratuits sur les 4 piliers)", "~100€/mois"],
       correctIndex: 1,
+      explanation: "Le premier coût réel arrive quand tu dépasses 1000+ utilisateurs.",
     },
     {
       question: "Vercel se connecte à :",
-      options: ["Stripe", "GitHub (déploiement auto à chaque push)", "Gmail"],
+      options: ["Stripe directement", "GitHub — et déploie automatiquement à chaque push", "Gmail"],
+      correctIndex: 1,
+    },
+    {
+      question: "La stack complète de Buildrs coûte :",
+      options: ["Plusieurs milliers d'euros par mois", "~$20-25/mois au lancement (Claude Pro + domaine, le reste gratuit)", "C'est entièrement gratuit"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>15.1 — Les 4 piliers</h3>
-      <TableBlock
-        headers={["Outil", "Rôle", "Compte", "Coût"]}
-        rows={[
-          ["GitHub", "Stockage du code + versioning", "github.com", "Gratuit"],
-          ["Vercel", "Hébergement + déploiement auto", "vercel.com", "Gratuit"],
-          ["Supabase", "Base de données + auth + stockage", "supabase.com", "Gratuit"],
-          ["Stripe", "Paiements + abonnements", "stripe.com", "Commission uniquement"],
-        ]}
+      <h3>15.1 — La boîte à outils complète d'un entrepreneur augmenté</h3>
+      <p>Dans les chapitres précédents, on a parlé de GitHub, Vercel, Supabase, Stripe. Ce sont les 4 piliers. Mais la vraie stack d'un entrepreneur qui build avec Claude est plus riche que ça.</p>
+      <p>Ce chapitre te donne la liste complète — chaque outil que Buildrs utilise au quotidien, classé par rôle, avec le lien et le coût. Pas de théorie. <strong>La boîte à outils exacte.</strong></p>
+
+      <h3>15.2 — Les 4 piliers (indispensables)</h3>
+      <p>Ces 4 outils forment le socle. Sans eux, tu ne peux pas build ni déployer. Avec eux, tu as l'infrastructure d'une startup financée.</p>
+      <p><strong>GitHub</strong> — github.com — Gratuit</p>
+      <p>Le coffre-fort de ton code. Chaque modification est versionnée. Tu peux toujours revenir en arrière. Claude Code push directement dessus. C'est le point de départ de tout le pipeline.</p>
+      <p><strong>Vercel</strong> — vercel.com — Gratuit au démarrage</p>
+      <p>Ton hébergement. Connecte-le à GitHub et chaque push déclenche un déploiement automatique. Ton app est en ligne avec HTTPS, CDN mondial, en 30 secondes. Tu ne touches jamais à un serveur.</p>
+      <p><strong>Supabase</strong> — supabase.com — Gratuit au démarrage</p>
+      <p>Ton backend complet. Base de données PostgreSQL, système d'authentification, stockage de fichiers, Edge Functions. Le plan gratuit supporte des milliers d'utilisateurs. Claude Code configure tout via le MCP.</p>
+      <p><strong>Stripe</strong> — stripe.com — Commission uniquement</p>
+      <p>Les paiements. Tu ne paies rien tant que tu ne gagnes rien. Stripe prend une commission sur chaque transaction. Abonnements, paiements uniques, checkout — Claude Code intègre tout via le MCP.</p>
+      <p>Le coût de ces 4 piliers au lancement : <strong>0€</strong>. Le premier coût d'infra arrive quand tu dépasses les limites des plans gratuits — en général autour de 1000+ utilisateurs actifs.</p>
+
+      <h3>15.3 — Les outils de construction</h3>
+      <p><strong>Anti-Gravity IDE</strong> — antigravity.dev</p>
+      <p>L'éditeur de code pensé pour le VibeCoding. Si tu veux une alternative à VS Code avec Claude Code intégré nativement et une interface optimisée pour la collaboration homme-IA. Buildrs l'utilise comme environnement de build sur certains projets.</p>
+      <p><strong>Lovable</strong> — lovable.dev</p>
+      <p>Le prototypage rapide. Tu décris ton app en langage naturel, Lovable génère une application React + Supabase complète. Idéal pour valider une idée visuellement en 30 minutes avant de la construire proprement avec Claude Code. C'est sur Lovable qu'on a prototypé la LP de ce guide.</p>
+      <p><strong>Magic UI</strong> — magicui.design</p>
+      <p>Une bibliothèque de composants React animés, prêts à copier. Des effets visuels premium (shimmer, gradients, particles, glassmorphism) que Claude Code peut intégrer directement. C'est comme ça qu'on obtient des interfaces qui ne ressemblent pas à du "fait par l'IA".</p>
+
+      <h3>15.4 — Les outils de communication et d'emailing</h3>
+      <p><strong>Resend</strong> — resend.com — Gratuit au démarrage</p>
+      <p>L'envoi d'emails transactionnels. Confirmation d'inscription, réinitialisation de mot de passe, notifications, emails de bienvenue. API moderne, simple à intégrer avec Claude Code. Le plan gratuit couvre 3000 emails/mois.</p>
+      <p><strong>Hostinger</strong> — hostinger.fr — À partir de ~3€/mois</p>
+      <p>L'hébergement de domaines et l'email professionnel. Quand tu veux passer de ton-projet.vercel.app à monoutil.com avec une boîte mail contact@monoutil.com. Le premier investissement après le lancement gratuit.</p>
+
+      <h3>15.5 — Les outils de recherche et d'inspiration</h3>
+      <p><strong>Perplexity</strong> — perplexity.ai — Gratuit / Pro $20/mois</p>
+      <p>Le moteur de recherche IA. Quand tu as besoin de données marché, d'analyses concurrentielles, de chiffres pour valider ton idée. Plus rapide et plus structuré que Google pour de la recherche business. Alfred l'utilise en complément de Claude pour la veille et l'analyse de marché.</p>
+      <p><strong>Mobbin</strong> — mobbin.com — Gratuit / Pro</p>
+      <p>La plus grande bibliothèque de screenshots d'apps et de sites. Quand tu dis à Claude Code "je veux un design comme [telle app]", tu vas chercher l'inspiration sur Mobbin d'abord. Des milliers de références de design réel — pas des templates génériques.</p>
+      <p><strong>Nano Banana</strong> — nanobanana.com</p>
+      <p>Un outil de design et d'assets visuels pour les créateurs. Utile pour les éléments graphiques de tes landing pages, tes présentations, et tes contenus marketing.</p>
+
+      <h3>15.6 — Comment tout s'assemble</h3>
+      <p>Voici le schéma complet de la stack — comment chaque outil interagit avec les autres :</p>
+      <CodeBlock
+        language="Le flux de construction"
+        code={`Toi → Claude Code (Anti-Gravity ou terminal)
+         → construit le code (React + Tailwind)
+         → configure Supabase (BDD + Auth) via MCP
+         → intègre Stripe (paiements) via MCP
+         → push sur GitHub
+              → Vercel déploie automatiquement
+                   → App en ligne sur ton domaine (Hostinger)
+                        → Resend gère les emails transactionnels`}
       />
+      <CodeBlock
+        language="Le flux de recherche et design"
+        code={`Perplexity → données marché, validation d'idée
+Mobbin → inspiration design, références UX
+Magic UI → composants premium pour Claude Code
+Nano Banana → assets visuels pour le marketing
+Lovable → prototypage rapide avant le build`}
+      />
+      <CodeBlock
+        language="Le flux d'automatisation"
+        code={`Claude AI → réflexion, stratégie, contenu
+Claude Cowork → agents planifiés (briefing, veille, reporting)
+Claude Code → construction et itération`}
+      />
+      <p>Tout tourne ensemble. Chaque outil a un rôle précis. <strong>Pas de redondance, pas de superflu.</strong></p>
 
-      <h3>15.2 — Comment tout relier</h3>
-      <CodeBlock code={`GitHub ← Claude Code push le code
-GitHub → Vercel (auto-deploy à chaque push)
-Supabase ← Claude Code configure la BDD + auth
-Stripe ← Claude Code intègre les paiements`} />
+      <h3>15.7 — La stack Buildrs — ce qu'on utilise vraiment</h3>
+      <p>Pour que ce soit concret, voici la stack exacte qui fait tourner Buildrs au quotidien :</p>
 
-      <h3>15.3 — Les outils bonus</h3>
-      <ul>
-        <li><strong>Resend</strong> : envoi d'emails transactionnels</li>
-        <li><strong>Cloudflare</strong> : domaine custom + CDN</li>
-        <li><strong>n8n</strong> : automatisations avancées (webhooks, workflows)</li>
-        <li><strong>Lovable</strong> : prototypage rapide d'apps</li>
-      </ul>
+      {/* Tableau stack Buildrs */}
+      <div style={{
+        margin: "24px 0",
+        border: "1px solid rgba(255,255,255,0.08)",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}>
+        {[
+          { cat: "Code", tool: "Claude Code (terminal)", why: "Le moteur de tout" },
+          { cat: "IDE", tool: "Anti-Gravity / VS Code", why: "Environnement de build" },
+          { cat: "Versioning", tool: "GitHub", why: "Historique + auto-deploy" },
+          { cat: "Hosting", tool: "Vercel", why: "Déploiement automatique" },
+          { cat: "Backend", tool: "Supabase", why: "BDD + Auth + Storage" },
+          { cat: "Paiements", tool: "Stripe", why: "Abonnements + checkout" },
+          { cat: "Emails", tool: "Resend", why: "Transactionnels" },
+          { cat: "Domaines", tool: "Hostinger", why: "Noms de domaine + email pro" },
+          { cat: "Prototypage", tool: "Lovable", why: "MVP visuels rapides" },
+          { cat: "Design", tool: "Magic UI + Mobbin", why: "Composants premium + inspiration" },
+          { cat: "Recherche", tool: "Perplexity", why: "Veille + data marché" },
+          { cat: "Assets", tool: "Nano Banana", why: "Visuels marketing" },
+          { cat: "Intelligence", tool: "Claude AI (Pro)", why: "Stratégie + contenu" },
+          { cat: "Automatisation", tool: "Claude Cowork", why: "Agents planifiés 24/7" },
+        ].map((row, i) => (
+          <div key={i} style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.5fr 1.5fr",
+            gap: "12px",
+            padding: "10px 16px",
+            borderBottom: i < 13 ? "1px solid rgba(255,255,255,0.06)" : "none",
+            background: i % 2 === 0 ? "rgba(255,255,255,0.02)" : "transparent",
+          }}>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "#DA7756", fontFamily: "'Geist', sans-serif" }}>{row.cat}</span>
+            <span style={{ fontSize: "12px", fontWeight: 500, color: "#EDEEEF", fontFamily: "'Geist', sans-serif" }}>{row.tool}</span>
+            <span style={{ fontSize: "11px", color: "rgba(237,238,239,0.5)", fontFamily: "'Geist', sans-serif" }}>{row.why}</span>
+          </div>
+        ))}
+      </div>
 
-      <CalloutBox variant="usecase">
-        Comparaison concrète — lancer un SaaS en 2024 vs 2026 :
-        <ol>
-          <li><strong>Avant</strong> : Dev freelance (8000€) + Hébergement (50€/mois) + Designer (2000€) + 3 mois de dev = <strong>~12 000€ et 3 mois</strong></li>
-          <li><strong>Maintenant</strong> : Claude Code ($20/mois) + GitHub (gratuit) + Vercel (gratuit) + Supabase (gratuit) + Stripe (commission uniquement) = <strong>~20€ et 1-5 jours</strong></li>
-        </ol>
-        La barrière à l'entrée n'existe plus. Le seul frein, c'est de ne pas avoir le bon setup — et c'est exactement ce que ce guide résout.
+      <p>Coût total de cette stack au lancement : <strong>~$20-25/mois</strong> (abo Claude Pro + domaine). Tout le reste est gratuit au démarrage.</p>
+      <p>C'est avec cette stack que Buildrs gère des projets clients, build des micro-SaaS, et fait tourner ses propres outils. Pas avec 15 licences SaaS à 200€/mois. Avec des outils gratuits, intelligemment connectés, pilotés par Claude.</p>
+
+      <CalloutBox variant="action">
+        Crée les 4 comptes piliers maintenant si ce n'est pas déjà fait : GitHub, Vercel, Supabase, Stripe. Tous gratuits, tous en 2 minutes. Puis explore Mobbin et Magic UI pour commencer à nourrir ton œil en design — ça change la qualité de ce que tu demanderas à Claude Code.
       </CalloutBox>
 
-      <OfferCTA variant="card" icon="⚡" title="TOUS CES OUTILS CONNECTÉS EN UN CLIC" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
-        Le Kit d'implémentation inclut les configs, les comptes à créer, et le workflow complet.
+      {/* Diagramme — La stack complète */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          LA STACK COMPLÈTE
+        </p>
+        {/* Claude Code au centre */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "12px 28px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "14px",
+            fontWeight: 600,
+            color: "#DA7756",
+            fontFamily: "'Geist', sans-serif",
+          }}>Claude Code</div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* 4 Piliers */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px", marginBottom: "20px" }}>
+          {["GitHub", "Vercel", "Supabase", "Stripe"].map((tool) => (
+            <div key={tool} style={{
+              padding: "10px 8px",
+              background: "rgba(74,222,128,0.06)",
+              border: "1px solid rgba(74,222,128,0.2)",
+              borderRadius: "8px",
+              fontSize: "11px",
+              fontWeight: 600,
+              color: "rgba(74,222,128,0.8)",
+              textAlign: "center" as const,
+              fontFamily: "'Geist', sans-serif",
+            }}>{tool}</div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* App en ligne */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: "#DA7756",
+            fontFamily: "'Geist', sans-serif",
+          }}>App en ligne</div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Outils complémentaires */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
+          {[
+            { label: "Hostinger", desc: "Domaine" },
+            { label: "Resend", desc: "Emails" },
+            { label: "Lovable", desc: "Prototype" },
+            { label: "Perplexity", desc: "Recherche" },
+            { label: "Mobbin + Magic UI", desc: "Design" },
+            { label: "Nano Banana", desc: "Assets" },
+          ].map((tool) => (
+            <div key={tool.label} style={{
+              padding: "8px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "6px",
+              textAlign: "center" as const,
+            }}>
+              <div style={{ fontSize: "11px", fontWeight: 500, color: "#EDEEEF", fontFamily: "'Geist', sans-serif" }}>{tool.label}</div>
+              <div style={{ fontSize: "9px", color: "rgba(237,238,239,0.35)", fontFamily: "'Geist', sans-serif" }}>{tool.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <OfferCTA variant="card" icon="⚡" title="TOUS CES OUTILS CONNECTÉS ET CONFIGURÉS" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
+        Le Kit d'implémentation inclut les configs, les comptes à créer dans l'ordre, et le workflow complet.
       </OfferCTA>
     </>
   ),
