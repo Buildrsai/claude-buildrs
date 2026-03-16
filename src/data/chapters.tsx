@@ -2378,74 +2378,273 @@ const chapter11: Chapter = {
   subtitle: "Chaque projet a son contexte. Claude le retient entre les sessions.",
   bloc: "Supercharger",
   actionPlan: [
-    "Créer un CLAUDE.md dans ton projet principal",
-    "Y mettre au minimum : description, conventions, design system",
-    "Tester en lançant Claude Code",
+    "Créer un CLAUDE.md à la racine de ton projet principal",
+    "Y mettre au minimum : description, conventions, design system, interdits",
+    "Lancer Claude Code et vérifier qu'il respecte les instructions",
+    "Passer au chapitre 12",
   ],
   quiz: [
     {
       question: "Le CLAUDE.md c'est :",
-      options: ["Un fichier que tu lis toi-même", "Un fichier que Claude Code lit automatiquement à chaque session", "Un template email"],
+      options: ["Un fichier de documentation que tu lis toi-même", "Un fichier que Claude Code lit automatiquement à chaque session pour connaître le contexte du projet", "Un template d'email marketing"],
       correctIndex: 1,
     },
     {
       question: "Un non-dev peut créer un CLAUDE.md utile ?",
-      options: ["Non", "Oui, il suffit de décrire qui tu es, ton style, ce que tu veux et ne veux pas", "Seulement avec un dev"],
+      options: ["Non, il faut connaître le code", "Oui — il suffit de décrire qui tu es, ton style, ce que tu veux et ce que tu ne veux pas", "Seulement avec l'aide d'un développeur"],
+      correctIndex: 1,
+    },
+    {
+      question: "La section la plus importante d'un CLAUDE.md selon Buildrs :",
+      options: ["La description du projet", "La section \"Ce qu'il ne faut PAS faire\" — c'est elle qui empêche Claude de dériver", "La liste des couleurs"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>11.1 — Le CLAUDE.md</h3>
-      <p>Un fichier Markdown à la racine de ton projet. Claude Code le lit automatiquement à chaque session. C'est le brief permanent de ton projet.</p>
+      <h3>11.1 — Le problème que personne ne voit venir</h3>
+      <p>
+        Tu as installé Claude Code. Tu as configuré tes Skills et tes MCP. Tu commences à builder. Claude produit du bon travail. Et puis tu fermes le terminal.
+      </p>
+      <p>
+        Le lendemain, tu relances Claude Code sur le même projet. Et là — il a tout oublié. Il ne sait plus que ton design est en dark mode. Il ne sait plus que tu utilises TypeScript strict. Il ne sait plus que tu as un accent terracotta #DA7756. Il repart de zéro.
+      </p>
+      <p>
+        Tu te retrouves à ré-expliquer les mêmes choses à chaque session. Le ton. Les conventions. Le design system. Les trucs à ne pas faire. C'est frustrant et c'est du temps perdu.
+      </p>
+      <p>
+        Le CLAUDE.md résout ce problème. Définitivement.
+      </p>
 
-      <h3>11.2 — Template CLAUDE.md</h3>
+      <h3>11.2 — Le CLAUDE.md : le brief que Claude n'oublie jamais</h3>
+      <p>
+        C'est un fichier Markdown que tu places à la racine de ton projet. Un seul fichier. Claude Code le lit automatiquement à chaque session — avant même que tu tapes quoi que ce soit.
+      </p>
+      <p>
+        C'est l'équivalent d'une lettre d'accueil que tu donnerais à un collaborateur le premier jour : voici le projet, voici comment on travaille ici, voici ce qu'il faut respecter, voici ce qu'il ne faut jamais faire.
+      </p>
+      <p>
+        Sauf que cette lettre, Claude la relit à chaque fois qu'il "arrive au bureau". Il n'oublie jamais. Il ne dérive jamais. Il est briefé avant que tu dises un mot.
+      </p>
+
+      <h3>11.3 — Template CLAUDE.md pour les projets techniques</h3>
+      <p>
+        Si tu builds une application avec Claude Code, voici la structure qu'on utilise chez Buildrs :
+      </p>
+      <CodeBlock
+        language="markdown"
+        code={`# Projet : [NOM DU PROJET]
+
+## Description
+[Ce que fait le projet] pour [quelle audience].
+[En une phrase : quel problème ça résout.]
+
+## Stack technique
+- Frontend : React + TypeScript + Tailwind CSS
+- Backend : Supabase (PostgreSQL + Auth + Storage)
+- Déploiement : Vercel
+- Paiements : Stripe (si applicable)
+
+## Conventions
+- Composants fonctionnels React avec hooks
+- TypeScript strict — pas de \`any\`
+- Tailwind uniquement — pas de CSS inline, pas de fichiers CSS séparés
+- Noms de fichiers en kebab-case
+- Commits en français : type(scope): description
+
+## Design system
+- Fond : #0A0A0A
+- Texte principal : #FFFFFF
+- Texte secondaire : #A0A0A0
+- Accent : #DA7756 (terracotta)
+- Border radius : 12px
+- Typo titre : serif
+- Typo body : sans-serif
+- Style : glassmorphism avec fond semi-transparent
+
+## Ce qu'il ne faut PAS faire
+- Ne jamais modifier les fichiers de migration Supabase manuellement
+- Ne pas utiliser de CSS inline — Tailwind uniquement
+- Ne pas stocker de secrets dans le code — variables d'environnement
+- Ne pas créer de composants class — uniquement fonctionnels
+
+## Structure du projet
+src/
+  components/   → composants réutilisables
+  pages/        → pages de l'application
+  hooks/        → hooks personnalisés
+  lib/          → utilitaires et configuration
+  types/        → types TypeScript`}
+      />
+      <p>
+        Ce template fait 40 lignes. Tu l'adaptes en 10 minutes. Et à partir de là, chaque session Claude Code est cohérente avec les précédentes.
+      </p>
+
+      <h3>11.4 — Template CLAUDE.md pour les non-devs</h3>
+      <p>
+        Tu n'as pas besoin de connaître React ou TypeScript pour créer un CLAUDE.md utile. Si tu utilises Claude Code pour du contenu, de la stratégie ou n'importe quel projet non-technique, le CLAUDE.md marche aussi bien.
+      </p>
       <CodeBlock
         language="markdown"
         code={`# Projet : [NOM]
-## Description
-[Ce que fait le projet] pour [qui].
-## Stack
-- Frontend : React + TypeScript + Tailwind
-- Backend : Supabase
-- Déploiement : Vercel
-## Conventions
-- Composants fonctionnels React avec hooks
-- TypeScript strict
-- Tailwind uniquement
-## Design system
-- Fond : #0A0A0A · Texte : #FFFFFF · Accent : #DA7756
-## Ce qu'il ne faut PAS faire
-- Ne pas modifier les migrations Supabase manuellement
-- Pas de CSS inline`}
-      />
 
-      <h3>11.3 — Les 3 niveaux de mémoire</h3>
-      <TableBlock
-        headers={["Niveau", "Outil", "Portée"]}
-        rows={[
-          ["Global", "Mémoire Claude AI", "Toutes les conversations"],
-          ["Projet", "CLAUDE.md", "Un projet spécifique"],
-          ["Session", "Contexte de conversation", "Une seule conversation"],
-        ]}
-      />
-
-      <h3>11.4 — CLAUDE.md pour les non-devs</h3>
-      <CodeBlock
-        language="markdown"
-        code={`# Mon projet de coaching
 ## Qui je suis
-Coach en dev perso, audience francophone, 25-45 ans.
-## Mon style
-Direct, bienveillant, pas de jargon. Tutoiement.
-## Ce que je veux
-Contenu de formation structuré avec exercices pratiques.
-## Ce que je ne veux PAS
-Pas de ton corporate. Pas de clichés motivationnels.`}
-      />
+[Ton métier], audience [description], [tranche d'âge/profil].
 
-      <CalloutBox variant="usecase">
-        Un créateur de contenu a écrit un CLAUDE.md de 20 lignes pour son projet : ton, audience cible, sujets interdits, format préféré. Depuis, chaque fois qu'il ouvre Claude Code, ses articles de blog sortent directement dans le bon ton, avec les bonnes références, sans aucun re-briefing. Il publie 5 articles/semaine au lieu de 2. Sa newsletter a pris +800 abonnés en 2 mois — grâce à la régularité que la mémoire de Claude lui permet de tenir.
+## Mon style de communication
+[Direct/Bienveillant/Provocateur/etc.]. Tutoiement/Vouvoiement.
+Phrases [courtes/longues]. Ton [chaud/pro/décontracté].
+
+## Ce que je veux que Claude fasse
+[Décrire le type de travail attendu dans ce projet]
+Exemples : contenu structuré, exercices pratiques, analyses marché...
+
+## Ce que je ne veux PAS
+[Les choses à éviter absolument]
+Exemples : ton corporate, listes interminables, clichés, jargon...
+
+## Références
+[Ce qui inspire le ton ou le style]
+Exemples : "écris comme [personne]", "le style de [marque]"`}
+      />
+      <p>
+        C'est tout. 15 lignes. Et ça change complètement la pertinence de ce que Claude produit — parce qu'il ne démarre plus d'une page blanche. Il démarre avec TON contexte.
+      </p>
+
+      <h3>11.5 — Les 3 niveaux de mémoire : comment ils s'empilent</h3>
+      <p>
+        L'écosystème Claude a 3 couches de mémoire qui se complètent :
+      </p>
+      <p>
+        <strong>Niveau 1 — Mémoire globale (Claude AI)</strong>
+      </p>
+      <p>
+        Ce que Claude retient sur toi à travers toutes les conversations : ton nom, ton activité, tes préférences de format, tes instructions récurrentes. C'est ta "carte d'identité" pour Claude. Active dans Settings → Memory.
+      </p>
+      <p>
+        <strong>Niveau 2 — Mémoire projet (CLAUDE.md)</strong>
+      </p>
+      <p>
+        Ce que Claude retient pour UN projet spécifique : la stack, les conventions, le design system, les contraintes. C'est le brief permanent d'un projet. Lu automatiquement par Claude Code à chaque session.
+      </p>
+      <p>
+        <strong>Niveau 3 — Mémoire de session (conversation en cours)</strong>
+      </p>
+      <p>
+        Ce que Claude retient dans la conversation active : les détails de la tâche, les décisions prises, les fichiers modifiés. Ça disparaît quand tu fermes le terminal.
+      </p>
+      <p>L'idéal : utiliser les 3 ensemble.</p>
+      <ul>
+        <li>La mémoire globale pour que Claude te connaisse toi</li>
+        <li>Le CLAUDE.md pour que Claude connaisse le projet</li>
+        <li>La session pour le travail en cours</li>
+      </ul>
+      <p>
+        Le résultat : tu ouvres Claude Code, et il sait qui tu es (niveau 1), comment travailler sur ce projet (niveau 2), et ce que tu lui demandes maintenant (niveau 3). Zéro friction.
+      </p>
+
+      {/* ── Diagramme : Les 3 niveaux de mémoire ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Les 3 niveaux de mémoire
+        </p>
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "8px" }}>
+          {[
+            { level: "1", label: "Mémoire globale", scope: "Permanent · Toutes les conversations", what: "Qui tu es", color: "rgba(74,222,128,0.7)", bg: "rgba(74,222,128,0.06)", border: "rgba(74,222,128,0.15)" },
+            { level: "2", label: "CLAUDE.md", scope: "Permanent · Un projet spécifique", what: "Le projet", color: "#DA7756", bg: "rgba(218,119,86,0.06)", border: "rgba(218,119,86,0.15)" },
+            { level: "3", label: "Session", scope: "Temporaire · Une conversation", what: "La tâche en cours", color: "rgba(168,130,255,0.8)", bg: "rgba(168,130,255,0.06)", border: "rgba(168,130,255,0.15)" },
+          ].map((item) => (
+            <div key={item.level} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: item.bg,
+                border: `1px solid ${item.border}`,
+                fontSize: "11px",
+                fontWeight: 700,
+                color: item.color,
+                flexShrink: 0,
+              }}>
+                {item.level}
+              </div>
+              <div style={{
+                flex: 1,
+                padding: "10px 14px",
+                background: item.bg,
+                border: `1px solid ${item.border}`,
+                borderRadius: "8px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap" as const,
+                gap: "4px",
+              }}>
+                <div>
+                  <span style={{ fontSize: "12px", fontWeight: 600, color: item.color }}>{item.label}</span>
+                  <span style={{ fontSize: "10px", color: "rgba(237,238,239,0.35)", marginLeft: "8px" }}>{item.scope}</span>
+                </div>
+                <span style={{ fontSize: "11px", color: "rgba(237,238,239,0.5)" }}>{item.what}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Arrow + result */}
+        <div style={{ display: "flex", justifyContent: "center", margin: "16px 0 8px" }}>
+          <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Réponse parfaitement contextualisée — dès le premier message
+          </div>
+        </div>
+      </div>
+
+      <h3>11.6 — Le CLAUDE.md chez Buildrs : le fichier qui fait tourner la machine</h3>
+      <p>
+        Chez Buildrs, le CLAUDE.md n'est pas optionnel. C'est la première chose qu'on crée sur chaque projet — avant même d'écrire une ligne de code.
+      </p>
+      <p>
+        <strong>Le CLAUDE.md de ce guide</strong> (celui que tu lis en ce moment) fait 45 lignes. Il contient le design system complet (dark mode, terracotta, glassmorphism), les conventions React, les instructions de ton éditorial (tutoiement, direct, concret), et les contraintes (pas de jargon non-expliqué, pas de listes sans contexte). Ce fichier a été écrit une seule fois et a servi sur +50 sessions de développement. Claude Code n'a jamais dévié du style — parce que le CLAUDE.md le recadre à chaque démarrage.
+      </p>
+      <p>
+        <strong>Le CLAUDE.md type d'un projet client</strong> fait entre 30 et 60 lignes. Il est écrit lors du kickoff avec le client (jour 1 de l'implémentation). Alfred pose les questions : stack ? Design ? Conventions ? Ton ? Interdits ? Et le CLAUDE.md est rédigé en 15 minutes. À partir de là, n'importe quelle session Claude Code sur ce projet produit du travail cohérent — que ce soit Alfred, un agent autonome, ou même le client lui-même qui lance Claude Code.
+      </p>
+      <p>
+        <strong>Le secret :</strong> la section "Ce qu'il ne faut PAS faire" est la plus importante du fichier. C'est elle qui empêche Claude de dériver. Sans elle, Claude fait des choix par défaut qui peuvent casser la cohérence. Avec elle, il sait exactement ce qui est interdit — et il respecte.
+      </p>
+      <CalloutBox variant="buildrs">
+        La différence entre un projet avec un bon CLAUDE.md et un projet sans : le premier produit des résultats cohérents à la première session. Le second nécessite 5-10 messages de correction à chaque fois. Sur 50 sessions, ça représente des heures de gagnées.
+      </CalloutBox>
+
+      <CalloutBox variant="action">
+        Crée un fichier CLAUDE.md à la racine de ton projet principal. Copie le template qui correspond à ton cas (technique ou non-dev) et adapte-le en 10 minutes. La prochaine fois que tu lances Claude Code dans ce dossier, tu verras la différence immédiatement — Claude est déjà briefé.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="5 TEMPLATES CLAUDE.MD PAR TYPE DE PROJET" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
