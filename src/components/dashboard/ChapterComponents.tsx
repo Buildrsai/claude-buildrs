@@ -67,7 +67,7 @@ export function CalloutBox({
       >
         <span>{s.icon}</span> {s.label}
       </div>
-      <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+      <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
         {children}
       </div>
     </div>
@@ -113,7 +113,7 @@ export function CodeBlock({ code, language }: { code: string; language?: string 
       <pre
         style={{
           fontFamily: "'Geist Mono', monospace",
-          fontSize: "13px",
+          fontSize: "14px",
           lineHeight: 1.6,
           color: "rgba(237,238,239,0.75)",
           padding: "16px",
@@ -168,7 +168,7 @@ export function TableBlock({
         style={{
           width: "100%",
           borderCollapse: "collapse",
-          fontSize: "13px",
+          fontSize: "14px",
           fontFamily: "'Geist', sans-serif",
         }}
       >
@@ -323,7 +323,7 @@ export function QuizSection({
           <div key={`${chapterNum}-${qi}`} style={{ marginBottom: qi < questions.length - 1 ? "24px" : "0" }}>
             <p
               style={{
-                fontSize: "14px",
+                fontSize: "15px",
                 fontWeight: 500,
                 color: "#EDEEEF",
                 marginBottom: "10px",
@@ -368,7 +368,7 @@ export function QuizSection({
                       borderRadius: "8px",
                       cursor: isRevealed ? "default" : "pointer",
                       fontFamily: "'Geist', sans-serif",
-                      fontSize: "13px",
+                      fontSize: "14px",
                       color,
                       textAlign: "left",
                       transition: "all 0.15s",
@@ -476,7 +476,7 @@ export function ActionPlan({ items }: { items: string[] }) {
             alignItems: "center",
             gap: "10px",
             padding: "8px 0",
-            fontSize: "14px",
+            fontSize: "15px",
             color: checked[i] ? "rgba(74,222,128,0.7)" : "rgba(237,238,239,0.65)",
             cursor: "pointer",
             textDecoration: checked[i] ? "line-through" : "none",
@@ -615,7 +615,7 @@ export function OfferCTA({
           marginBottom: "8px",
         }}
       >
-        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+        <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
           <span>{icon} </span>
           {children}
         </div>
@@ -679,7 +679,7 @@ export function OfferCTA({
             <span>{icon}</span> {title}
           </div>
         )}
-        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+        <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
           {children}
         </div>
         {buttonLabel && (
@@ -724,7 +724,7 @@ export function OfferCTA({
             padding: "16px 20px",
           }}
         >
-          <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+          <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
             <span>⚡ </span>{children}
           </div>
           {buttonLabel && (
@@ -759,7 +759,7 @@ export function OfferCTA({
               padding: "16px 20px",
             }}
           >
-            <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+            <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
               <span>🤝 </span>Tu veux qu'on configure tes agents ensemble, adaptés à <strong>TON</strong> activité ?
             </div>
             <button
@@ -813,7 +813,7 @@ export function OfferCTA({
         >
           🔥 PASSE À L'ACTION
         </div>
-        <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+        <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
           {children}
         </div>
         {buttonLabel && (
@@ -871,7 +871,7 @@ export function OfferCTA({
       >
         🚀 ACCOMPAGNEMENT
       </div>
-      <div style={{ fontSize: "14px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
+      <div style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(237,238,239,0.7)" }}>
         {children}
       </div>
       {buttonLabel && (

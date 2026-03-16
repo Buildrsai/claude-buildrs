@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { CHAPTERS, BLOCS } from "@/data/chapters"
 import { QuizSection, ActionPlan, ChapterNav } from "@/components/dashboard/ChapterComponents"
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import buildrsLogo from "@/assets/buildrs-logo.png"
 import claudeLogo from "@/assets/claude-logo.png"
 
@@ -51,6 +52,7 @@ export default function DashboardPage() {
 
   return (
     <div
+      className="dashboard-root"
       style={{
         background: "#080909",
         color: "#EDEEEF",
@@ -64,6 +66,7 @@ export default function DashboardPage() {
     >
       {/* ─── Topbar ─── */}
       <div
+        className="dashboard-topbar"
         style={{
           height: "52px",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
@@ -140,6 +143,8 @@ export default function DashboardPage() {
             {progress}%
           </div>
 
+          <AnimatedThemeToggler />
+
           <div
             style={{
               width: "28px",
@@ -164,7 +169,7 @@ export default function DashboardPage() {
       <div style={{ display: "flex", flex: 1, overflow: "hidden", position: "relative" }}>
         {/* ─── Sidebar ─── */}
         <div
-          className={sidebarOpen ? "sidebar-open" : ""}
+          className={`dashboard-sidebar ${sidebarOpen ? "sidebar-open" : ""}`}
           style={{
             width: "260px",
             borderRight: "1px solid rgba(255,255,255,0.06)",
@@ -269,7 +274,7 @@ export default function DashboardPage() {
                       >
                         {ch.number}
                       </span>
-                      <span style={{ flex: 1 }}>{ch.title.length > 35 ? ch.title.slice(0, 35) + "…" : ch.title}</span>
+                      <span style={{ flex: 1 }}>{ch.sidebarTitle || ch.title}</span>
                       {isDone && (
                         <div
                           style={{
@@ -389,21 +394,21 @@ export default function DashboardPage() {
             <h1
               style={{
                 fontFamily: "'Instrument Serif', serif",
-                fontSize: "36px",
+                fontSize: "42px",
                 fontWeight: 400,
                 color: "#EDEEEF",
                 letterSpacing: "-0.03em",
-                lineHeight: 1.2,
-                marginBottom: "8px",
+                lineHeight: 1.15,
+                marginBottom: "10px",
               }}
             >
               {chapter.title}
             </h1>
             <p
               style={{
-                fontSize: "15px",
+                fontSize: "17px",
                 color: "rgba(237,238,239,0.4)",
-                marginBottom: "40px",
+                marginBottom: "44px",
                 fontStyle: "italic",
               }}
             >
@@ -449,31 +454,31 @@ export default function DashboardPage() {
       <style>{`
         .chapter-body h3 {
           font-family: 'Geist', sans-serif;
-          font-size: 18px;
+          font-size: 22px;
           font-weight: 600;
           color: #EDEEEF;
-          margin-top: 36px;
-          margin-bottom: 12px;
-          letter-spacing: -0.01em;
+          margin-top: 40px;
+          margin-bottom: 14px;
+          letter-spacing: -0.02em;
         }
         .chapter-body h3:first-child {
           margin-top: 0;
         }
         .chapter-body p {
-          font-size: 15px;
+          font-size: 17px;
           color: rgba(237,238,239,0.7);
           line-height: 1.8;
-          margin-bottom: 16px;
+          margin-bottom: 18px;
         }
         .chapter-body ul, .chapter-body ol {
-          padding-left: 20px;
-          margin-bottom: 16px;
+          padding-left: 22px;
+          margin-bottom: 18px;
         }
         .chapter-body li {
-          font-size: 14px;
+          font-size: 16px;
           color: rgba(237,238,239,0.65);
           line-height: 1.7;
-          margin-bottom: 6px;
+          margin-bottom: 8px;
         }
         .chapter-body strong {
           color: #EDEEEF;
@@ -481,7 +486,7 @@ export default function DashboardPage() {
         }
         .chapter-body code {
           font-family: 'Geist Mono', monospace;
-          font-size: 12px;
+          font-size: 13px;
           background: rgba(255,255,255,0.06);
           padding: 2px 6px;
           border-radius: 4px;

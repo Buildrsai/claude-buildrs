@@ -4,6 +4,7 @@ import { CalloutBox, CodeBlock, TableBlock, OfferCTA, type QuizQuestion } from "
 export interface Chapter {
   number: string
   title: string
+  sidebarTitle?: string
   subtitle: string
   bloc: "Comprendre" | "Configurer" | "Supercharger" | "Exploiter"
   content: React.ReactNode
@@ -19,6 +20,7 @@ export interface Chapter {
 const chapter01: Chapter = {
   number: "01",
   title: "Pourquoi Claude va tout changer pour toi",
+  sidebarTitle: "Pourquoi Claude AI",
   subtitle: "L'IA a évolué. Ceux qui comprennent le nouvel écosystème prennent une longueur d'avance.",
   bloc: "Comprendre",
   actionPlan: [
@@ -288,6 +290,7 @@ const chapter01: Chapter = {
 const chapter02: Chapter = {
   number: "02",
   title: "3 produits. Un seul écosystème. Zéro limite.",
+  sidebarTitle: "L'écosystème Claude",
   subtitle: "Claude AI pense. Claude Code construit. Cowork exécute. Ensemble, ils remplacent une équipe.",
   bloc: "Comprendre",
   actionPlan: [
@@ -515,6 +518,7 @@ const chapter02: Chapter = {
 const chapter03: Chapter = {
   number: "03",
   title: "Utilise le bon modèle au bon moment",
+  sidebarTitle: "Modèles & Tokens",
   subtitle: "Divise par 3 tes coûts et double la qualité de tes résultats.",
   bloc: "Comprendre",
   actionPlan: [
@@ -718,6 +722,7 @@ const chapter03: Chapter = {
 const chapter04: Chapter = {
   number: "04",
   title: "10 minutes pour un Claude opérationnel",
+  sidebarTitle: "Setup en 10 min",
   subtitle: "Le bon abonnement, les bons paramètres — tu repars avec un Claude qui travaille vraiment.",
   bloc: "Comprendre",
   actionPlan: [
@@ -919,6 +924,7 @@ const chapter04: Chapter = {
 const chapter05: Chapter = {
   number: "05",
   title: "Donne des instructions que Claude n'oublie jamais",
+  sidebarTitle: "Prompts & Projects",
   subtitle: "Avec les Projects et la mémoire, Claude connaît ton business par cœur.",
   bloc: "Configurer",
   actionPlan: [
@@ -1181,6 +1187,7 @@ const chapter05: Chapter = {
 const chapter06: Chapter = {
   number: "06",
   title: "Branche Claude à tous tes outils en un clic",
+  sidebarTitle: "Extensions & Connecteurs",
   subtitle: "Drive, Gmail, Slack, Notion, Chrome — Claude accède à tout et agit directement dedans.",
   bloc: "Configurer",
   actionPlan: [
@@ -1430,6 +1437,7 @@ const chapter06: Chapter = {
 const chapter07: Chapter = {
   number: "07",
   title: "Installe ton agent de code en 20 minutes",
+  sidebarTitle: "Installer Claude Code",
   subtitle: "Tu décris, il construit. Pas besoin de savoir coder.",
   bloc: "Configurer",
   actionPlan: [
@@ -1687,6 +1695,7 @@ et un sous-titre "Mon premier projet avec Claude Code".`}
 const chapter08: Chapter = {
   number: "08",
   title: "Du code à la mise en ligne — sans friction",
+  sidebarTitle: "Déployer avec Vercel",
   subtitle: "Tu décris. Claude construit. GitHub sauvegarde. Vercel déploie. En ligne avant la fin de la journée.",
   bloc: "Configurer",
   actionPlan: [
@@ -1901,6 +1910,7 @@ const chapter08: Chapter = {
 const chapter09: Chapter = {
   number: "09",
   title: "Transforme Claude en spécialiste de ton métier",
+  sidebarTitle: "Skills & Compétences",
   subtitle: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton dev.",
   bloc: "Supercharger",
   actionPlan: [
@@ -2135,6 +2145,7 @@ Standards :
 const chapter10: Chapter = {
   number: "10",
   title: "Connecte Claude à 100+ services externes",
+  sidebarTitle: "MCP & Connexions",
   subtitle: "GitHub, Supabase, Stripe, Google Workspace — Claude Code interagit directement avec tes outils.",
   bloc: "Supercharger",
   actionPlan: [
@@ -2375,6 +2386,7 @@ const chapter10: Chapter = {
 const chapter11: Chapter = {
   number: "11",
   title: "Un Claude qui se souvient de tout, automatiquement",
+  sidebarTitle: "CLAUDE.md & Mémoire",
   subtitle: "Chaque projet a son contexte. Claude le retient entre les sessions.",
   bloc: "Supercharger",
   actionPlan: [
@@ -2657,6 +2669,7 @@ Exemples : "écris comme [personne]", "le style de [marque]"`}
 const chapter12: Chapter = {
   number: "12",
   title: "Tes employés IA — disponibles 24/7",
+  sidebarTitle: "Agents IA 24/7",
   subtitle: "Crée des agents qui bossent pour toi en continu. Prospection, contenu, reporting, veille.",
   bloc: "Supercharger",
   actionPlan: [
@@ -2971,6 +2984,7 @@ et le nombre de jours depuis l'envoi.`} />
 const chapter13: Chapter = {
   number: "13",
   title: "Des entrepreneurs génèrent du revenu avec Claude",
+  sidebarTitle: "Business avec Claude",
   subtitle: "Ils ne codent pas. Ils n'ont pas d'équipe tech. Ils ont juste le bon écosystème.",
   bloc: "Exploiter",
   actionPlan: [
@@ -3127,6 +3141,7 @@ const chapter13: Chapter = {
 const chapter14: Chapter = {
   number: "14",
   title: "Lance ton premier produit en une journée",
+  sidebarTitle: "Lancer son MVP",
   subtitle: "De l'idée au produit en ligne qui accepte des paiements — même si tu pars de zéro.",
   bloc: "Exploiter",
   actionPlan: [
@@ -3321,6 +3336,7 @@ Utilise le skill frontend-design pour un design premium.`}
 const chapter15: Chapter = {
   number: "15",
   title: "La stack gratuite qui remplace une équipe",
+  sidebarTitle: "La Stack Complète",
   subtitle: "Tous les outils pour avoir l'infrastructure d'une startup — sans recruter et sans budget.",
   bloc: "Exploiter",
   actionPlan: [
@@ -3572,6 +3588,7 @@ Claude Code → construction et itération`}
 const chapterBonus: Chapter = {
   number: "BONUS",
   title: "Ton plan d'action de A à Z",
+  sidebarTitle: "Plan d'action A→Z",
   subtitle: "28 étapes. 8 phases. ~2h30. De zéro à machine de guerre.",
   bloc: "Exploiter",
   isBonus: true,
