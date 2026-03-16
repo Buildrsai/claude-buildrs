@@ -2138,51 +2138,231 @@ const chapter10: Chapter = {
   subtitle: "GitHub, Supabase, Stripe, Google Workspace — Claude Code interagit directement avec tes outils.",
   bloc: "Supercharger",
   actionPlan: [
-    "Ajouter Context7 MCP (indispensable)",
-    "Ajouter GitHub MCP si tu build",
-    "Comprendre : Skills = méthode, MCP = connexion",
+    "Installer Context7 MCP (indispensable)",
+    "Ajouter GitHub MCP si tu build des projets",
+    "Retenir : Skills = méthode, MCP = connexion, Hooks = sécurité",
+    "Passer au chapitre 11",
   ],
   quiz: [
     {
       question: "La différence entre Skill et MCP ?",
-      options: ["C'est pareil", "Skill = COMMENT travailler, MCP = accès aux services EXTERNES", "Skill = gratuit, MCP = payant"],
+      options: ["C'est la même chose", "Skill = COMMENT travailler (méthodologie), MCP = accès aux services EXTERNES (données, APIs)", "Skill = gratuit, MCP = payant"],
       correctIndex: 1,
     },
     {
       question: "Context7 MCP sert à :",
-      options: ["Connecter ChatGPT", "Fournir à Claude la doc à jour des librairies en temps réel", "Traduire le code"],
+      options: ["Connecter Claude à ChatGPT", "Fournir à Claude Code la documentation à jour des librairies en temps réel — fini les APIs obsolètes", "Traduire le code en plusieurs langues"],
+      correctIndex: 1,
+    },
+    {
+      question: "Chez Buildrs, le trio Skills + MCP + Hooks permet de :",
+      options: ["Décorer l'interface", "Avoir un agent qui code avec les bonnes pratiques, accède aux vrais services, et vérifie son travail automatiquement", "Remplacer le plan Pro"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>10.1 — C'est quoi un MCP ?</h3>
-      <p>MCP = Model Context Protocol. Des serveurs qui donnent à Claude Code accès à des services externes. Les Skills disent COMMENT travailler. Les MCP donnent accès à QUOI travailler.</p>
+      <h3>10.1 — Le problème : Claude Code est puissant mais isolé</h3>
+      <p>
+        Au chapitre 9, tu as donné à Claude Code des compétences avec les Skills. Il sait maintenant COMMENT travailler. Mais il ne sait pas encore AVEC QUOI travailler.
+      </p>
+      <p>
+        Par défaut, Claude Code peut lire et modifier les fichiers de ton projet. C'est déjà énorme. Mais dans un vrai projet, tu as besoin de bien plus : une base de données, un système de paiement, un repo GitHub, des documents Google, une API tierce.
+      </p>
+      <p>
+        Sans MCP, tu dois tout faire manuellement. Tu ouvres Stripe dans un onglet, tu copies un ID produit, tu le colles dans ton code. Tu vas sur la doc Supabase, tu cherches la bonne syntaxe, tu l'intègres à la main. C'est du ping-pong entre onglets.
+      </p>
+      <p>
+        Les MCP éliminent ça. Ils branchent Claude Code directement aux services. Il n'a plus besoin de toi comme intermédiaire — il interagit avec tes outils de production en direct.
+      </p>
 
-      <h3>10.2 — Les MCP essentiels</h3>
-      <TableBlock
-        headers={["MCP", "Ce qu'il fait", "Commande"]}
-        rows={[
-          ["Context7", "Docs à jour de toutes les librairies", "claude mcp add context7 -- npx -y @upstash/context7-mcp@latest"],
-          ["GitHub", "Repos, PRs, issues", "MCP GitHub officiel"],
-          ["Supabase", "BDD, auth, storage", "Supabase MCP"],
-          ["Stripe", "Paiements, abonnements", "Stripe MCP"],
-          ["Google Workspace", "Drive, Gmail, Calendar, Sheets", "GWS MCP"],
-        ]}
-      />
-
-      <h3>10.3 — Skills + MCP = 80% des workflows</h3>
-      <p>Les Skills donnent la méthodologie. Les MCP donnent les connexions. Ensemble, Claude Code peut tout faire : coder avec les bonnes pratiques ET interagir avec tes services.</p>
-
-      <h3>10.4 — Hooks : le filet de sécurité</h3>
-      <p>Actions automatiques à des moments précis :</p>
+      <h3>10.2 — MCP : le concept en 30 secondes</h3>
+      <p>
+        MCP = Model Context Protocol. Derrière ce nom technique, c'est simple : ce sont des serveurs qui donnent à Claude Code l'accès à des services externes.
+      </p>
+      <p>
+        Pense aux MCP comme des rallonges. Ton Claude Code est une machine puissante, mais il est branché sur une seule prise (tes fichiers locaux). Chaque MCP ajoute une prise supplémentaire : une vers GitHub, une vers Supabase, une vers Stripe, une vers Google Workspace.
+      </p>
+      <p>La règle à retenir :</p>
       <ul>
-        <li>Avant chaque commit → lancer les tests</li>
-        <li>Après chaque modification → vérifier le formatage</li>
+        <li><strong>Skills</strong> = COMMENT travailler (méthodologie, standards, process)</li>
+        <li><strong>MCP</strong> = accès à QUOI travailler (services, données, APIs)</li>
+        <li><strong>Skills + MCP</strong> = 80% de tes workflows couverts</li>
       </ul>
 
-      <CalloutBox variant="usecase">
-        Un fondateur de marketplace a connecté Claude Code à Stripe via MCP. Résultat : il dit "ajoute un plan annuel à 197€ avec 14 jours d'essai gratuit" et Claude crée le produit Stripe, le price, le checkout flow, et le webhook — en une seule commande. Ce qui prenait 2h de documentation Stripe + code manuel se fait maintenant en 3 minutes. Il a lancé 3 formules d'abonnement en une après-midi.
+      <h3>10.3 — Les 5 MCP que Buildrs installe sur chaque projet</h3>
+      <p>
+        <strong>Context7 — La documentation vivante</strong>
+      </p>
+      <p>
+        Le MCP le plus important. Problème classique : tu demandes à Claude Code d'intégrer une librairie, et il utilise une syntaxe obsolète parce que ses connaissances d'entraînement datent. Résultat : du code qui plante et des heures de debugging.
+      </p>
+      <p>
+        Context7 résout ça. Il récupère la documentation à jour, en temps réel, de n'importe quelle librairie — React, Next.js, Supabase, Stripe, Tailwind, Prisma, etc. Claude Code consulte la vraie doc avant d'écrire une seule ligne. Fini les API obsolètes et les méthodes qui n'existent plus.
+      </p>
+      <CodeBlock language="Terminal" code="claude mcp add context7 -- npx -y @upstash/context7-mcp@latest" />
+      <p>
+        <strong>GitHub — Le gestionnaire de code</strong>
+      </p>
+      <p>
+        Claude Code gère tes repositories directement. Il crée des repos, pousse du code, crée des Pull Requests, gère les branches. Tu ne touches plus à l'interface GitHub — Claude s'en charge.
+      </p>
+      <p>
+        <strong>Supabase — Le backend complet</strong>
+      </p>
+      <p>
+        Base de données PostgreSQL, authentification, stockage de fichiers, fonctions serverless — tout Supabase est accessible depuis Claude Code. Tu dis "ajoute l'authentification par email" et Claude configure la table users, les policies de sécurité, et le flow de login. Directement dans ta base Supabase.
+      </p>
+      <p>
+        <strong>Stripe — Les paiements</strong>
+      </p>
+      <p>
+        Claude Code crée des produits, des plans d'abonnement, des pages de checkout, des webhooks — directement dans ton compte Stripe. Tu décris ton modèle de pricing, il le construit.
+      </p>
+      <p>
+        <strong>Google Workspace — L'écosystème bureautique</strong>
+      </p>
+      <p>
+        Drive, Gmail, Calendar, Sheets. Claude Code peut lire des données depuis un Google Sheet, envoyer un email, créer un document. Utile pour les automatisations et les intégrations avec tes outils quotidiens.
+      </p>
+      <CalloutBox variant="important">
+        Sans MCP, chaque intégration est manuelle : tu lis la doc, tu copies des snippets, tu configures des clés API à la main. Avec MCP, tu décris ce que tu veux et Claude Code le fait — parce qu'il a un accès direct au service. Le gain de temps sur une intégration Stripe par exemple : de 2-3 heures à 5 minutes.
+      </CalloutBox>
+
+      <h3>10.4 — Les Hooks : le filet de sécurité automatique</h3>
+      <p>
+        Les Hooks sont un complément aux MCP. Ce sont des actions automatiques qui se déclenchent à des moments précis du workflow de Claude Code :
+      </p>
+      <p>
+        <strong>Avant chaque commit</strong> → Claude lance les tests automatiquement. Si ça casse, il ne push pas.
+      </p>
+      <p>
+        <strong>Après chaque modification de fichier</strong> → Vérification du formatage et du linting. Le code reste propre.
+      </p>
+      <p>
+        <strong>Au démarrage d'une session</strong> → Chargement de la configuration projet. Claude est briefé dès la première seconde.
+      </p>
+      <p>
+        Tu ne les configures qu'une fois. Ensuite, ils tournent en arrière-plan et t'empêchent de faire des erreurs. C'est un filet de sécurité invisible.
+      </p>
+
+      <h3>10.5 — Le trio gagnant : Skills + MCP + Hooks</h3>
+      <p>
+        Pour bien comprendre comment tout s'emboîte :
+      </p>
+      <p>
+        Les <strong>Skills</strong> disent à Claude Code comment travailler — les méthodes, les standards, la qualité attendue.
+      </p>
+      <p>
+        Les <strong>MCP</strong> lui donnent accès aux services — les bases de données, les APIs, les outils de paiement.
+      </p>
+      <p>
+        Les <strong>Hooks</strong> automatisent les vérifications — les tests, le formatage, la qualité du code.
+      </p>
+      <p>
+        Ensemble, c'est un écosystème complet. Claude Code ne code pas dans le vide : il suit une méthodologie (Skills), interagit avec les vrais services (MCP), et vérifie son travail automatiquement (Hooks).
+      </p>
+
+      {/* ── Diagramme : Skills + MCP + Hooks ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Skills + MCP + Hooks
+        </p>
+        {/* Top: Claude Code */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Claude Code
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* 3 columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "12px", marginBottom: "20px" }}>
+          {[
+            { label: "Skills", role: "COMMENT travailler", items: "frontend-design · superpowers · feature-dev · customs", color: "rgba(74,222,128,0.7)", bg: "rgba(74,222,128,0.06)", border: "rgba(74,222,128,0.15)" },
+            { label: "MCP", role: "AVEC QUOI travailler", items: "Context7 · GitHub · Supabase · Stripe · GWS", color: "#DA7756", bg: "rgba(218,119,86,0.06)", border: "rgba(218,119,86,0.15)" },
+            { label: "Hooks", role: "VÉRIFICATIONS auto", items: "Tests · Linting · Formatage", color: "rgba(168,130,255,0.8)", bg: "rgba(168,130,255,0.06)", border: "rgba(168,130,255,0.15)" },
+          ].map((item) => (
+            <div key={item.label} style={{ textAlign: "center" as const }}>
+              <div style={{
+                padding: "12px 8px",
+                background: item.bg,
+                border: `1px solid ${item.border}`,
+                borderRadius: "8px",
+                marginBottom: "6px",
+              }}>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: item.color, marginBottom: "4px" }}>{item.label}</div>
+                <div style={{ fontSize: "10px", color: "rgba(237,238,239,0.4)", marginBottom: "6px" }}>{item.role}</div>
+                <div style={{ fontSize: "9px", color: "rgba(237,238,239,0.3)", lineHeight: "1.4" }}>{item.items}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{ width: "1px", height: "24px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Bottom */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Un agent qui code comme un senior avec accès à tout
+          </div>
+        </div>
+      </div>
+
+      <h3>10.6 — Comment les MCP fonctionnent chez Buildrs</h3>
+      <p>
+        Sur chaque projet client, Buildrs configure minimum 3 MCP dès le jour 1 :
+      </p>
+      <p>
+        <strong>Context7</strong> est systématique. C'est non-négociable. On ne lance jamais un build sans que Claude Code ait accès à la documentation à jour. C'est ce qui fait que notre code fonctionne du premier coup dans 90% des cas — pas parce qu'on est des génies, mais parce que Claude consulte la bonne doc avant de coder.
+      </p>
+      <p>
+        <strong>GitHub + Supabase</strong> sont le socle de chaque projet. Claude Code push le code sur GitHub automatiquement, et configure la base de données Supabase directement. Quand Alfred dit "ajoute un système d'authentification avec Supabase", Claude consulte la doc exacte via Context7, construit le code avec les bonnes pratiques via le Skill architecture, et le connecte directement à la base Supabase via le MCP. Trois couches qui travaillent ensemble en une seule commande.
+      </p>
+      <p>
+        <strong>Stripe</strong> est ajouté dès qu'il y a de la monétisation. Le moment concret : Alfred dit "intègre un abonnement mensuel à 29€ avec 7 jours d'essai gratuit". Claude Code crée le produit dans Stripe, configure le prix, génère le checkout flow, met en place le webhook pour gérer les événements de paiement, et intègre tout dans l'app. Ce qui prenait une demi-journée de lecture de doc Stripe + code + tests se fait en quelques minutes.
+      </p>
+      <p>
+        Le fichier <code>.mcp.json</code> qui configure tout ça fait 15 lignes. On le copie d'un projet à l'autre. C'est devenu un standard Buildrs.
+      </p>
+
+      <CalloutBox variant="action">
+        Installe Context7 maintenant — c'est le MCP le plus impactant et le plus simple : <code>claude mcp add context7 -- npx -y @upstash/context7-mcp@latest</code>. Ensuite, teste : lance Claude Code et demande-lui d'utiliser une librairie récente. Compare la qualité du code avec et sans Context7. Tu verras la différence.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="LE FICHIER .MCP.JSON COMPLET DE BUILDRS" buttonLabel="Obtenir le Kit → 97€" buttonLink="/dashboard/offres">
