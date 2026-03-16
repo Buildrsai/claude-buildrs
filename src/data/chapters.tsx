@@ -2660,94 +2660,296 @@ const chapter12: Chapter = {
   subtitle: "Crée des agents qui bossent pour toi en continu. Prospection, contenu, reporting, veille.",
   bloc: "Supercharger",
   actionPlan: [
-    "Créer ton premier agent \"Morning Brief\"",
-    "Configurer la fréquence (quotidien 7h30)",
-    "Vérifier que Claude Desktop est ouvert + ordi allumé aux horaires planifiés",
+    "Créer ton premier agent \"Morning Brief\" avec /schedule",
+    "Adapter le prompt à tes connecteurs (Gmail, Slack, Calendar)",
+    "Vérifier que Claude Desktop reste ouvert aux horaires planifiés",
+    "Ajouter un 2ème agent (Veille ou Content Planner) dans la semaine",
+    "Passer au chapitre 13",
   ],
   quiz: [
     {
       question: "Les tâches planifiées Cowork permettent de :",
       options: [
-        "Programmer des posts sur les réseaux",
-        "Faire exécuter une tâche automatiquement à la fréquence choisie",
-        "Planifier des réunions",
+        "Programmer des posts sur les réseaux sociaux",
+        "Faire exécuter une tâche automatiquement à la fréquence choisie — sans intervention",
+        "Planifier des réunions dans le calendrier",
       ],
       correctIndex: 1,
     },
     {
-      question: "Combien coûtent les \"employés IA\" de Buildrs ?",
-      options: ["5000€/mois", "$20/mois (le prix de l'abo Pro)", "Gratuit"],
+      question: "Chez Buildrs, les 7 agents Cowork coûtent :",
+      options: ["5 000€/mois", "$20/mois — le prix de l'abo Pro", "Gratuit"],
       correctIndex: 1,
     },
     {
       question: "Pour que les tâches planifiées s'exécutent, il faut :",
-      options: ["Rien de spécial", "Que Claude Desktop soit ouvert et l'ordi allumé", "Un serveur dédié"],
+      options: ["Rien de spécial", "Que Claude Desktop soit ouvert et l'ordinateur allumé à l'heure planifiée", "Un serveur cloud dédié"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>12.1 — Le concept : des employés qui ne dorment pas</h3>
-      <p>Imagine un assistant qui :</p>
+      <h3>12.1 — Le moment où tout bascule</h3>
+      <p>
+        Tout ce que tu as appris jusqu'ici — Claude AI, Claude Code, les Skills, les MCP, le CLAUDE.md — c'est la fondation. Ce chapitre, c'est le moment où la fondation devient une machine qui tourne sans toi.
+      </p>
+      <p>Imagine que demain matin, quand tu ouvres ton Mac :</p>
       <ul>
-        <li>Chaque matin compile ton briefing (emails, Slack, agenda)</li>
-        <li>Chaque lundi génère ton rapport hebdomadaire</li>
-        <li>Chaque vendredi prépare ta présentation de la semaine</li>
-        <li>Chaque jour surveille tes concurrents et te résume les changements</li>
+        <li>Un rapport t'attend avec tes emails importants, tes messages Slack, et ton agenda du jour — déjà trié par priorité</li>
+        <li>Un document compile les métriques de la semaine dernière</li>
+        <li>5 idées de contenu sont prêtes, avec les hooks et les angles</li>
+        <li>Un résumé de ce que tes concurrents ont fait cette semaine est posé sur ton bureau</li>
       </ul>
-      <p>C'est exactement ce que font les tâches planifiées de Cowork.</p>
+      <p>
+        Tu n'as rien demandé. Tu n'as rien lancé. C'est fait.
+      </p>
+      <p>
+        C'est exactement ce que font les tâches planifiées de Cowork. Tu configures une tâche une seule fois — avec une fréquence (chaque matin, chaque lundi, chaque premier du mois) — et Cowork l'exécute automatiquement. À l'heure que tu as choisie. Sans intervention.
+      </p>
+      <p>
+        C'est la version 2026 d'avoir des employés. Sauf qu'ils ne prennent pas de vacances, ne tombent pas malades, n'oublient jamais, et coûtent $20/mois.
+      </p>
+      <CalloutBox variant="important">
+        La plupart des entrepreneurs passent 2-3 heures par jour sur des tâches récurrentes : lire les emails, compiler des rapports, chercher des idées de contenu, surveiller le marché. Ce sont des tâches à haute valeur quand elles sont bien faites — mais elles prennent un temps fou. Les agents Cowork les font en arrière-plan, mieux et plus régulièrement que tu ne les ferais toi-même.
+      </CalloutBox>
 
-      <h3>12.2 — Comment créer ton premier employé IA</h3>
-      <ol>
-        <li>Claude Desktop → Cowork → Nouvelle tâche</li>
-        <li>Tape <code>/schedule</code></li>
-        <li>Décris la tâche en détail</li>
-        <li>Choisis la fréquence (quotidien, hebdo, horaire, on demand)</li>
-        <li>Claude sauvegarde et exécute automatiquement</li>
-      </ol>
+      <h3>12.2 — Comment créer un agent en 3 minutes</h3>
+      <p>C'est plus simple que ce que tu imagines :</p>
+      <p>
+        <strong>Étape 1</strong> — Ouvre Claude Desktop. Va dans Cowork (onglet dans le sidebar).
+      </p>
+      <p>
+        <strong>Étape 2</strong> — Crée une nouvelle tâche ou ouvre une tâche existante. Tape <code>/schedule</code>.
+      </p>
+      <p>
+        <strong>Étape 3</strong> — Claude te pose quelques questions : quel est le nom de la tâche, que doit-elle faire, à quelle fréquence. Tu réponds.
+      </p>
+      <p>
+        <strong>Étape 4</strong> — Claude crée la tâche planifiée. Elle apparaît dans l'onglet "Scheduled" du sidebar Cowork.
+      </p>
+      <p>
+        <strong>Étape 5</strong> — C'est fait. L'agent tournera automatiquement à l'heure et à la fréquence que tu as choisie.
+      </p>
+      <p>
+        Un point crucial : les tâches planifiées ne s'exécutent que quand ton Mac est allumé et Claude Desktop est ouvert. Si ton ordi est en veille à l'heure planifiée, Cowork rattrapera la tâche dès que tu rallumes.
+      </p>
 
-      <h3>12.3 — Exemples d'agents à mettre en place</h3>
-      <p><strong>Agent "Morning Brief" — Quotidien 7h30</strong></p>
-      <CodeBlock code={`Chaque matin, compile :
-- Mes emails non lus importants (Gmail)
-- Les messages Slack de mon équipe
-- Mon agenda du jour (Calendar)
-- Les KPIs business de la veille
-Format : rapport structuré avec sections et priorités.`} />
+      <h3>12.3 — Les 5 agents que tout entrepreneur devrait avoir</h3>
+      <p>
+        Ce ne sont pas des idées théoriques. Ce sont les agents les plus demandés par les clients Buildrs — ceux qui ont le plus d'impact immédiat.
+      </p>
+      <p><strong>Agent 1 — "Morning Brief" (quotidien, 7h30)</strong></p>
+      <p>Le plus impactant. L'agent qui change ta matinée.</p>
+      <CodeBlock code={`Chaque matin à 7h30, compile un briefing structuré :
 
-      <p><strong>Agent "Weekly Report" — Lundi 9h</strong></p>
-      <CodeBlock code={`Chaque lundi, génère un rapport de la semaine précédente :
-- Réunions tenues et décisions prises
-- Emails envoyés et reçus importants
-- Tâches complétées
-- Métriques business
-Format : document avec résumé exécutif en haut.`} />
+1. EMAILS — Résume mes emails non lus importants (Gmail).
+   Ignore les newsletters et les notifs automatiques.
+   Pour chaque email important : expéditeur, sujet, action requise.
 
-      <p><strong>Agent "Veille Concurrentielle" — Quotidien 12h</strong></p>
-      <CodeBlock code={`Recherche les dernières actualités sur [mes concurrents].
-Identifie les changements de pricing, nouvelles features, levées de fonds.
-Résume en 5 bullet points max avec liens sources.`} />
+2. MESSAGES — Résume les messages Slack pertinents des dernières 24h.
+   Identifie les décisions prises et les questions en attente.
 
-      <p><strong>Agent "Content Ideas" — Mercredi 10h</strong></p>
-      <CodeBlock code={`Analyse les tendances de mon secteur cette semaine.
-Propose 5 idées de contenu (posts, articles, vidéos) avec :
-- Le hook
-- L'angle
-- Le format recommandé`} />
+3. AGENDA — Liste mes réunions du jour (Calendar).
+   Pour chaque réunion : qui, quand, sujet, contexte.
 
-      <h3>12.4 — Les plugins Cowork</h3>
-      <p>Cowork a un écosystème de plugins vérifiés (design, RH, ops, etc.) que tu peux installer pour étendre les capacités de tes agents.</p>
+4. PRIORITÉS — Basé sur les emails, messages et réunions,
+   propose un top 3 des priorités de la journée.
 
-      <CalloutBox variant="usecase">
-        Un entrepreneur solo dans le SaaS B2B a monté une "équipe" de 5 agents IA :
-        <ol>
-          <li><strong>Prospecteur</strong> (quotidien 8h) — identifie 10 leads qualifiés/jour sur LinkedIn et rédige les messages d'approche</li>
-          <li><strong>Content Machine</strong> (lundi + jeudi 9h) — génère 2 posts LinkedIn + 1 article de blog/semaine</li>
-          <li><strong>Analyste Churn</strong> (vendredi 10h) — détecte les clients inactifs et propose des actions de rétention</li>
-          <li><strong>Veille Produit</strong> (quotidien 12h) — surveille les features des concurrents et suggère des améliorations</li>
-          <li><strong>Rapport Investisseur</strong> (1er du mois) — compile MRR, churn, LTV et génère un rapport formaté</li>
-        </ol>
-        Résultat : il gère seul un SaaS à 8K€ MRR avec zéro employé. Coût de son "équipe IA" : $20/mois.
+Format : rapport structuré avec sections claires.
+Commence toujours par les priorités.`} />
+
+      <p><strong>Agent 2 — "Veille Concurrentielle" (quotidien, 12h)</strong></p>
+      <p>L'agent qui surveille pendant que tu travailles.</p>
+      <CodeBlock code={`Chaque jour à 12h, recherche les dernières actualités
+sur [Concurrent A], [Concurrent B], [Concurrent C].
+
+Identifie :
+- Changements de pricing ou de positionnement
+- Nouvelles features ou produits lancés
+- Levées de fonds ou changements d'équipe
+- Posts ou contenus qui ont performé
+
+Résume en 5 points max, avec liens sources.
+Si rien de notable : "RAS" en une ligne.`} />
+
+      <p><strong>Agent 3 — "Content Planner" (mercredi, 10h)</strong></p>
+      <p>L'agent qui t'empêche de chercher des idées de contenu.</p>
+      <CodeBlock code={`Chaque mercredi à 10h, analyse les tendances de mon secteur
+[décrire ton secteur] et propose 5 idées de contenu.
+
+Pour chaque idée :
+- Le hook (2 lignes max, accrocheur)
+- L'angle (quel point de vue original)
+- Le format recommandé (post court, post long, article, vidéo)
+- Pourquoi maintenant (le lien avec l'actualité ou la tendance)
+
+Mon ton : [décrire ton style].
+Mon audience : [décrire ta cible].`} />
+
+      <p><strong>Agent 4 — "Weekly Report" (vendredi, 17h)</strong></p>
+      <p>L'agent qui clôture ta semaine.</p>
+      <CodeBlock code={`Chaque vendredi à 17h, génère un rapport de la semaine :
+
+1. RÉUNIONS — Liste des réunions tenues, décisions clés
+2. EMAILS — Échanges importants envoyés et reçus
+3. MÉTRIQUES — [tes KPIs : CA, leads, clients, etc.]
+4. ACCOMPLISSEMENTS — Ce qui a avancé cette semaine
+5. SEMAINE PROCHAINE — Les sujets en attente et les priorités
+
+Format : document structuré avec résumé exécutif en haut (5 lignes).`} />
+
+      <p><strong>Agent 5 — "Invoice Tracker" (vendredi, 14h)</strong></p>
+      <p>L'agent qui ne laisse plus passer une facture.</p>
+      <CodeBlock code={`Chaque vendredi à 14h, vérifie mes échanges emails (Gmail)
+pour identifier les factures en attente de paiement,
+les relances à faire, et les paiements reçus cette semaine.
+
+Format : liste avec montant, client, statut (payé/en attente/à relancer),
+et le nombre de jours depuis l'envoi.`} />
+
+      <h3>12.4 — Les plugins Cowork : des capacités supplémentaires</h3>
+      <p>
+        Au-delà des tâches planifiées, Cowork a un écosystème de plugins vérifiés par Anthropic. Design, RH, opérations, recherche — des extensions qui ajoutent des capacités spécialisées à tes agents.
+      </p>
+      <p>
+        Tu les trouves dans Claude Desktop → Plugins → Explorer.
+      </p>
+      <p>
+        Les plugins et les tâches planifiées fonctionnent ensemble : un plugin donne une capacité à Cowork, et la tâche planifiée utilise cette capacité de façon récurrente. C'est comme ça que tu construis des agents de plus en plus sophistiqués au fil du temps.
+      </p>
+
+      <h3>12.5 — Les 7 agents qui font tourner Buildrs</h3>
+      <p>
+        Ce n'est pas de la théorie. Voici les 7 agents qui tournent en production chez Buildrs, avec leur vraie fréquence et leur vrai impact :
+      </p>
+      <p>
+        <strong>1. Daily Brief</strong> — Tous les jours, 7h30
+      </p>
+      <p>
+        Ce qu'il fait : compile emails (Gmail), messages (Slack), agenda (Calendar), KPIs (Stripe). Alfred ouvre son Mac, le briefing est là. Impact : 25 minutes de scroll manuel éliminées chaque matin. Sur un mois, c'est plus de 8 heures récupérées.
+      </p>
+      <p>
+        <strong>2. Client Report</strong> — Chaque lundi, 9h
+      </p>
+      <p>
+        Ce qu'il fait : pour chaque client actif, compile l'avancement du projet, les derniers livrables, les points en attente. Impact : les clients reçoivent un update structuré chaque semaine sans qu'Alfred rédige quoi que ce soit manuellement.
+      </p>
+      <p>
+        <strong>3. Veille IA</strong> — Tous les jours, 12h
+      </p>
+      <p>
+        Ce qu'il fait : surveille les annonces d'Anthropic, les nouveaux Skills/MCP, les évolutions de l'écosystème Claude. Impact : Buildrs est toujours à jour sur les dernières fonctionnalités — souvent avant la plupart des utilisateurs.
+      </p>
+      <p>
+        <strong>4. Content Planner</strong> — Chaque mercredi, 10h
+      </p>
+      <p>
+        Ce qu'il fait : 5 idées de contenu avec hooks, angles, formats. Basé sur les tendances du secteur IA/entrepreneuriat. Impact : la régularité de publication. Fini les "je ne sais pas quoi poster cette semaine".
+      </p>
+      <p>
+        <strong>5. Invoice Reminder</strong> — Chaque vendredi, 14h
+      </p>
+      <p>
+        Ce qu'il fait : identifie les factures en attente, les paiements reçus, les relances à faire. Impact : zéro facture oubliée. Le cash flow est suivi sans y penser.
+      </p>
+      <p>
+        <strong>6. Week Review</strong> — Chaque vendredi, 17h
+      </p>
+      <p>
+        Ce qu'il fait : résumé complet de la semaine avec métriques, accomplissements, et priorités pour lundi. Impact : Alfred part en week-end avec une vue claire. Il reprend lundi avec les priorités déjà posées.
+      </p>
+      <p>
+        <strong>7. Competitor Watch</strong> — Tous les jours, quotidien
+      </p>
+      <p>
+        Ce qu'il fait : surveille 3 acteurs du marché, identifie les changements de positionnement ou de pricing. Impact : aucune surprise concurrentielle. Buildrs voit tout, tout le temps.
+      </p>
+      <CalloutBox variant="buildrs">
+        Le coût total de ces 7 "employés" : $20/mois. Le prix de l'abonnement Pro. L'équivalent en temps humain : 15-20 heures par semaine. L'équivalent en salaire : incalculable.
+      </CalloutBox>
+
+      {/* ── Diagramme : Ton équipe IA ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          Ton équipe IA
+        </p>
+        {/* Top */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "8px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "#EDEEEF",
+            textAlign: "center" as const,
+          }}>
+            Toi — tu dors, tu travailles, tu vis
+          </div>
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
+          <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Agents grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px", marginBottom: "16px" }}>
+          {[
+            { label: "Morning Brief", time: "7h30 / quotidien" },
+            { label: "Veille Concurrentielle", time: "12h / quotidien" },
+            { label: "Content Planner", time: "Mercredi 10h" },
+            { label: "Invoice Tracker", time: "Vendredi 14h" },
+            { label: "Weekly Report", time: "Vendredi 17h" },
+            { label: "Client Report", time: "Lundi 9h" },
+          ].map((agent) => (
+            <div key={agent.label} style={{
+              padding: "8px 10px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "6px",
+            }}>
+              <div style={{ fontSize: "11px", fontWeight: 600, color: "#EDEEEF", marginBottom: "2px" }}>{agent.label}</div>
+              <div style={{ fontSize: "9px", color: "rgba(237,238,239,0.35)" }}>{agent.time}</div>
+            </div>
+          ))}
+        </div>
+        {/* Connector */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
+          <div style={{ width: "1px", height: "20px", background: "rgba(255,255,255,0.1)" }} />
+        </div>
+        {/* Bottom */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            padding: "10px 24px",
+            background: "rgba(218,119,86,0.12)",
+            border: "1px solid rgba(218,119,86,0.25)",
+            borderRadius: "8px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: "#DA7756",
+            textAlign: "center" as const,
+          }}>
+            Tu arrives. Tout est prêt. Tu décides.
+          </div>
+        </div>
+      </div>
+
+      <CalloutBox variant="action">
+        Commence par l'agent le plus impactant : le Morning Brief. Ouvre Cowork, tape <code>/schedule</code>, et utilise le prompt de l'Agent 1 ci-dessus. Adapte-le à tes connecteurs (ceux que tu as branchés au chapitre 6). Demain matin, ton briefing sera prêt quand tu arriveras. Tu ne reviendras jamais en arrière.
       </CalloutBox>
 
       <OfferCTA
