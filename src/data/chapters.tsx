@@ -1904,53 +1904,223 @@ const chapter09: Chapter = {
   subtitle: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton dev.",
   bloc: "Supercharger",
   actionPlan: [
-    "Installer Frontend Design + SuperPowers",
+    "Installer Frontend Design : npx skills add frontend-design",
+    "Installer SuperPowers : /plugin install superpowers",
     "Tester /frontend-design sur un mini-projet",
-    "Comprendre comment créer un skill custom",
+    "Réfléchir à 1 Skill custom pour ton activité",
+    "Passer au chapitre 10",
   ],
   quiz: [
     {
       question: "Un Skill, c'est :",
-      options: ["Un plugin payant", "Un fichier SKILL.md qui donne des instructions spécialisées à Claude", "Une API"],
+      options: ["Un plugin payant qui nécessite une API", "Un fichier SKILL.md qui donne des instructions spécialisées à Claude — pas de code, pas d'API", "Une fonctionnalité intégrée qu'on ne peut pas modifier"],
       correctIndex: 1,
     },
     {
       question: "Le skill Frontend Design sert à :",
-      options: ["Créer des logos", "Produire des interfaces premium anti-\"IA générique\"", "Optimiser le SEO"],
+      options: ["Créer des logos", "Produire des interfaces avec de la personnalité et des choix de design pro — fini le générique IA", "Optimiser le référencement"],
+      correctIndex: 1,
+    },
+    {
+      question: "Chez Buildrs, les Skills custom servent à :",
+      options: ["Décorer l'interface Claude", "Codifier le design system, le ton de communication et les conventions techniques pour que chaque résultat soit calibré automatiquement", "Remplacer les Skills communautaires"],
       correctIndex: 1,
     },
   ],
   content: (
     <>
-      <h3>9.1 — C'est quoi un Skill ?</h3>
-      <p>Un fichier SKILL.md qui donne à Claude des instructions spécialisées. Sans Skills = généraliste. Avec = spécialiste redoutable.</p>
+      <h3>9.1 — Le problème avec Claude "par défaut"</h3>
+      <p>
+        Claude sans Skills, c'est un génie généraliste. Il sait un peu de tout, mais il n'est expert en rien. Demande-lui de designer une interface : tu auras du fonctionnel mais du générique. Le genre de résultat où tu devines que c'est "fait par l'IA" en 2 secondes — fond blanc, police Inter, gradient violet, zéro personnalité.
+      </p>
+      <p>
+        C'est ce qu'Anthropic appelle la "convergence distributionnelle". Les modèles d'IA sont entraînés sur la moyenne statistique des décisions de design, de code, de stratégie. Résultat : sans guidance, ils reproduisent la moyenne. Et la moyenne, c'est médiocre.
+      </p>
+      <p>
+        Les Skills corrigent ça. Un Skill, c'est un fichier SKILL.md qui donne à Claude des instructions spécialisées — une méthodologie, des contraintes, des standards de qualité. C'est comme la différence entre un consultant junior qui arrive le premier jour et le même consultant après 6 mois de formation intensive dans ton domaine.
+      </p>
+      <CalloutBox variant="important">
+        Sans Skills, Claude produit du travail correct mais générique. Avec les bons Skills, il produit du travail qui a l'air d'avoir été fait par un spécialiste de ton domaine. La différence est visible immédiatement — et c'est ce qui fait que tes clients, tes utilisateurs ou ton audience voient de la qualité pro, pas du "fait par l'IA".
+      </CalloutBox>
 
-      <h3>9.2 — Les Skills essentiels par Buildrs</h3>
-      <TableBlock
-        headers={["Skill", "Ce qu'il fait", "Commande"]}
-        rows={[
-          ["Frontend Design", "Interfaces premium, fini le design \"IA\"", "npx skills add frontend-design"],
-          ["SuperPowers", "Brainstorming, TDD, debugging, code review", "/plugin install superpowers"],
-          ["Feature Dev", "Brief → feature construite étape par étape", "/plugin install feature-dev"],
-          ["Code Review", "4 agents analysent ton code en parallèle", "/plugin install code-review"],
-        ]}
+      <h3>9.2 — Comment fonctionne un Skill (en 30 secondes)</h3>
+      <p>
+        Un Skill, c'est un fichier texte en Markdown. Pas de code. Pas d'API. Pas de build. Tu places un fichier <code>SKILL.md</code> dans le bon dossier, et Claude le lit automatiquement quand c'est pertinent — ou tu l'invoques manuellement avec <code>/nom-du-skill</code>.
+      </p>
+      <p>
+        Le fichier contient des instructions : comment approcher un type de tâche, quels standards respecter, quelles erreurs éviter, quelle méthodologie suivre. Claude les intègre dans son fonctionnement et produit un résultat calibré.
+      </p>
+      <p>
+        Tu peux utiliser des Skills créés par d'autres (Anthropic, la communauté, Buildrs) ou créer les tiens. On verra les deux.
+      </p>
+
+      <h3>9.3 — Les 4 Skills essentiels que Buildrs installe sur chaque projet</h3>
+      <p>
+        <strong>Frontend Design</strong> — Le skill le plus installé de l'écosystème Claude Code (277 000+ installations). Il donne à Claude un système de design et une philosophie esthétique avant qu'il touche au moindre pixel. Le résultat : des interfaces avec de la personnalité, des choix typographiques audacieux, des animations intentionnelles, des palettes de couleurs cohérentes. La fin du "générique IA".
+      </p>
+      <CodeBlock language="Terminal" code="npx skills add frontend-design" />
+      <p>
+        <strong>SuperPowers</strong> — Le couteau suisse. Il structure le cycle de vie complet d'un projet : brainstorming, planification, développement, debugging, code review. Quand tu lances un projet avec SuperPowers, Claude suit un processus professionnel — pas une réponse improvisée.
+      </p>
+      <CodeBlock language="Terminal" code="/plugin install superpowers" />
+      <p>
+        <strong>Feature Dev</strong> — Tu décris une feature en 3 phrases. Le skill décompose le travail en étapes, planifie l'architecture, et guide Claude Code à travers la construction étape par étape. C'est le process qu'un senior dev utilise instinctivement — sauf que c'est automatisé.
+      </p>
+      <CodeBlock language="Terminal" code="/plugin install feature-dev" />
+      <p>
+        <strong>Code Review</strong> — Le plus impressionnant techniquement. Au lieu d'un seul Claude qui "regarde ton code", ce skill déploie 4 agents spécialisés en parallèle : un qui cherche les bugs logiques, un qui audite la sécurité, un qui évalue la couverture de tests, un qui analyse l'architecture. Ils travaillent en simultané et livrent un rapport structuré. C'est l'équivalent d'une PR review par un senior — avant même que tu pushes.
+      </p>
+      <CodeBlock language="Terminal" code="/plugin install code-review" />
+
+      <h3>9.4 — Les Skills dans Claude AI (pas que Claude Code)</h3>
+      <p>
+        Les Skills ne sont pas réservés à Claude Code. Dans Claude AI, tu actives des fonctionnalités qui transforment aussi l'expérience :
+      </p>
+      <p>
+        <strong>Recherche web</strong> — Claude accède à des infos en temps réel. Il ne répond plus uniquement depuis ses connaissances d'entraînement.
+      </p>
+      <p>
+        <strong>Exécution de code</strong> — Claude teste du code, fait des calculs, manipule des données directement dans la conversation.
+      </p>
+      <p>
+        <strong>Deep Research</strong> — Claude conduit une recherche approfondie sur un sujet et te livre un rapport structuré avec sources. C'est un analyste qui travaille pour toi.
+      </p>
+      <p>
+        <strong>Création de fichiers</strong> — Documents Word, tableurs, présentations, PDFs — générés et téléchargeables.
+      </p>
+      <p>
+        <strong>Artefacts</strong> — Claude crée des applications React, des visualisations, des outils interactifs directement dans le chat. Tu vois le résultat et tu peux l'utiliser immédiatement.
+      </p>
+
+      <h3>9.5 — Créer tes propres Skills (la vraie puissance)</h3>
+      <p>
+        Les Skills de la communauté sont un bon point de départ. Mais la vraie puissance, c'est quand tu crées les tiens — calibrés pour TON business, TON style, TES standards.
+      </p>
+      <p>Un Skill personnel se place dans :</p>
+      <CodeBlock language="Chemin" code="~/.claude/skills/mon-skill/SKILL.md" />
+      <p>
+        Il est disponible dans tous tes projets Claude Code, automatiquement.
+      </p>
+      <p>Exemple de Skill custom qu'un entrepreneur pourrait créer :</p>
+      <CodeBlock
+        language="SKILL.md — expert-offre"
+        code={`---
+name: expert-offre
+description: Analyse et structure des offres commerciales
+---
+
+Quand l'utilisateur te demande d'analyser ou créer une offre,
+suis cette méthodologie :
+
+1. Identifie le problème que l'offre résout
+2. Définis la cible précise (qui a ce problème)
+3. Structure l'offre en 3 tiers (entrée, principal, premium)
+4. Pour chaque tier : inclus, prix, justification
+5. Propose un nom qui évoque la transformation, pas la feature
+6. Ajoute un élément de rareté ou d'urgence
+
+Standards :
+- Prix basés sur la valeur perçue, pas sur le temps passé
+- Chaque tier : un "pourquoi pas le tier en-dessous" évident
+- Le tier principal = choix logique pour 70% des acheteurs`}
       />
+      <p>
+        Tu l'écris une fois. Claude le suit à chaque fois. C'est ton expertise codifiée.
+      </p>
 
-      <h3>9.3 — Skills pour Claude AI</h3>
-      <p>Fonctionnalités à activer dans Claude AI :</p>
-      <ul>
-        <li>Recherche web</li>
-        <li>Exécution de code</li>
-        <li>Deep Research</li>
-        <li>Création de fichiers</li>
-        <li>Artefacts</li>
-      </ul>
+      <h3>9.6 — Les Skills qui font tourner Buildrs</h3>
+      <p>
+        Chez Buildrs, on a 3 catégories de Skills :
+      </p>
+      <p>
+        <strong>Les Skills communautaires (installés sur chaque projet) :</strong>
+      </p>
+      <p>
+        Frontend Design, SuperPowers, Feature Dev, Code Review. Ce sont les fondamentaux — on ne lance jamais un projet sans eux.
+      </p>
+      <p>
+        <strong>Les Skills custom Buildrs :</strong>
+      </p>
+      <p>
+        <strong>"buildrs-brand"</strong> — Le design system complet de Buildrs : couleurs (#0A0A0A, #DA7756, #FFFFFF), typographies (serif pour les titres, sans-serif pour le body), effets (glassmorphism, grain overlay), spacing, border-radius. Chaque interface générée par Claude Code a automatiquement le look Buildrs. Cohérence parfaite sur tous les projets, sans briefer manuellement.
+      </p>
+      <p>
+        <strong>"buildrs-copy"</strong> — Le ton de communication Buildrs : direct, sans jargon, tutoiement, phrases courtes, orienté action. Quand Claude rédige du contenu dans un projet Buildrs, il écrit comme nous — automatiquement.
+      </p>
+      <p>
+        <strong>"buildrs-architecture"</strong> — Les conventions techniques : stack standard (React + TypeScript + Tailwind + Supabase), structure de dossiers, naming conventions, patterns à utiliser et patterns à éviter. Claude Code produit du code qui s'intègre parfaitement dans l'existant.
+      </p>
+      <p>
+        <strong>Le résultat concret :</strong> quand Alfred dit à Claude Code "crée une landing page pour cette offre", le résultat a le bon design, le bon ton, la bonne structure technique — dès le premier jet. Pas 5 itérations pour corriger le style. Pas de "non c'est trop corporate". C'est calibré.
+      </p>
 
-      <h3>9.4 — Créer ses propres Skills</h3>
-      <p>Un SKILL.md dans <code>~/.claude/skills/mon-skill/SKILL.md</code> = ton skill personnel, dispo dans tous tes projets.</p>
+      {/* ── Diagramme : L'écosystème Skills ── */}
+      <div style={{
+        margin: "32px 0",
+        padding: "32px 24px",
+        background: "rgba(255,255,255,0.02)",
+        borderRadius: "12px",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <p style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase" as const,
+          color: "rgba(237,238,239,0.3)",
+          marginBottom: "24px",
+          textAlign: "center" as const,
+        }}>
+          L'écosystème Skills
+        </p>
+        {/* Sans vs Avec */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
+          <div style={{
+            padding: "16px",
+            background: "rgba(255,255,255,0.02)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            borderRadius: "8px",
+            textAlign: "center" as const,
+          }}>
+            <div style={{ fontSize: "11px", fontWeight: 600, color: "rgba(237,238,239,0.4)", marginBottom: "8px" }}>Sans Skills</div>
+            <div style={{ fontSize: "13px", color: "rgba(237,238,239,0.5)" }}>Correct mais générique</div>
+          </div>
+          <div style={{
+            padding: "16px",
+            background: "rgba(218,119,86,0.08)",
+            border: "1px solid rgba(218,119,86,0.2)",
+            borderRadius: "8px",
+            textAlign: "center" as const,
+          }}>
+            <div style={{ fontSize: "11px", fontWeight: 600, color: "#DA7756", marginBottom: "8px" }}>Avec Skills</div>
+            <div style={{ fontSize: "13px", color: "rgba(237,238,239,0.7)" }}>Calibré, pro, différenciant</div>
+          </div>
+        </div>
+        {/* Skills grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+          {[
+            { label: "Frontend Design", desc: "Interfaces premium" },
+            { label: "SuperPowers", desc: "Cycle de vie complet" },
+            { label: "Feature Dev", desc: "Brief → Code structuré" },
+            { label: "Code Review", desc: "4 agents en parallèle" },
+            { label: "Skills custom", desc: "Ton expertise codifiée" },
+            { label: "Skills Claude AI", desc: "Web, code, research, files" },
+          ].map((item) => (
+            <div key={item.label} style={{
+              padding: "10px 12px",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "6px",
+            }}>
+              <div style={{ fontSize: "11px", fontWeight: 600, color: "#EDEEEF", marginBottom: "2px" }}>{item.label}</div>
+              <div style={{ fontSize: "10px", color: "rgba(237,238,239,0.4)" }}>{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <CalloutBox variant="usecase">
-        Un entrepreneur a créé un Skill "expert-pricing" qui contient les frameworks de pricing SaaS (value-based, tiered, freemium). Quand il lance un nouveau produit, il demande à Claude "analyse cette offre et propose 3 structures de prix". Claude applique automatiquement les bonnes méthodes et sort un pricing optimisé en 30 secondes. Il a testé 4 structures de prix en une semaine et trouvé celle qui maximise son MRR — sans consultant à 3000€.
+      <CalloutBox variant="action">
+        Ouvre ton terminal et installe les 2 Skills essentiels maintenant : <code>npx skills add frontend-design</code> puis <code>/plugin install superpowers</code>. Teste : lance Claude Code dans un dossier et tape <code>/frontend-design</code>. Décris une interface — et compare le résultat avec ce que Claude produit sans le Skill. La différence est flagrante.
       </CalloutBox>
 
       <OfferCTA variant="card" icon="⚡" title="LES SKILLS BUILDRS — PRÊTS À INSTALLER" buttonLabel="Obtenir le Kit d'implémentation → 97€" buttonLink="/dashboard/offres">
