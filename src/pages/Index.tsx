@@ -65,37 +65,37 @@ const BLOCS = [
   {
     label: "Comprendre",
     chapters: [
-      { number: "01", title: "Pourquoi Claude va tout changer pour toi", description: "L'IA a évolué. Ceux qui comprennent le nouvel écosystème prennent une longueur d'avance — les autres regardent passer le train.", icon: Clock },
-      { number: "02", title: "3 produits. Un seul écosystème. Zéro limite.", description: "Claude AI pense pour toi. Claude Code construit pour toi. Cowork exécute pour toi. Ensemble, ils remplacent une équipe entière.", icon: LayoutGrid },
-      { number: "03", title: "Utilise le bon modèle au bon moment", description: "Haiku, Sonnet 4.6, Opus 4.6 — savoir lequel activer peut diviser par 3 tes coûts et doubler la qualité de tes résultats.", icon: Layers },
-      { number: "04", title: "10 minutes pour un Claude opérationnel", description: "Le bon abonnement, les bons paramètres, les bonnes activations — tu repars avec un Claude qui travaille vraiment pour toi.", icon: Settings },
+      { number: "01", title: "Pourquoi Claude AI", description: "L'IA a évolué. Ceux qui comprennent le nouvel écosystème prennent une longueur d'avance — les autres regardent passer le train.", icon: Clock },
+      { number: "02", title: "L'écosystème Claude", description: "Claude AI pense pour toi. Claude Code construit pour toi. Cowork exécute pour toi. Ensemble, ils remplacent une équipe entière.", icon: LayoutGrid },
+      { number: "03", title: "Modèles & Tokens", description: "Haiku, Sonnet 4.6, Opus 4.6 — savoir lequel activer peut diviser par 3 tes coûts et doubler la qualité de tes résultats.", icon: Layers },
+      { number: "04", title: "Setup en 10 min", description: "Le bon abonnement, les bons paramètres, les bonnes activations — tu repars avec un Claude qui travaille vraiment pour toi.", icon: Settings },
     ],
   },
   {
     label: "Configurer",
     chapters: [
-      { number: "05", title: "Donne des instructions que Claude n'oublie jamais", description: "Fini de re-briefer à chaque conversation. Avec les Projects et la mémoire, Claude connaît ton business par cœur.", icon: MessageSquare },
-      { number: "06", title: "Branche Claude à tous tes outils en un clic", description: "Drive, Gmail, Slack, Notion, Chrome — Claude accède à tout ton écosystème et agit directement dedans.", icon: Plug },
-      { number: "07", title: "Installe ton agent de code en 20 minutes", description: "Claude Code transforme tes idées en applications réelles. Pas besoin de savoir coder — tu décris, il construit.", icon: Code2 },
-      { number: "08", title: "Du code à la mise en ligne — sans friction", description: "Tu décris. Claude construit. GitHub sauvegarde. Vercel déploie. Ton produit est en ligne avant la fin de la journée.", icon: Eye },
+      { number: "05", title: "Prompts & Projects", description: "Fini de re-briefer à chaque conversation. Avec les Projects et la mémoire, Claude connaît ton business par cœur.", icon: MessageSquare },
+      { number: "06", title: "Extensions & Connecteurs", description: "Drive, Gmail, Slack, Notion, Chrome — Claude accède à tout ton écosystème et agit directement dedans.", icon: Plug },
+      { number: "07", title: "Installer Claude Code", description: "Claude Code transforme tes idées en applications réelles. Pas besoin de savoir coder — tu décris, il construit.", icon: Code2 },
+      { number: "08", title: "Déployer avec Vercel", description: "Tu décris. Claude construit. GitHub sauvegarde. Vercel déploie. Ton produit est en ligne avant la fin de la journée.", icon: Eye },
     ],
   },
   {
     label: "Supercharger",
     chapters: [
-      { number: "09", title: "Transforme Claude en spécialiste de ton métier", description: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton développeur — à tes ordres.", icon: Zap },
-      { number: "10", title: "Connecte Claude à 100+ services externes", description: "GitHub, Supabase, Stripe, Google Workspace — Claude Code interagit directement avec tes outils de production.", icon: Link },
-      { number: "11", title: "Un Claude qui se souvient de tout, automatiquement", description: "Chaque projet a son contexte. Claude le retient entre les sessions — plus besoin de tout réexpliquer à chaque fois.", icon: PenLine },
-      { number: "12", title: "Tes employés IA — disponibles 24/7", description: "Crée des agents qui bossent pour toi en continu. Tâches planifiées, rapports auto, veille — ton équipe IA ne dort jamais.", icon: Bot },
+      { number: "09", title: "Skills & Compétences", description: "Claude est livré nu. Avec les bons Skills, il devient ton stratège, ton designer, ton développeur — à tes ordres.", icon: Zap },
+      { number: "10", title: "MCP & Connexions", description: "GitHub, Supabase, Stripe, Google Workspace — Claude Code interagit directement avec tes outils de production.", icon: Link },
+      { number: "11", title: "CLAUDE.md & Mémoire", description: "Chaque projet a son contexte. Claude le retient entre les sessions — plus besoin de tout réexpliquer à chaque fois.", icon: PenLine },
+      { number: "12", title: "Agents IA 24/7", description: "Crée des agents qui bossent pour toi en continu. Tâches planifiées, rapports auto, veille — ton équipe IA ne dort jamais.", icon: Bot },
     ],
   },
   {
     label: "Exploiter",
     chapters: [
-      { number: "13", title: "Des entrepreneurs génèrent du revenu avec Claude", description: "Ils ne codent pas. Ils n'ont pas d'équipe tech. Ils ont juste le bon écosystème — et ça change tout.", icon: Monitor },
-      { number: "14", title: "Lance ton premier produit en une journée", description: "De l'idée au produit en ligne qui accepte des paiements — la méthode étape par étape, même si tu pars de zéro.", icon: Rocket },
-      { number: "15", title: "La stack gratuite qui remplace une équipe", description: "Les 4 outils à connecter pour avoir l'infrastructure d'une startup — sans recruter et sans budget.", icon: Wrench },
-      { number: "BONUS", title: "Ton plan d'action de A à Z", description: "28 étapes. 8 phases. ~2h30. Tu suis la feuille de route et ton Claude devient une machine de guerre.", icon: Map, isBonus: true },
+      { number: "13", title: "Business avec Claude", description: "Ils ne codent pas. Ils n'ont pas d'équipe tech. Ils ont juste le bon écosystème — et ça change tout.", icon: Monitor },
+      { number: "14", title: "Lancer son MVP", description: "De l'idée au produit en ligne qui accepte des paiements — la méthode étape par étape, même si tu pars de zéro.", icon: Rocket },
+      { number: "15", title: "La Stack Complète", description: "Tous les outils pour avoir l'infrastructure d'une startup — sans recruter et sans budget.", icon: Wrench },
+      { number: "BONUS", title: "Plan d'action A→Z", description: "28 étapes. 8 phases. ~2h30. Tu suis la feuille de route et ton Claude devient une machine de guerre.", icon: Map, isBonus: true },
     ],
   },
 ];
