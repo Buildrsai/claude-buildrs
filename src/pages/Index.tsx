@@ -354,13 +354,16 @@ const Index = () => {
               Ce guide gratuit t'installe l'écosystème complet — Claude AI, Claude Code, Cowork, Skills, connecteurs — pour en faire ton copilote business. Même si tu pars de zéro.
             </motion.p>
 
-            {/* Email capture */}
+            {/* CTA button */}
             <motion.div {...stagger(3)}>
-              <EmailCapture
-                email={heroEmail}
-                setEmail={setHeroEmail}
-                onSubmit={handleEmailSubmit}
-              />
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={handleCtaClick}
+                className="px-8 py-3 text-sm font-medium"
+              >
+                Accéder au guide gratuit <ArrowRight size={14} />
+              </Button>
             </motion.div>
 
             {/* Micro-infos */}

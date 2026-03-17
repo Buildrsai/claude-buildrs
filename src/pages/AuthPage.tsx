@@ -9,7 +9,10 @@ import buildrsLogo from '@/assets/buildrs-logo.png'
 export default function AuthPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(() => {
+    const params = new URLSearchParams(window.location.search)
+    return params.get('mode') !== 'signup'
+  })
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
