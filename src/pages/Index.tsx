@@ -273,11 +273,8 @@ function EmailCapture({
 
 const Index = () => {
   const navigate = useNavigate();
-  const [heroEmail, setHeroEmail] = useState("");
-  const [ctaEmail, setCtaEmail] = useState("");
-
-  const handleEmailSubmit = () => {
-    navigate("/auth");
+  const handleCtaClick = () => {
+    navigate("/auth?mode=signup");
   };
 
   return (
