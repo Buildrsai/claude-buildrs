@@ -204,15 +204,20 @@ export default function DashboardPage() {
             </div>
             <div
               style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
                 fontSize: "10px",
                 color: "rgba(237,238,239,0.3)",
                 marginTop: "6px",
-                textAlign: "right",
               }}
             >
-              {completedChapters.length}/{CHAPTERS.length} chapitres
+              <span>{completedChapters.length}/{CHAPTERS.length} chapitres</span>
             </div>
           </div>
+
+          {/* Countdown timer */}
+          <CountdownWidget />
 
           {/* Chapter navigation by bloc */}
           <div style={{ flex: 1 }}>
