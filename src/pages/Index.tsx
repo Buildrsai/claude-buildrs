@@ -836,7 +836,7 @@ const Index = () => {
           <p className="text-xs text-muted-foreground">
             Guide Claude · by Buildrs — 100% gratuit
           </p>
-          <Button variant="hero" size="sm" onClick={() => navigate("/auth")}>
+          <Button variant="hero" size="sm" onClick={() => navigate("/auth?mode=signup")}>
             Accéder gratuitement <ArrowRight size={14} />
           </Button>
         </div>
