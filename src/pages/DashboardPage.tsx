@@ -7,6 +7,9 @@ import buildrsLogo from "@/assets/buildrs-logo.png"
 import claudeLogo from "@/assets/claude-logo.png"
 
 /* ─── Persistent state helpers ─── */
+const STORAGE_KEY = "buildrs_first_visit_timestamp"
+const DURATION_MS = 72 * 60 * 60 * 1000
+
 function loadCompleted(): number[] {
   try {
     return JSON.parse(localStorage.getItem("buildrs-completed") || "[]")
@@ -16,6 +19,72 @@ function loadCompleted(): number[] {
 }
 function saveCompleted(ids: number[]) {
   localStorage.setItem("buildrs-completed", JSON.stringify(ids))
+}
+
+function pad(n: number) { return n.toString().padStart(2, "0") }
+
+function getTimeRemaining() {
+  let firstVisit = localStorage.getItem(STORAGE_KEY)
+  if (!firstVisit) {
+    firstVisit = Date.now().toString()
+    localStorage.setItem(STORAGE_KEY, firstVisit)
+  }
+  const remaining = DURATION_MS - (Date.now() - parseInt(firstVisit))
+  if (remaining <= 0) return { expired: true, h: 0, m: 0, s: 0 }
+  return {
+    expired: false,
+    h: Math.floor(remaining / 3600000),
+    m: Math.floor((remaining % 3600000) / 60000),
+    s: Math.floor((remaining % 60000) / 1000),
+  }
+}
+
+function CountdownWidget() {
+  const [time, setTime] = useState(getTimeRemaining)
+  useEffect(() => {
+    const id = setInterval(() => setTime(getTimeRemaining()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  return (
+    <div style={{ padding: "0 16px", marginBottom: "16px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "6px",
+          padding: "10px 12px",
+          borderRadius: "10px",
+          background: "rgba(218,119,86,0.06)",
+          border: "1px solid rgba(218,119,86,0.12)",
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(218,119,86,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        {time.expired ? (
+          <span style={{ fontSize: "11px", color: "rgba(218,119,86,0.8)" }}>Offre expirée</span>
+        ) : (
+          <>
+            <span style={{ fontSize: "10px", color: "rgba(237,238,239,0.4)" }}>Accès gratuit</span>
+            <span
+              style={{
+                fontSize: "12px",
+                fontWeight: 600,
+                fontVariantNumeric: "tabular-nums",
+                color: "#DA7756",
+                marginLeft: "2px",
+              }}
+            >
+              {pad(time.h)}:{pad(time.m)}:{pad(time.s)}
+            </span>
+          </>
+        )}
+      </div>
+    </div>
+  )
 }
 
 /* ═══════════════════════════════════════ */
@@ -204,15 +273,20 @@ export default function DashboardPage() {
             </div>
             <div
               style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
                 fontSize: "10px",
                 color: "rgba(237,238,239,0.3)",
                 marginTop: "6px",
-                textAlign: "right",
               }}
             >
-              {completedChapters.length}/{CHAPTERS.length} chapitres
+              <span>{completedChapters.length}/{CHAPTERS.length} chapitres</span>
             </div>
           </div>
+
+          {/* Countdown timer */}
+          <CountdownWidget />
 
           {/* Chapter navigation by bloc */}
           <div style={{ flex: 1 }}>
