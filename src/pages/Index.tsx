@@ -295,7 +295,7 @@ const Index = () => {
             >
               Se connecter
             </span>
-            <Button variant="hero" size="sm" onClick={() => navigate("/auth")}>
+            <Button variant="hero" size="sm" onClick={() => navigate("/auth?mode=signup")}>
               Accéder
             </Button>
           </div>
