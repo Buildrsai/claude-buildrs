@@ -602,7 +602,7 @@ const Index = () => {
               {/* Right — CTA */}
               <div className="flex flex-shrink-0 flex-col items-center gap-3">
                 <button
-                  onClick={() => navigate("/auth")}
+                  onClick={() => navigate("/auth?mode=signup")}
                   className="group/btn flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200"
                   style={{
                     background: "linear-gradient(135deg, #DA7756, #FF6B35)",
