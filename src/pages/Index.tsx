@@ -811,7 +811,7 @@ const Index = () => {
           <Button
             variant="hero"
             size="lg"
-            onClick={() => navigate("/auth")}
+            onClick={() => navigate("/auth?mode=signup")}
             className="relative z-10 bg-background hover:bg-accent text-foreground border-0 px-8 py-3 text-sm font-medium"
           >
             Accéder au guide gratuit <ArrowRight size={14} />
