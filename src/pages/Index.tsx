@@ -302,8 +302,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* ─── URGENCY BANNER ─── */}
-      <UrgencyBanner />
 
       {/* ═══════════════════════════════════════════════ */}
       {/* SECTION 1 — HERO                                */}
