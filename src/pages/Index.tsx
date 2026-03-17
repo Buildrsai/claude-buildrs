@@ -273,11 +273,8 @@ function EmailCapture({
 
 const Index = () => {
   const navigate = useNavigate();
-  const [heroEmail, setHeroEmail] = useState("");
-  const [ctaEmail, setCtaEmail] = useState("");
-
-  const handleEmailSubmit = () => {
-    navigate("/auth");
+  const handleCtaClick = () => {
+    navigate("/auth?mode=signup");
   };
 
   return (
@@ -298,7 +295,7 @@ const Index = () => {
             >
               Se connecter
             </span>
-            <Button variant="hero" size="sm" onClick={() => navigate("/auth")}>
+            <Button variant="hero" size="sm" onClick={() => navigate("/auth?mode=signup")}>
               Accéder
             </Button>
           </div>
@@ -357,13 +354,16 @@ const Index = () => {
               Ce guide gratuit t'installe l'écosystème complet — Claude AI, Claude Code, Cowork, Skills, connecteurs — pour en faire ton copilote business. Même si tu pars de zéro.
             </motion.p>
 
-            {/* Email capture */}
+            {/* CTA button */}
             <motion.div {...stagger(3)}>
-              <EmailCapture
-                email={heroEmail}
-                setEmail={setHeroEmail}
-                onSubmit={handleEmailSubmit}
-              />
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={handleCtaClick}
+                className="px-8 py-3 text-sm font-medium"
+              >
+                Accéder au guide gratuit <ArrowRight size={14} />
+              </Button>
             </motion.div>
 
             {/* Micro-infos */}
@@ -602,7 +602,7 @@ const Index = () => {
               {/* Right — CTA */}
               <div className="flex flex-shrink-0 flex-col items-center gap-3">
                 <button
-                  onClick={() => navigate("/auth")}
+                  onClick={() => navigate("/auth?mode=signup")}
                   className="group/btn flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200"
                   style={{
                     background: "linear-gradient(135deg, #DA7756, #FF6B35)",
@@ -811,7 +811,7 @@ const Index = () => {
           <Button
             variant="hero"
             size="lg"
-            onClick={() => navigate("/auth")}
+            onClick={() => navigate("/auth?mode=signup")}
             className="relative z-10 bg-background hover:bg-accent text-foreground border-0 px-8 py-3 text-sm font-medium"
           >
             Accéder au guide gratuit <ArrowRight size={14} />
@@ -836,7 +836,7 @@ const Index = () => {
           <p className="text-xs text-muted-foreground">
             Guide Claude · by Buildrs — 100% gratuit
           </p>
-          <Button variant="hero" size="sm" onClick={() => navigate("/auth")}>
+          <Button variant="hero" size="sm" onClick={() => navigate("/auth?mode=signup")}>
             Accéder gratuitement <ArrowRight size={14} />
           </Button>
         </div>

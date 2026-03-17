@@ -51,7 +51,7 @@ export function UrgencyBanner() {
   }, []);
 
   const handleClick = useCallback(() => {
-    navigate("/auth");
+    navigate("/auth?mode=signup");
   }, [navigate]);
 
   const ctaLabel = time.expired ? "Accéder pour 27€" : "Accéder gratuitement";
